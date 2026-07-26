@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bản Đồ Khôi Phục Chuyển Hóa 2 Buổi™ — Workshop cùng 2 Thạc sĩ, Bác sĩ Dinh dưỡng</title>
+<meta name="description" content="Workshop trực tuyến 2 buổi chuyên sâu cùng ThS.BS Nguyễn Trung Hiếu & ThS.BS Lê Thị Minh Tâm. Đồng bộ nhịp ăn sinh học để cơ thể tự điều hòa cân nặng. 15 & 16/08/2026 · 99.000đ · Hoàn tiền 100% sau buổi 1.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bản Đồ Khôi Phục Chuyển Hóa 2 Buổi™">
+<meta property="og:description" content="Giành lại quyền làm chủ chuyển hóa của chính mình — không kiêng khem khổ sở, không lệ thuộc hoàn toàn vào thuốc. 15 & 16/08/2026.">
+<meta property="og:image" content="assets/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   THEME — DNA-02 × DNA-03 hybrid "Clinical Authority"
+   Variant A: Xanh đen y tế
+   ========================================================= */
+:root {
+  --bg: #0B1215;
+  --surface: #121D21;
+  --surface-2: #18262B;
+  --text: #F0F5F3;
+  --text-muted: #8FA5A0;
+  --accent: #22C55E;
+  --accent-bright: #4ADE80;
+  --accent-deep: #0F6E4C;
+  --accent-soft: rgba(34, 197, 94, 0.15);
+  --warn: #EF4444;
+  --warn-soft: rgba(239, 68, 68, 0.12);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --font-h: 'Montserrat', system-ui, sans-serif;
+  --font-b: 'Be Vietnam Pro', system-ui, sans-serif;
+
+  --max-w: 1000px;
+  --max-w-narrow: 720px;
+  --section-py: clamp(56px, 9vw, 104px);
+  --radius: 14px;
+}
+
+/* =========================================================
+   RESET + BASE — typography chỉnh cho độ tuổi 35–60
+   ========================================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-b);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 { font-family: var(--font-h); line-height: 1.25; font-weight: 700; color: var(--text); }
+h1 { font-size: clamp(2rem, 5.5vw, 3.4rem); letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.8vw, 2.4rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.15rem, 2.4vw, 1.4rem); }
+p { color: var(--text-muted); }
+strong { color: var(--text); font-weight: 600; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+.container-narrow { max-width: var(--max-w-narrow); margin: 0 auto; padding: 0 24px; }
+.section { padding: var(--section-py) 0; position: relative; }
+.section-alt { background: var(--surface); }
+.text-center { text-align: center; }
+.text-accent { color: var(--accent); }
+.text-muted { color: var(--text-muted); }
+.mt-2 { margin-top: 8px; } .mt-4 { margin-top: 16px; } .mt-6 { margin-top: 24px; }
+.mt-8 { margin-top: 32px; } .mt-12 { margin-top: 48px; } .mt-16 { margin-top: 64px; }
+
+/* =========================================================
+   EYEBROW + BADGE + BUTTON
+   ========================================================= */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-h);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.eyebrow::before { content: "✦  "; }
+
+.badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-bright);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  line-height: 1.5;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 18px 38px;
+  background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent-deep) 100%);
+  color: #04220F;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 1.02rem;
+  font-family: var(--font-h);
+  line-height: 1.4;
+  transition: transform 0.18s, box-shadow 0.18s;
+  box-shadow: 0 6px 24px rgba(34, 197, 94, 0.22);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(34, 197, 94, 0.3); }
+
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+
+/* =========================================================
+   S1 — HERO
+   ========================================================= */
+.hero {
+  padding: clamp(64px, 10vw, 120px) 0 var(--section-py);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34, 197, 94, 0.13) 0%, var(--bg) 70%);
+}
+.hero-eyebrow {
+  font-family: var(--font-h);
+  font-size: clamp(0.7rem, 1.9vw, 0.82rem);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  line-height: 1.7;
+}
+.hero-audience {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 660px;
+  margin: 24px auto 0;
+  line-height: 1.8;
+}
+.hero h1 { margin-top: 32px; }
+.hero-sub {
+  font-size: 1.08rem;
+  color: var(--text);
+  max-width: 660px;
+  margin: 24px auto 0;
+  line-height: 1.8;
+}
+.hero-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 40px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 16px;
+  text-align: center;
+}
+.hero-info-card .label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--font-h);
+  font-weight: 600;
+}
+.hero-info-card .value {
+  font-family: var(--font-h);
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1.02rem;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+.hero-price {
+  font-family: var(--font-h);
+  font-weight: 600;
+  color: var(--accent-bright);
+  font-size: 1.05rem;
+  margin-top: 20px;
+}
+.hero-guarantee {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 14px auto 0;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   S2/S3/S4 — STORY NARRATIVE
+   ========================================================= */
+.story p { font-size: 1.05rem; margin-bottom: 22px; color: var(--text-muted); }
+.story p.lead { color: var(--text); font-size: 1.12rem; }
+.story p.strong-line { color: var(--text); font-weight: 500; }
+.pull-quote {
+  font-family: var(--font-h);
+  font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+  color: var(--accent-bright) !important;
+  border-left: 3px solid var(--accent);
+  padding-left: 26px;
+  margin: 36px 0 !important;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.self-blame {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0;
+}
+.self-blame-item {
+  background: var(--surface);
+  border-left: 3px solid var(--warn);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 22px;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.pain-list { display: grid; gap: 14px; margin: 32px 0; }
+.pain-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--warn);
+  padding: 20px 24px;
+  border-radius: 0 10px 10px 0;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.culprit {
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  margin-bottom: 16px;
+}
+.culprit-tag {
+  font-family: var(--font-h);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warn);
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: block;
+}
+.culprit p { color: var(--text-muted); font-size: 1.02rem; margin: 0; }
+
+/* =========================================================
+   IMAGE PLACEHOLDER
+   ========================================================= */
+.img-ph {
+  background: var(--surface-2);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  min-height: 200px;
+}
+.img-ph .ph-icon { font-size: 1.6rem; margin-bottom: 8px; opacity: 0.5; }
+.img-ph .ph-name { font-family: var(--font-h); font-weight: 600; color: var(--text); font-size: 0.95rem; }
+.img-ph.portrait { aspect-ratio: 1 / 1; border-radius: 50%; min-height: 0; }
+.img-ph.wide { aspect-ratio: 16 / 9; min-height: 0; width: 100%; }
+
+/* Real photos */
+.doctor-band {
+  max-width: 640px;
+  margin: 44px auto 0;
+}
+.doctor-band img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+.doctor-band .caption {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.doctor-band .caption strong { color: var(--accent-bright); font-family: var(--font-h); font-weight: 600; }
+
+.story-photo {
+  margin: 40px 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.story-photo img { width: 100%; border-radius: 10px; display: block; }
+.story-photo .caption {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+.story-photo .caption .names { font-family: var(--font-h); font-weight: 600; color: var(--text); font-size: 1rem; }
+.story-photo .caption .role { color: var(--accent); margin-top: 4px; }
+
+.founder-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin: 40px 0;
+}
+@media (max-width: 700px) { .founder-row { grid-template-columns: 1fr; text-align: center; } }
+.founder-row .name { font-family: var(--font-h); font-weight: 700; color: var(--text); font-size: 1.2rem; }
+.founder-row .role { color: var(--accent); font-size: 0.9rem; margin-top: 6px; letter-spacing: 0.04em; }
+.founder-row .desc { color: var(--text-muted); font-size: 0.98rem; margin-top: 12px; line-height: 1.75; }
+
+.founder-quote {
+  background: var(--surface-2);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin: 36px 0;
+  font-family: var(--font-h);
+  font-size: 1.12rem;
+  color: var(--accent-bright);
+  font-style: italic;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* =========================================================
+   S5 — PILLAR CARDS
+   ========================================================= */
+.pillars { display: grid; gap: 26px; margin-top: 56px; }
+.pillar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px 32px;
+  position: relative;
+}
+.pillar-num {
+  position: absolute; top: -15px; left: 32px;
+  background: var(--accent); color: #04220F;
+  padding: 6px 18px; border-radius: 999px;
+  font-family: var(--font-h); font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+.pillar h3 { margin-bottom: 16px; }
+.pillar p { font-size: 1.02rem; margin-bottom: 16px; }
+.pillar .expert {
+  background: var(--surface-2);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.pillar .expert-label {
+  font-family: var(--font-h); font-weight: 700; color: var(--accent);
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  display: block; margin-bottom: 8px;
+}
+.pillar .expert p { margin: 0; font-size: 0.98rem; }
+.pillar .insight {
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+  font-style: italic;
+  color: var(--accent-bright) !important;
+  font-family: var(--font-h);
+  font-size: 1rem;
+  margin-bottom: 0 !important;
+  line-height: 1.6;
+}
+.pillar-wrap {
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-top: 26px;
+}
+.pillar-wrap p { margin: 0; font-size: 1.02rem; }
+
+/* =========================================================
+   S6 — OUTCOMES GRID
+   ========================================================= */
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+.outcome-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 26px 24px;
+  border-radius: var(--radius);
+}
+.outcome-num {
+  font-family: var(--font-h); font-weight: 800; font-size: 1.5rem;
+  color: var(--accent); margin-bottom: 10px;
+}
+.outcome-card p { font-size: 0.98rem; margin: 0; }
+
+/* =========================================================
+   S7 — AUDIENCE CHECKLIST
+   ========================================================= */
+.audience-list { display: grid; gap: 14px; margin-top: 36px; }
+.audience-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px 24px 20px 60px;
+  border-radius: 10px;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+.audience-item::before {
+  content: "✓"; position: absolute; left: 22px; top: 22px;
+  width: 24px; height: 24px;
+  background: var(--accent); color: #04220F;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.8rem;
+}
+
+/* =========================================================
+   S8 / S15 — CONTRAST 2 COL
+   ========================================================= */
+.contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 44px; }
+@media (max-width: 760px) { .contrast-grid { grid-template-columns: 1fr; } }
+.contrast-col {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+}
+.contrast-col.yes { border-color: rgba(34, 197, 94, 0.3); }
+.contrast-col h3 {
+  margin-bottom: 22px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.1rem; letter-spacing: 0.02em;
+}
+.contrast-col.no h3 { color: var(--warn); }
+.contrast-col.yes h3 { color: var(--accent); }
+.contrast-col ul { list-style: none; }
+.contrast-col li {
+  padding: 14px 0 14px 30px; position: relative;
+  color: var(--text-muted); font-size: 0.99rem; line-height: 1.7;
+  border-bottom: 1px solid var(--border);
+}
+.contrast-col li:last-child { border-bottom: none; }
+.contrast-col.no li::before { content: "✕"; position: absolute; left: 0; top: 14px; color: var(--warn); font-weight: 700; }
+.contrast-col.yes li::before { content: "✓"; position: absolute; left: 0; top: 14px; color: var(--accent); font-weight: 700; }
+
+/* =========================================================
+   S9 — SESSION CARDS
+   ========================================================= */
+.sessions { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 48px; }
+.session {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+}
+.session-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px;
+  background: var(--accent); color: #04220F;
+  border-radius: 50%;
+  font-family: var(--font-h); font-weight: 800; font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.session-date {
+  color: var(--accent); font-weight: 600; font-family: var(--font-h);
+  font-size: 0.92rem; letter-spacing: 0.04em; margin-bottom: 10px;
+}
+.session h3 { margin-bottom: 22px; line-height: 1.4; }
+.session ul { list-style: none; }
+.session ul li {
+  padding: 12px 0 12px 28px; position: relative;
+  color: var(--text-muted); font-size: 0.99rem; line-height: 1.7;
+}
+.session ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.session ul li strong { color: var(--text); }
+
+/* =========================================================
+   S10 — CASE STUDY + STAT ROWS
+   ========================================================= */
+.privacy-note {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 24px;
+  margin-top: 32px;
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.case {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  margin-top: 26px;
+}
+.case h3 { margin-bottom: 18px; }
+.case p { font-size: 1.01rem; margin-bottom: 20px; }
+.stat-table { display: grid; gap: 8px; margin-top: 26px; }
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 13px 18px;
+  font-size: 0.94rem;
+}
+.stat-row .stat-label { color: var(--text-muted); font-weight: 500; }
+.stat-row .stat-before { color: var(--warn); font-family: var(--font-h); font-weight: 700; }
+.stat-row .stat-arrow { color: var(--text-muted); font-size: 0.85rem; }
+.stat-row .stat-after { color: var(--accent-bright); font-family: var(--font-h); font-weight: 700; }
+@media (max-width: 560px) {
+  .stat-row { grid-template-columns: 1fr; gap: 4px; text-align: left; }
+  .stat-row .stat-arrow { display: none; }
+  .stat-row .stat-before::after { content: "  →"; color: var(--text-muted); }
+  .stat-row .stat-before, .stat-row .stat-after { display: inline; margin-right: 8px; }
+}
+.community-results { display: grid; gap: 14px; margin-top: 26px; }
+.community-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   S11 — OFFER BOX
+   ========================================================= */
+.offer-box {
+  background: linear-gradient(160deg, var(--surface-2) 0%, #0D2A20 100%);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: clamp(36px, 6vw, 56px) clamp(24px, 4vw, 44px);
+  text-align: center;
+  box-shadow: 0 24px 70px rgba(34, 197, 94, 0.14);
+  margin-top: 44px;
+}
+.offer-list { text-align: left; max-width: 540px; margin: 36px auto; }
+.offer-list li {
+  list-style: none; padding: 14px 0 14px 34px; position: relative;
+  color: var(--text); font-size: 1.01rem; line-height: 1.7;
+  border-bottom: 1px solid var(--border);
+}
+.offer-list li:last-child { border-bottom: none; }
+.offer-list li::before { content: "✦"; position: absolute; left: 0; top: 14px; color: var(--accent); font-weight: 700; }
+.offer-price-label {
+  font-size: 0.98rem; color: var(--text-muted); margin-top: 8px;
+}
+.offer-price {
+  font-family: var(--font-h); font-size: clamp(2.4rem, 7vw, 3.4rem);
+  font-weight: 800; color: var(--accent-bright); line-height: 1.2; margin-top: 4px;
+}
+.offer-note {
+  font-size: 1rem; color: var(--text-muted); max-width: 520px;
+  margin: 22px auto 0; line-height: 1.75;
+}
+.offer-guarantee {
+  display: inline-block;
+  background: var(--accent-soft);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 10px;
+  padding: 14px 24px;
+  margin-top: 26px;
+  color: var(--accent-bright);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   S12 — REASON CARDS
+   ========================================================= */
+.reason-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px 28px;
+}
+.reason-num {
+  font-family: var(--font-h); font-size: 1.9rem;
+  color: var(--accent); font-weight: 800; margin-bottom: 6px; line-height: 1;
+}
+.reason-card h3 { margin-bottom: 14px; font-size: 1.15rem; }
+.reason-card p { font-size: 1rem; margin: 0; }
+
+/* =========================================================
+   S13 — GUARANTEE
+   ========================================================= */
+.guarantee-box {
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: clamp(30px, 5vw, 44px);
+  margin-top: 40px;
+}
+.guarantee-box p { font-size: 1.04rem; margin-bottom: 20px; }
+.guarantee-box p:last-child { margin-bottom: 0; }
+
+/* =========================================================
+   S14 — FAQ
+   ========================================================= */
+.faq-list { margin-top: 44px; }
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.faq-item summary {
+  padding: 22px 26px; cursor: pointer;
+  font-family: var(--font-h); font-weight: 600; color: var(--text);
+  list-style: none; font-size: 1.02rem; line-height: 1.5;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 18px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; color: var(--accent); font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item[open] summary { color: var(--accent-bright); }
+.faq-item .answer { padding: 0 26px 24px; color: var(--text-muted); font-size: 1rem; line-height: 1.8; }
+
+/* =========================================================
+   S15 — FINAL CTA
+   ========================================================= */
+.final-cta {
+  background: linear-gradient(180deg, var(--surface) 0%, #0C2A1E 100%);
+  border-top: 1px solid rgba(34, 197, 94, 0.3);
+}
+.closing-argument {
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.85;
+  margin-top: 48px;
+  text-align: center;
+}
+
+/* =========================================================
+   INLINE CTA
+   ========================================================= */
+.cta-inline { text-align: center; margin-top: 52px; }
+.cta-inline .sub { font-size: 0.95rem; color: var(--text-muted); margin-top: 14px; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+  padding: 44px 0; background: var(--bg);
+  border-top: 1px solid var(--border);
+  text-align: center; color: var(--text-muted); font-size: 0.93rem;
+}
+footer .credit { color: var(--text); font-family: var(--font-h); font-weight: 600; font-size: 1rem; line-height: 1.6; }
+footer .tagline { margin-top: 10px; }
+footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height: 1.7; }
+
+/* =========================================================
+   STICKY MOBILE CTA
+   ========================================================= */
+.sticky-cta {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  padding: 12px 16px;
+  background: rgba(11, 18, 21, 0.96);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(34, 197, 94, 0.35);
+  z-index: 50;
+}
+.sticky-cta a { display: block; text-align: center; padding: 15px 20px; font-size: 0.95rem; }
+@media (max-width: 760px) {
+  .sticky-cta { display: block; }
+  body { padding-bottom: 84px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     S1 — HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="container text-center">
+    <div class="hero-eyebrow">WORKSHOP TRỰC TUYẾN · 2 BUỔI CHUYÊN SÂU · CÙNG 2 THẠC SĨ, BÁC SĨ DINH DƯỠNG</div>
+
+    <p class="hero-audience">Dành cho những anh chị 35–60 tuổi bận rộn, thành đạt và rất trân trọng sức khỏe - người có kỷ luật thép và sẵn sàng đầu tư để chăm sóc bản thân, nhưng vẫn bất lực nhìn vòng bụng lớn dần từng tháng và thắt lòng mỗi lần cầm tờ xét nghiệm có chỉ số mỡ máu, đường huyết, men gan chạm ngưỡng báo động.</p>
+
+    <h1>BẢN ĐỒ KHÔI PHỤC<br><span class="text-accent">CHUYỂN HÓA 2 BUỔI™</span></h1>
+
+    <p class="hero-sub">Giành lại quyền làm chủ chuyển hóa của chính mình - đồng bộ nhịp ăn sinh học để cơ thể tự điều hòa cân nặng, hỗ trợ cải thiện mỡ nội tạng và các chỉ số máu theo hướng an toàn hơn, không kiêng khem khổ sở, không lệ thuộc hoàn toàn vào thuốc.</p>
+
+    <div class="hero-info">
+      <div class="hero-info-card">
+        <div class="label">Thời gian</div>
+        <div class="value">20:00 – 21:45</div>
+      </div>
+      <div class="hero-info-card">
+        <div class="label">Ngày diễn ra</div>
+        <div class="value">15 &amp; 16/08/2026</div>
+      </div>
+      <div class="hero-info-card">
+        <div class="label">Hình thức</div>
+        <div class="value">Google Meet</div>
+      </div>
+    </div>
+
+    <p class="mt-6" style="font-size: 0.97rem;">Trực tuyến qua phòng họp Google Meet · Có thực hành và sửa Workbook trực tiếp</p>
+
+    <div class="mt-8">
+      <a href="dang-ky.html" class="btn-primary">ĐĂNG KÝ GIỮ CHỖ CHÍNH THỨC TẠI ĐÂY</a>
+    </div>
+
+    <div class="hero-price">Phí cam kết hành động: 99.000đ</div>
+
+    <p class="hero-guarantee">Hoàn tiền 100% ngay sau buổi 1 nếu thấy không phù hợp — không hỏi thêm điều gì, và bạn vẫn giữ lại toàn bộ Workbook.</p>
+
+    <div class="doctor-band">
+      <img src="assets/bac-si-blouse.jpg" alt="ThS.BS Nguyễn Trung Hiếu và ThS.BS Lê Thị Minh Tâm — hai bác sĩ dinh dưỡng lâm sàng" loading="lazy">
+      <p class="caption"><strong>ThS.BS Nguyễn Trung Hiếu &amp; ThS.BS Lê Thị Minh Tâm</strong><br>Hai bác sĩ dinh dưỡng lâm sàng sẽ trực tiếp đồng hành cùng bạn trong 2 buổi</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S2 — FUTURE PACING
+     ============================================================ -->
+<section class="section section-alt" id="hinh-dung">
+  <div class="container-narrow story">
+    <div class="text-center" style="margin-bottom: 44px;">
+      <span class="eyebrow">Một buổi sáng khác</span>
+      <h2>Thử hình dung thế này…</h2>
+    </div>
+
+    <p class="lead">Một buổi sáng thức dậy vào lúc 5:00, bạn mở mắt ra mà không cần tiếng chuông báo thức giục giã kéo theo cảm giác nặng nề thường thấy. Cơ thể bạn nhẹ bẫng, tinh thần hoàn toàn tỉnh táo và ngập tràn năng lượng.</p>
+
+    <p>Bạn bước đến trước gương phòng tắm. Khoảnh khắc nhìn vào gương, bạn mỉm cười đầy tự hào khi thấy vòng bụng đã hoàn toàn phẳng gọn. Bạn bước vào phòng thay đồ, tự tin chọn bộ suit may đo cao cấp nhất, hoặc chiếc đầm ôm sát mà vài tháng trước bạn đã phải ngậm ngùi cất sâu vào góc tủ vì mặc không vừa. Bạn kéo khóa một cách mượt mà, cài cúc áo nhẹ nhàng, không còn phải cố hóp bụng hay tìm cách che giấu những lớp mỡ thừa.</p>
+
+    <p>Suốt một ngày làm việc bận rộn với những cuộc họp chiến lược áp lực cao, bạn duy trì hiệu suất đỉnh cao, đầu óc sắc bén từ sáng đến chiều, không còn những cơn sụt giảm năng lượng đột ngột, không cần đến ly cà phê thứ ba để ép bản thân tỉnh táo.</p>
+
+    <p>Đến buổi tối, bạn xuất hiện tại một buổi tiệc xã giao sang trọng, hoặc bữa cơm ấm cúng cùng gia đình. Bạn ngồi bên bàn tiệc với tâm thế hoàn toàn thư thái. Bạn thưởng thức những món ăn ngon, trò chuyện vui vẻ cùng đối tác và người thân trong tiếng cười nói rộn ràng. Bạn không còn phải ngồi im lặng như một "người tu khổ hạnh", không phải lén cầm điện thoại lên đếm từng calo, và rũ bỏ hoàn toàn cảm giác tội lỗi hay nỗi lo tăng cân vào sáng mai. Bởi lúc này, bạn đã làm chủ một bí mật y khoa: bạn biết chính xác khi nào nên ăn và xếp khay dinh dưỡng thế nào để cơ thể tự động đốt mỡ.</p>
+
+    <p>Cuối tháng, bạn cầm trên tay tờ kết quả xét nghiệm máu đối chứng từ bệnh viện. Ánh mắt bạn dừng lại ở các chỉ số Triglyceride, Glucose, men gan và mỡ nội tạng - tất cả đã đồng loạt chuyển từ màu đỏ báo động sang một màu xanh an toàn. Vị bác sĩ nhìn bạn đầy ngạc nhiên:</p>
+
+    <p class="pull-quote">"Hệ chuyển hóa của anh/chị đã được tái sinh, tuổi sinh học trẻ lại cả chục tuổi rồi."</p>
+
+    <p>Bạn bước ra khỏi bệnh viện, hít một hơi thật sâu, cảm nhận rõ rệt sự an tâm vì từ nay đã thoát khỏi nỗi sợ đột quỵ, không còn lệ thuộc vào những vốc thuốc mỗi ngày, và sẵn sàng tận hưởng trọn vẹn thành quả sự nghiệp bên gia đình, con cháu.</p>
+
+    <p class="strong-line">Đây không phải giấc mơ xa vời. Đó là hành trình những anh chị đã đi cùng chúng tôi đang từng bước chạm tới, và Bản Đồ Khôi Phục Chuyển Hóa 2 Buổi™ chính là bước đầu tiên trên hành trình ấy.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     S3 — PROBLEM / MECHANISM
+     ============================================================ -->
+<section class="section" id="van-de">
+  <div class="container-narrow story">
+    <div class="text-center" style="margin-bottom: 44px;">
+      <span class="eyebrow">Vấn đề thật sự</span>
+      <h2>Không phải bạn thiếu ý chí.<br><span class="text-accent">Bạn đang chiến đấu với chính hormone của mình.</span></h2>
+    </div>
+
+    <div class="pain-list">
+      <div class="pain-item">Có thể bạn đã thử qua các chế độ ăn kiêng nổi tiếng trên mạng - Keto, Low-carb, hay Nhịn ăn gián đoạn 16:8 - với một quyết tâm và kỷ luật thép.</div>
+      <div class="pain-item">Có thể bạn đã chi hàng chục triệu để mua thẻ tập gym VIP, thuê huấn luyện viên cá nhân riêng, hoặc đặt những bộ thực phẩm chức năng, trà thảo mộc đắt đỏ xách tay từ nước ngoài.</div>
+      <div class="pain-item">Có thể bạn đã ép bản thân bóp mồm bóp miệng, từ chối mọi lời mời tiệc tùng của đối tác, không dám chạm vào một bát cơm trắng vì ám ảnh dư thừa calo.</div>
+      <div class="pain-item">Có thể bạn đã đều đặn uống thuốc hạ mỡ máu, ổn định đường huyết, bảo vệ gan theo đúng đơn bác sĩ mỗi ngày.</div>
+      <div class="pain-item">Có thể bạn đang quản lý hàng trăm nhân sự, vận hành cả một doanh nghiệp trơn tru - nhưng lại thấy mình hoàn toàn bất lực trong việc quản lý cân nặng và số đo vòng bụng của chính mình.</div>
+    </div>
+
+    <p>Rồi khi bạn ngồi xuống, đối diện với tờ kết quả xét nghiệm máu định kỳ, mọi thứ trở nên mơ hồ và bế tắc. Sau bao nỗ lực, chỉ số mỡ máu, đường huyết đói, men gan vẫn nằm ở ngưỡng báo động đỏ. Vòng bụng không giảm, cơ thể ngày càng mệt mỏi, hụt hơi. Và bạn bắt đầu rơi vào những lời tự trách:</p>
+
+    <div class="self-blame">
+      <div class="self-blame-item">"Chắc do mình bước sang tuổi trung niên, chuyển hóa chậm lại, đành chấp nhận."</div>
+      <div class="self-blame-item">"Chắc do cơ địa mình hít không khí cũng béo, hết cách rồi."</div>
+      <div class="self-blame-item">"Chắc do mình thiếu kỷ luật, không chịu được khổ hạnh như người ta."</div>
+      <div class="self-blame-item">"Chắc phải cam chịu sống chung với lũ, lệ thuộc vào thuốc cả đời thôi."</div>
+    </div>
+
+    <p class="strong-line">Suy nghĩ của bạn không sai - nhưng cách giải quyết trước đây thì chưa đủ. Nếu bạn đã từng thử Keto hay Low-carb, có thể bạn đã nghe qua về hormone Insulin và chuyện tích mỡ. Đó là một phần đúng. Nhưng đó không phải toàn bộ sự thật - và đó chính là lý do vì sao dù làm đúng một phần, bạn vẫn không giữ được kết quả.</p>
+
+    <p>Vấn đề thật sự nằm ở chỗ: trong lúc bạn dồn toàn lực để hạ Insulin, hai "thủ phạm" khác vẫn âm thầm phá hỏng mọi nỗ lực - mà chưa ai từng chỉ rõ cho bạn.</p>
+
+    <div class="mt-8">
+      <div class="culprit">
+        <span class="culprit-tag">Thủ phạm thứ nhất</span>
+        <p>Thứ nhất là Cortisol - hormone stress sinh ra từ áp lực công việc và những đêm mất ngủ. Cortisol càng cao, cơ thể càng khó hạ Insulin xuống, bất kể bạn ăn kiêng nghiêm ngặt đến đâu.</p>
+      </div>
+      <div class="culprit">
+        <span class="culprit-tag">Thủ phạm thứ hai</span>
+        <p>Thứ hai là nhịp sinh học bị lệch giờ - ăn khuya, ăn vặt rải rác - khiến "đồng hồ chuyển hóa" bên trong cơ thể mất phương hướng, không còn biết khi nào nên đốt mỡ, khi nào nên tích trữ.</p>
+      </div>
+    </div>
+
+    <p class="pull-quote mt-8">Đó là lý do vì sao bạn có thể hiểu đúng về Insulin, kỷ luật đúng theo mọi hướng dẫn, mà kết quả vẫn không đến: bạn mới mở được 1 trong 3 ổ khóa đang giữ chặt kho mỡ của chính mình.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     S4 — ORIGIN STORY
+     ============================================================ -->
+<section class="section section-alt" id="cau-chuyen">
+  <div class="container-narrow story">
+    <div class="text-center" style="margin-bottom: 44px;">
+      <span class="eyebrow">Origin Story</span>
+      <h2>Đây là câu chuyện của tôi</h2>
+    </div>
+
+    <div style="text-align:center; margin-bottom: 32px;">
+      <div style="font-family: var(--font-h); font-weight: 700; color: var(--text); font-size: 1.25rem;">ThS.BS Lê Thị Minh Tâm</div>
+      <div style="color: var(--accent); font-size: 0.9rem; margin-top: 6px; letter-spacing: 0.04em;">Người kể chuyện · Bác sĩ Dinh dưỡng Lâm sàng · Giảng viên Y khoa</div>
+    </div>
+
+    <p class="lead">Đây là câu chuyện của tôi - Bác sĩ Minh Tâm, một trong hai người sẽ trực tiếp đồng hành cùng bạn trong hai buổi tới.</p>
+
+    <p class="lead">Tôi là bác sĩ dinh dưỡng. Và trong nhiều năm, tôi thiết kế những phác đồ can thiệp rất chuẩn mực, nhưng chúng chỉ chạm tới phần ngọn, còn gốc rễ thì nằm sâu trong lối sống mỗi ngày, nơi một lần khám vội không thể với tới.</p>
+
+    <p>Nhìn từ bên ngoài, tôi có đủ những gì người ta gọi là một sự nghiệp đàng hoàng: Thạc sĩ – Bác sĩ Dinh dưỡng Lâm sàng, giảng viên y khoa, áo blouse trắng, giảng đường, những buổi hội chẩn. Nhưng phía sau tấm áo ấy, tôi cũng gánh đủ áp lực và mỏi mệt như bất kỳ ai. Điều khiến tôi day dứt nhất không phải sự vất vả của nghề, mà là cảm giác bất lực khi chứng kiến một vòng lặp bế tắc cứ lặp đi lặp lại.</p>
+
+    <p>Những cô chú, anh chị bước vào phòng khám với tập hồ sơ dày và một túi thuốc lớn mỡ máu, tiểu đường, huyết áp, gan nhiễm mỡ,... Họ uống thuốc đều, kiêng khem khổ sở, làm đúng mọi lời dặn. Vậy mà chỉ số vẫn xấu đi, vòng bụng vẫn lớn, và trong ánh mắt họ là sự cam chịu, như thể thân thể mình đã là một cỗ máy hỏng không thể sửa.</p>
+
+    <p>Điều trăn trở trong tôi là: khoa học vốn đã có câu trả lời. Khoa học dinh dưỡng từ lâu đã chứng minh một sức khỏe chuyển hóa bền vững cần sự phối hợp đa ngành và thay đổi lối sống dài hạn, chứ không thể chỉ trông vào những viên thuốc cắt triệu chứng. Tôi hiểu điều đó, đồng nghiệp của tôi cũng hiểu. Nhưng guồng quay khám chữa, mỗi lần gặp người bệnh chỉ vài phút, mỗi chuyên khoa nhìn một mảnh cơ thể, gần như không còn chỗ để trao cho họ thứ mà khoa học đã chỉ ra.</p>
+
+    <div class="founder-quote">Cái thiếu chưa bao giờ là kiến thức. Cái thiếu là một nhịp đồng hành đủ dài để biến điều khoa học đã biết thành điều họ thật sự sống được mỗi ngày.</div>
+
+    <p>Chính tôi cũng có lúc kiệt sức trong nhịp chạy không ngơi nghỉ đó. Và khi buộc phải chậm lại, tôi mới nhìn con người theo một cách khác: như một thể thống nhất của Thân, Tâm và Trí, thay vì từng chỉ số rời rạc. Tôi nhận ra cơ thể người bệnh không hề bị lỗi, nó vẫn vận hành đúng chức năng sinh học. Thứ cần thay đổi là cách họ nuôi dưỡng và điều hòa nó mỗi ngày, và có người đồng hành bên cạnh đủ lâu để giữ được sự thay đổi đó.</p>
+
+    <p class="lead">Ở giai đoạn này, tôi có thêm một người đồng hành đặc biệt: chồng tôi - bác sĩ Trung Hiếu, cũng là một bác sĩ dinh dưỡng lâm sàng.</p>
+
+    <div class="story-photo">
+      <img src="assets/bac-si-thac-si.jpg" alt="ThS.BS Lê Thị Minh Tâm và ThS.BS Nguyễn Trung Hiếu tại lễ bảo vệ luận văn Thạc sĩ, Trường Đại học Y Dược Thái Bình" loading="lazy">
+      <div class="caption">
+        <div class="names">ThS.BS Lê Thị Minh Tâm &amp; ThS.BS Nguyễn Trung Hiếu</div>
+        <div class="role">Bảo vệ Luận văn Thạc sĩ · Trường Đại học Y Dược Thái Bình</div>
+      </div>
+    </div>
+
+    <p>Cùng nhau, chúng tôi bắt đầu làm khác đi. Thay vì bắt cơ thể bỏ đói kho mỡ, chúng tôi hướng dẫn người bệnh mở khóa nó. Thay vì xử lý lẻ tẻ từng chỉ số, hai vợ chồng can thiệp đồng bộ cùng lúc lên ba trục - thứ sau này trở thành phương pháp Đồng Bộ Chuyển Hóa 3 Trục™: sinh học tế bào để khôi phục độ nhạy Insulin, tâm lý nội tiết để làm dịu Cortisol, và thần kinh chuyển hóa để đưa bữa ăn về đúng đồng hồ sinh học. Mỗi người một thế mạnh lâm sàng, cả hai theo sát từng hồ sơ đủ lâu để cơ thể có thời gian tự chữa lành.</p>
+
+    <p>Kết quả không còn là những con số nhích lên chậm chạp. Nhiều anh chị từng cam chịu bắt đầu thấy vòng bụng gọn lại, chỉ số mỡ máu và đường huyết đối chứng cải thiện theo hướng an toàn, năng lượng trở lại và trên hết, họ tin lại rằng mình vẫn có thể phục hồi.</p>
+
+    <p class="strong-line">Đó là lý do vợ chồng tôi xây nên "Bản Đồ Khôi Phục Chuyển Hóa". Không phải để thay thế nền y học chính thống - điều chúng tôi trọn đời tôn trọng - mà để hoàn thành trọn vẹn thứ một buổi khám thông thường không có đủ thời gian để làm: trả lại cho bạn quyền tự vận hành đúng cơ thể của chính mình.</p>
+
+    <div class="story-photo">
+      <img src="assets/bac-si-hoi-nghi.jpg" alt="ThS.BS Lê Thị Minh Tâm và ThS.BS Nguyễn Trung Hiếu tại Hội thảo khoa học Suy dinh dưỡng – mất cơ ở bệnh nhân mắc bệnh lý mạn tính không lây năm 2026" loading="lazy">
+      <div class="caption">
+        <div class="names">ThS.BS Lê Thị Minh Tâm &amp; ThS.BS Nguyễn Trung Hiếu</div>
+        <div class="role">Hội thảo khoa học: Suy dinh dưỡng – mất cơ ở bệnh nhân mắc bệnh lý mạn tính không lây · 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S5 — PHƯƠNG PHÁP 3 TRỤC
+     ============================================================ -->
+<section class="section" id="phuong-phap">
+  <div class="container">
+    <div class="text-center">
+      <span class="eyebrow">Phương pháp độc bản</span>
+      <h2>Phương pháp Đồng Bộ<br>Chuyển Hóa <span class="text-accent">3 Trục™</span></h2>
+      <p class="mt-6" style="max-width: 720px; margin-left: auto; margin-right: auto; font-size: 1.04rem;">Giảm cân truyền thống thường thất bại vì chỉ tập trung vào một mặt trận duy nhất: cắt giảm calo. Cách này bỏ quên hai "lỗ hổng" cốt lõi là sự mất cân bằng hormone và nhịp sinh học của cơ thể. Phương pháp Đồng Bộ Chuyển Hóa 3 Trục™ của chúng tôi can thiệp cùng lúc vào ba hệ thống điều khiển cân nặng, thay vì ép một hệ thống phải làm việc quá tải.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <span class="pillar-num">TRỤC 01</span>
+        <h3>Sinh học tế bào <span class="text-muted" style="font-weight:500; font-size:0.9em;">— Từ "bế tắc" đến "nhạy bén"</span></h3>
+        <p>Cơ thể chúng ta giống như một ngôi nhà có kho lương thực (mỡ) bị khóa chặt. Cách giảm cân cũ chỉ tập trung vào việc không mua thêm thực phẩm (cắt calo), nhưng lại quên mất việc làm thế nào để "mở khóa" cửa kho.</p>
+        <div class="expert">
+          <span class="expert-label">Góc nhìn chuyên môn</span>
+          <p>Chúng ta tập trung khôi phục độ nhạy của Insulin – "chìa khóa" giúp tế bào tiếp nhận năng lượng. Khi tế bào nhạy bén trở lại, cơ thể sẽ tự động chuyển từ chế độ "tích trữ" sang chế độ "sử dụng" kho mỡ dự trữ.</p>
+        </div>
+        <p class="insight">Vấn đề không chỉ là ăn nhiều hay ít, mà là hormone đang quyết định phần năng lượng đó được đốt đi hay bị khóa lại thành mỡ.</p>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-num">TRỤC 02</span>
+        <h3>Tâm lý nội tiết <span class="text-muted" style="font-weight:500; font-size:0.9em;">— Từ "đè nén" đến "thấu hiểu"</span></h3>
+        <p>Bạn thường tự trách mình là "thiếu nghị lực" khi thèm đồ ngọt hoặc ăn đêm. Thực tế, đó không phải lỗi của ý chí, mà là "lệnh" từ hormone căng thẳng.</p>
+        <div class="expert">
+          <span class="expert-label">Góc nhìn chuyên môn</span>
+          <p>Chúng ta giải quyết tận gốc thủ phạm là Cortisol. Khi mức độ Cortisol quá cao do áp lực, nó sẽ kích thích Insulin, tạo ra vòng lặp tích mỡ. Thay vì dùng ý chí để nhịn ăn, chúng ta học cách "hạ nhiệt" Cortisol, khiến các cơn thèm ăn tự nhiên lắng xuống.</p>
+        </div>
+        <p class="insight">Bạn không thiếu ý chí. Bạn chỉ đang chấp hành "mệnh lệnh" từ hormone căng thẳng mà cơ thể đang phát ra.</p>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-num">TRỤC 03</span>
+        <h3>Thần kinh chuyển hóa <span class="text-muted" style="font-weight:500; font-size:0.9em;">— Từ "rối loạn" đến "đúng nhịp"</span></h3>
+        <p>Mỗi chúng ta đều có một chiếc đồng hồ sinh học bên trong. Ăn uống sai giờ (ăn khuya, ăn vặt liên tục) giống như bạn đang chỉnh sai giờ cho chiếc đồng hồ đó, khiến cơ thể mất phương hướng.</p>
+        <div class="expert">
+          <span class="expert-label">Góc nhìn chuyên môn</span>
+          <p>Chúng ta đặt lại "giờ chuẩn" cho vùng điều khiển trung tâm (vùng hạ đồi) bằng cách đồng bộ nhịp ăn với nhịp sinh học ngày đêm. Khi nhịp ăn được đồng bộ, ban đêm cơ thể có khoảng nghỉ không nạp thức ăn: Insulin hạ thấp, và giấc ngủ sâu kích hoạt hormone tăng trưởng, cả hai cùng tạo điều kiện cho cơ thể tăng đốt mỡ ngay trong lúc bạn ngủ.</p>
+        </div>
+        <p class="insight">Không chỉ ăn gì hay ăn bao nhiêu, mà ăn khi nào cũng là công tắc bật/tắt kho mỡ của bạn.</p>
+      </div>
+    </div>
+
+    <div class="pillar-wrap">
+      <p>Và bao quanh cả ba trục là <strong>Môi trường nâng đỡ</strong> - cộng đồng, sự đồng hành và cơ chế theo dõi giúp bạn không phải làm một mình. Khi ba trục này lắp đúng vị trí trong một môi trường đủ nâng đỡ, bạn không "giảm cân" theo kiểu vay mượn ý chí, bạn khôi phục lại một hệ chuyển hóa tự vận hành đúng, và giữ được thành quả đó bền vững.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S6 — CHƯƠNG TRÌNH VẬN HÀNH THẾ NÀO
+     ============================================================ -->
+<section class="section section-alt" id="van-hanh">
+  <div class="container-narrow story">
+    <div class="text-center" style="margin-bottom: 44px;">
+      <span class="eyebrow">Chương trình vận hành thế nào</span>
+      <h2>Đây không phải buổi nghe để biết.<br><span class="text-accent">Đây là buổi ngồi để làm.</span></h2>
+    </div>
+
+    <p class="lead">Hai buổi trực tuyến qua phòng họp Google Meet, mỗi buổi 105 phút (20:00 – 21:45), diễn ra trong hai tối liên tiếp. Mỗi buổi được thiết kế theo đúng một nhịp: bác sĩ giảng phần cốt lõi - bạn bắt tay thực hành ngay trên Workbook - rồi hỏi đáp và được sửa bài trực tiếp.</p>
+
+    <p>Bạn sẽ không rời khỏi buổi học với một mớ lý thuyết để "về nghiên cứu thêm". Bạn sẽ vừa nghe vừa điền, vừa tính toán trên chính các chỉ số cơ thể mình, và được hai bác sĩ cầm tay chỉ việc để chỉnh lại từng dòng chưa đúng.</p>
+
+    <div class="mt-8" style="text-align: center;">
+      <img src="assets/workbook.png" alt="Một trang trong Workbook Bản Đồ Khôi Phục Chuyển Hóa" loading="lazy" style="max-width: 480px; width: 100%; border-radius: 12px; border: 1px solid var(--border-strong); box-shadow: 0 16px 50px rgba(0,0,0,0.35);">
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin: 14px auto 0; font-style: italic; max-width: 480px; line-height: 1.6;">Một trang trong Workbook — bạn sẽ vừa nghe vừa điền trực tiếp, được bác sĩ sửa ngay trong buổi học.</p>
+    </div>
+
+    <p class="strong-line mt-8">Sau chương trình, bạn cầm về đúng bốn thứ cụ thể:</p>
+
+    <div class="outcomes-grid">
+      <div class="outcome-card">
+        <div class="outcome-num">01</div>
+        <p>Một bản Workbook đã điền hoàn chỉnh - bản đồ chuyển hóa cá nhân hóa cho riêng cơ thể bạn, đã được bác sĩ sửa.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-num">02</div>
+        <p>Công thức xếp khay dinh dưỡng và khung giờ ăn sinh học áp dụng được ngay từ bữa sáng hôm sau.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-num">03</div>
+        <p>Bản ghi (recording) trọn vẹn hai buổi để xem lại bất cứ lúc nào.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-num">04</div>
+        <p>Quyền vào cộng đồng nâng đỡ cùng những anh chị đang đi trên cùng con đường.</p>
+      </div>
+    </div>
+
+    <div class="cta-inline">
+      <a href="dang-ky.html" class="btn-primary">GIỮ CHỖ NGAY VỚI 99.000Đ</a>
+      <div class="sub">Hoàn tiền 100% sau buổi 1 · Bạn vẫn giữ lại toàn bộ Workbook</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S7 — DÀNH CHO BẠN NẾU
+     ============================================================ -->
+<section class="section" id="danh-cho-ban">
+  <div class="container-narrow">
+    <div class="text-center">
+      <span class="eyebrow">Đối tượng phù hợp</span>
+      <h2>Chương trình này dành cho bạn nếu…</h2>
+      <p class="mt-4">Chỉ cần bạn thấy mình trong một dòng dưới đây.</p>
+    </div>
+
+    <div class="audience-list">
+      <div class="audience-item">Bạn kỷ luật thép trong công việc, nhưng vòng bụng cứ lớn dần bất chấp mọi nỗ lực và điều đó chạm vào lòng tự trọng của bạn.</div>
+      <div class="audience-item">Tờ xét nghiệm gần nhất có chỉ số mỡ máu, đường huyết hoặc men gan chạm ngưỡng báo động, và bạn không muốn chờ đến khi có biến chứng mới hành động.</div>
+      <div class="audience-item">Bạn đã thử Keto, Low-carb, nhịn ăn gián đoạn hay phòng gym VIP - có giảm được một chút rồi lại tăng trở lại, thậm chí mệt hơn.</div>
+      <div class="audience-item">Bạn đang uống thuốc mỗi ngày nhưng thấy bất an vì phải lệ thuộc, và muốn hiểu cơ thể mình để chủ động hơn.</div>
+      <div class="audience-item">Bạn quá bận để theo đuổi những chế độ phức tạp, cần một phương pháp chuẩn y khoa, gọn gàng, lồng vừa vào lịch làm việc dày đặc.</div>
+      <div class="audience-item">Bạn không muốn "nghe cho biết" thêm một khóa nữa, bạn muốn ngồi xuống và làm ra một bản kế hoạch cụ thể cho chính cơ thể mình.</div>
+      <div class="audience-item">Bạn đã đầu tư nhiều tiền, nhiều công sức và kỷ luật hơn hẳn người khác, nhưng kết quả vẫn bất công so với những gì bạn bỏ ra.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S8 — ĐỂ TRÁNH MỌI HIỂU LẦM
+     ============================================================ -->
+<section class="section section-alt" id="hieu-lam">
+  <div class="container">
+    <div class="text-center">
+      <span class="eyebrow">Để tránh mọi hiểu lầm</span>
+      <h2>Đây không phải điều bạn đang lo.<br><span class="text-accent">Đây là điều bạn thật sự nhận.</span></h2>
+    </div>
+
+    <div class="contrast-grid">
+      <div class="contrast-col no">
+        <h3>✕ KHÔNG PHẢI…</h3>
+        <ul>
+          <li>Một khóa học lý thuyết suông để nghe rồi để đó.</li>
+          <li>Một buổi truyền cảm hứng chung chung, hô hào động lực.</li>
+          <li>Nơi bán thực phẩm chức năng, trà giảm cân hay thuốc.</li>
+          <li>Một công thức ăn kiêng copy-paste áp cho tất cả mọi người.</li>
+          <li>Giải pháp cấp tốc giảm vài cân rồi tăng lại.</li>
+        </ul>
+      </div>
+      <div class="contrast-col yes">
+        <h3>✓ MÀ THỰC SỰ LÀ…</h3>
+        <ul>
+          <li>Một buổi ngồi làm trực tiếp, ra về với bản đồ chuyển hóa của riêng bạn đã được bác sĩ sửa.</li>
+          <li>Một quy trình y khoa dựa trên cơ chế hormone và nhịp sinh học, giải thích rõ ràng, có cơ sở khoa học, không sáo rỗng.</li>
+          <li>Nơi dạy bạn dùng đúng cơ chế cơ thể vốn có - không cần mua thêm bất kỳ sản phẩm bổ sung nào.</li>
+          <li>Một phương pháp cá nhân hóa dựa trên chính chỉ số và lịch sống của bạn.</li>
+          <li>Kỹ năng làm chủ chuyển hóa để giữ vững thành quả một cách bền vững.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S9 — LỊCH TRÌNH CHI TIẾT
+     ============================================================ -->
+<section class="section" id="lich-trinh">
+  <div class="container">
+    <div class="text-center">
+      <span class="eyebrow">Lịch trình chi tiết từng buổi</span>
+      <h2>Hai buổi tối.<br><span class="text-accent">Hai bước để mở khóa cơ thể.</span></h2>
+    </div>
+
+    <div class="sessions">
+      <div class="session">
+        <div class="session-num">1</div>
+        <div class="session-date">BUỔI 1 · THỨ BẢY 15/08 · 20:00 – 21:45</div>
+        <h3>Khi nào ăn: Giải mã ổ khóa Insulin &amp; đồng bộ nhịp ăn sinh học</h3>
+        <ul>
+          <li>Đọc đúng "bản đồ báo động" của chính bạn: hiểu bộ chỉ số Triglyceride, Glucose đói, men gan, mỡ nội tạng… và biết đâu là ngưỡng thật sự cần hành động.</li>
+          <li>Cơ chế ổ khóa Insulin: vì sao kho mỡ đang bị khóa, và cách hạ Insulin nền để mở khóa mà không cần bỏ đói cơ thể.</li>
+          <li>Thực hành ngay: đối chiếu lịch sinh hoạt và tự thiết lập khung giờ ăn theo nhịp sinh học trên Workbook, được bác sĩ sửa trực tiếp.</li>
+          <li><strong>Cầm về:</strong> Bản phác thảo Nhịp ăn Sinh học cá nhân, biết chính xác nên ăn vào những khung giờ nào để cơ thể ngừng tích mỡ.</li>
+        </ul>
+      </div>
+
+      <div class="session">
+        <div class="session-num">2</div>
+        <div class="session-date">BUỔI 2 · CHỦ NHẬT 16/08 · 20:00 – 21:45</div>
+        <h3>Ăn gì &amp; như thế nào: Thiết kế khay dinh dưỡng cá nhân hóa</h3>
+        <ul>
+          <li>Công thức xếp khay theo tỷ lệ các nhóm chất thông minh: ăn no, ăn ngon mà vẫn giữ Insulin thấp.</li>
+          <li>Cách chọn món an toàn khi đi ăn ngoài, tiếp khách, tiệc tùng, không phá vỡ thành quả.</li>
+          <li>Thực hành ngay: hoàn thiện Sơ đồ xếp khay và kế hoạch tuần đầu trên Workbook, được hai bác sĩ tinh chỉnh cho riêng bạn.</li>
+          <li><strong>Cầm về:</strong> Bản đồ chuyển hóa hoàn chỉnh + kế hoạch hành động tuần đầu, sẵn sàng áp dụng từ bữa sáng hôm sau.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta-inline">
+      <a href="dang-ky.html" class="btn-primary">ĐĂNG KÝ GIỮ CHỖ — 99.000Đ</a>
+      <div class="sub">15 &amp; 16/08/2026 · 20:00 – 21:45 · Google Meet</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S10 — NHỮNG NGƯỜI ĐÃ ĐI TRƯỚC BẠN
+     ============================================================ -->
+<section class="section section-alt" id="ket-qua">
+  <div class="container">
+    <div class="text-center">
+      <span class="eyebrow">Những người đã đi trước bạn</span>
+      <h2>Cùng một cơ thể,<br><span class="text-accent">chỉ khác cách vận hành.</span></h2>
+    </div>
+
+    <div class="privacy-note">Vì tôn trọng sự riêng tư, các câu chuyện dưới đây được chia sẻ ẩn danh với sự đồng ý của học viên. Số liệu là thật, trích từ hồ sơ và xét nghiệm đối chứng tại bệnh viện.</div>
+
+    <div class="case">
+      <h3>Một người đàn ông 56 tuổi</h3>
+      <p>Thấy con gái thay đổi, ông được hướng dẫn lại phương pháp dưới sự giám sát trực tiếp của bác sĩ. Lúc bắt đầu, ông thừa cân, mỡ nội tạng cao (14.5) và các chỉ số chuyển hóa đang trượt dần về ngưỡng ranh giới. Sau khoảng 3 tháng, xét nghiệm đối chứng đầu kỳ và cuối kỳ tại các bệnh viện có tiếng ở Huế cho thấy cải thiện rõ: Triglyceride giảm từ 1.61 xuống 0.56 mmol/L, HDL-C (mỡ tốt bảo vệ tim mạch) tăng từ 0.98 lên 1.20, đường huyết đói từ 5.53 về 4.8 mmol/L. Song song, cân nặng giảm 8.4kg, mỡ nội tạng từ 14.5 về 11, tỷ lệ mỡ từ 23.7% xuống 17.4%, tuổi sinh học còn 43, trẻ hơn 13 tuổi so với tuổi thật. Từ một người hay mệt mỏi, khó ngủ, dễ cáu gắt, ông trở lại khỏe mạnh, vui vẻ.</p>
+
+      <div class="stat-table">
+        <div class="stat-row"><span class="stat-label">Triglyceride (mmol/L)</span><span class="stat-before">1.61</span><span class="stat-arrow">→</span><span class="stat-after">0.56</span></div>
+        <div class="stat-row"><span class="stat-label">HDL-C — mỡ tốt (mmol/L)</span><span class="stat-before">0.98</span><span class="stat-arrow">→</span><span class="stat-after">1.20</span></div>
+        <div class="stat-row"><span class="stat-label">Đường huyết đói (mmol/L)</span><span class="stat-before">5.53</span><span class="stat-arrow">→</span><span class="stat-after">4.8</span></div>
+        <div class="stat-row"><span class="stat-label">Mỡ nội tạng</span><span class="stat-before">14.5</span><span class="stat-arrow">→</span><span class="stat-after">11</span></div>
+        <div class="stat-row"><span class="stat-label">Tỷ lệ mỡ cơ thể</span><span class="stat-before">23.7%</span><span class="stat-arrow">→</span><span class="stat-after">17.4%</span></div>
+        <div class="stat-row"><span class="stat-label">Tuổi sinh học</span><span class="stat-before">56</span><span class="stat-arrow">→</span><span class="stat-after">43</span></div>
+      </div>
+    </div>
+
+    <div class="case">
+      <h3>Một người đàn ông 59 tuổi</h3>
+      <p>Ở tuổi 59, chú bắt đầu chương trình dưới sự hướng dẫn và theo dõi sát sao. Thời điểm bắt đầu (22/9), chú nặng 81,1kg với chiều cao 167cm — tỷ lệ mỡ cơ thể lên tới 28%, tổng lượng mỡ 22,7kg và mỡ nội tạng ở mức 17, ngưỡng đáng lưu ý cho sức khỏe tim mạch và chuyển hóa. Tuổi sinh học đo được là 57, đúng bằng độ tuổi thật.</p>
+      <p>Sau khoảng 7 tuần, đến ngày 12/11, kết quả đo đối chứng cho thấy chuyển biến rõ rệt: cân nặng giảm 5kg (còn 76,1kg), và điều quan trọng là phần giảm này chủ yếu đến từ mỡ — lượng mỡ giảm 3,2kg (từ 22,7kg xuống 19,5kg), tỷ lệ mỡ cơ thể từ 28% về 25,6%. Mỡ nội tạng hạ từ 17 xuống 16. Trong khi đó, khối cơ gần như được giữ nguyên (từ 55,4kg còn 53,6kg) — dấu hiệu cho thấy cơ thể đang đốt mỡ chứ không "đốt" cơ bắp. Song song, tuổi sinh học trẻ lại 3 tuổi, còn 54. Chỉ trong chưa đầy hai tháng, chú đã lấy lại một phiên bản nhẹ nhõm và khỏe khoắn hơn của chính mình</p>
+
+      <div class="stat-table">
+        <div class="stat-row"><span class="stat-label">Cân nặng</span><span class="stat-before">81,1kg</span><span class="stat-arrow">→</span><span class="stat-after">76,1kg</span></div>
+        <div class="stat-row"><span class="stat-label">Tổng lượng mỡ</span><span class="stat-before">22,7kg</span><span class="stat-arrow">→</span><span class="stat-after">19,5kg</span></div>
+        <div class="stat-row"><span class="stat-label">Tỷ lệ mỡ cơ thể</span><span class="stat-before">28%</span><span class="stat-arrow">→</span><span class="stat-after">25,6%</span></div>
+        <div class="stat-row"><span class="stat-label">Mỡ nội tạng</span><span class="stat-before">17</span><span class="stat-arrow">→</span><span class="stat-after">16</span></div>
+        <div class="stat-row"><span class="stat-label">Tuổi sinh học</span><span class="stat-before">57</span><span class="stat-arrow">→</span><span class="stat-after">54</span></div>
+      </div>
+    </div>
+
+    <h3 class="mt-12" style="text-align: center;">Kết quả khác từ cộng đồng</h3>
+    <div class="community-results">
+      <div class="community-item">Một cô giáo 30 tuổi: sau 3 tháng, cân nặng giảm từ 58kg xuống 50.9kg (giảm 7.1kg), mỡ nội tạng từ 5.5 về 3.5 (ngưỡng an toàn), vòng bụng giảm 12cm, tuổi sinh học trẻ lại từ 38 về 30.</div>
+      <div class="community-item">Một bạn sinh viên 19 tuổi: sau 2 tháng, giảm 12kg cân nặng và 8kg mỡ thừa, mỡ nội tạng giảm từ 12 xuống 9.5, hết hẳn cơn nghiện đường và tràn đầy năng lượng.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S11 — BẠN NHẬN ĐƯỢC GÌ (OFFER BOX)
+     ============================================================ -->
+<section class="section" id="offer">
+  <div class="container-narrow">
+    <div class="text-center">
+      <span class="eyebrow">Bạn nhận được gì</span>
+      <h2>Khi giữ chỗ hôm nay, bạn có:</h2>
+    </div>
+
+    <div class="offer-box">
+      <span class="badge">BẢN ĐỒ KHÔI PHỤC CHUYỂN HÓA 2 BUỔI™</span>
+
+      <ul class="offer-list">
+        <li>Workshop chuyên sâu 2 buổi trực tiếp cùng ThS.BS Nguyễn Trung Hiếu và ThS.BS Lê Thị Minh Tâm (có sửa bài 1-1).</li>
+        <li>Workbook "Bản Đồ Khôi Phục Chuyển Hóa" độc quyền - bản đồ cá nhân hóa cho riêng bạn.</li>
+        <li>Bản ghi trọn vẹn hai buổi để xem lại không giới hạn.</li>
+        <li>Quyền vào Cộng đồng nâng đỡ đồng hành.</li>
+      </ul>
+
+      <div class="offer-price-label">Phí cam kết hành động hôm nay:</div>
+      <div class="offer-price">99.000đ</div>
+
+      <p class="offer-note">Đây không phải học phí cho một khóa học - đây là khoản bạn tự đặt cọc với chính mình, để đảm bảo bạn thật sự có mặt và làm thật trong 2 buổi tới.</p>
+
+      <div class="offer-guarantee">Bảo đảm hoàn tiền 100% sau buổi 1 - bạn vẫn giữ lại toàn bộ Workbook.</div>
+
+      <div class="mt-8">
+        <a href="dang-ky.html" class="btn-primary" style="font-size: 1.1rem;">GIỮ CHỖ NGAY VỚI 99.000Đ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S12 — VÌ SAO CHỈ 99.000Đ
+     ============================================================ -->
+<section class="section section-alt" id="vi-sao-99k">
+  <div class="container-narrow">
+    <div class="text-center">
+      <span class="eyebrow">Vì sao chỉ 99.000đ?</span>
+      <h2>Con số này không phải học phí.<br><span class="text-accent">Đó là lời cam kết của bạn với chính mình.</span></h2>
+      <p class="mt-6" style="font-size: 1.04rem;">Tôi cố tình để mức phí này thật thấp, vì hai lý do rất thật.</p>
+    </div>
+
+    <div class="grid-2 mt-12">
+      <div class="reason-card">
+        <div class="reason-num">01</div>
+        <h3>Xóa rào cản</h3>
+        <p>Tôi không muốn tiền bạc trở thành cái cớ để bạn trì hoãn thêm một năm nữa với vòng bụng nặng nề và những chỉ số báo động. Sức khỏe chuyển hóa của bạn không nên chờ đến khi "rảnh" hay "dư dả".</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">02</div>
+        <h3>Phí cam kết hành động, không phải học phí</h3>
+        <p>Nhiều năm đồng hành với người bệnh dạy tôi rằng thứ miễn phí thường bị bỏ quên. Khi bạn tự tay đặt cọc một cam kết bằng chính đồng tiền mình, bạn ngồi vào buổi học với một tâm thế khác - tâm thế của người sẵn sàng thay đổi. 99.000đ ấy là để buộc chính bạn có mặt và làm thật.</p>
+      </div>
+    </div>
+
+    <p class="mt-12 text-center" style="font-size: 1.06rem; color: var(--text);">Hãy nhìn vào phiên bản của bạn khi đã bắt đầu đi đúng đường, nhẹ nhõm hơn, tự tin hơn, và biết chính xác phải làm gì để kéo các chỉ số đi đúng hướng.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     S13 — CAM KẾT CỦA TÔI VỚI BẠN
+     ============================================================ -->
+<section class="section" id="cam-ket">
+  <div class="container-narrow">
+    <div class="text-center">
+      <span class="eyebrow">Cam kết của tôi với bạn</span>
+      <h2>Toàn bộ rủi ro thuộc về tôi.<br><span class="text-accent">Không thuộc về bạn.</span></h2>
+    </div>
+
+    <div class="guarantee-box">
+      <p>Nếu sau buổi học đầu tiên, bạn cảm thấy nội dung không phù hợp hoặc không mang lại giá trị thực tế cho mình, chỉ cần nhắn cho tôi. Tôi sẽ hoàn lại 100% chi phí ngay lập tức - không hỏi thêm một câu nào, không thủ tục phiền hà.</p>
+      <p>Và dù bạn quyết định rời đi, bạn vẫn được giữ lại toàn bộ Workbook thực hành đã nhận. Không có bẫy, không có điều kiện ẩn.</p>
+      <p style="color: var(--text);">Vì sao tôi dám cam kết như vậy? Vì tôi là một bác sĩ, một giảng viên y khoa đã dành nhiều năm bên rất nhiều người bệnh chuyển hóa. Tôi biết chính xác điều gì sẽ xảy ra trong đầu bạn ngay sau buổi 1 - khoảnh khắc bạn hiểu ra vì sao bao năm qua mình đã cố sai cách. Tôi cam kết được là vì tôi tin vào cơ chế này, chứ không phải vào một lời quảng cáo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S14 — FAQ
+     ============================================================ -->
+<section class="section section-alt" id="faq">
+  <div class="container-narrow">
+    <div class="text-center">
+      <span class="eyebrow">Những câu hỏi thường gặp</span>
+      <h2>Giải đáp trước khi<br>bạn kịp băn khoăn</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Tôi quá bận, lỡ không tham gia trực tiếp được thì sao?</summary>
+        <div class="answer">Bạn vẫn nên cố gắng dự trực tiếp ít nhất một buổi để được sửa bài 1-1 - đó là phần giá trị nhất. Nhưng nếu bận đột xuất, toàn bộ hai buổi đều được ghi hình và gửi cho bạn xem lại trọn đời. Bạn có thể điền Workbook theo bản ghi và mang câu hỏi vào cộng đồng để được hỗ trợ.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Tôi đang uống thuốc mỡ máu / tiểu đường / huyết áp, có áp dụng được không?</summary>
+        <div class="answer">Được, và đây chính là nhóm tôi tâm huyết nhất. Phương pháp này không thay thế và không yêu cầu bạn tự ý bỏ thuốc - bạn tuyệt đối tuân theo đơn của bác sĩ điều trị. Những gì bạn học ở đây là cách vận hành cơ thể để hỗ trợ phác đồ đó; nhiều người sau thời gian đồng hành cùng chúng tôi đã được chính bác sĩ điều trị của họ cân nhắc điều chỉnh liều. Mọi thay đổi về thuốc đều phải do bác sĩ điều trị của bạn quyết định.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Tôi không rành về dinh dưỡng, có theo kịp không?</summary>
+        <div class="answer">Có. Workshop được thiết kế cho người bận rộn, không cần kiến thức nền; bác sĩ cầm tay chỉ từng bước trên Workbook.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Có phải mua thêm thực phẩm chức năng hay sản phẩm gì không?</summary>
+        <div class="answer">Không. Đây không phải nơi bán thực phẩm bổ sung. Toàn bộ phương pháp dựa trên thực phẩm bạn ăn hằng ngày và cách sắp xếp lại nhịp ăn - không có sản phẩm nào để bạn phải mua thêm. Nếu ai đó cần một loại vi chất cụ thể vì lý do bệnh lý, đó là chỉ định y khoa riêng, không phải điều kiện của chương trình.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Tôi đã thử nhiều cách và thất bại, liệu lần này có khác?</summary>
+        <div class="answer">Chính vì bạn đã thử nhiều cách và chương trình này dành cho bạn. Những cách cũ thất bại vì chúng dùng ý chí đối đầu với hormone. Ở đây bạn làm ngược lại - điều chỉnh hormone để cơ thể tự hợp tác. Khác biệt không nằm ở việc bạn cố gắng nhiều hơn, mà ở việc cố đúng chỗ.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Nếu tôi thấy không phù hợp thì có mất tiền không?</summary>
+        <div class="answer">Không. Bạn được hoàn 100% sau buổi 1 nếu thấy không giá trị, và vẫn giữ lại Workbook. Bạn thật sự không có gì để mất khi thử.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Sau 2 buổi này, tôi cần tự làm tiếp một mình sao?</summary>
+        <div class="answer">Không nhất thiết. Với hai buổi này, bạn đã có đủ bản đồ chuyển hóa và công thức để tự áp dụng ngay. Nhưng nếu bạn nhận thấy mình cần một người đồng hành sát hơn để duy trì kết quả lâu dài, chúng tôi có lộ trình đồng hành chuyên sâu hơn dành cho một số anh chị phù hợp - thông tin sẽ được chia sẻ ngay trong buổi 2, hoàn toàn không có áp lực phải quyết định trước.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S15 — HAI CON ĐƯỜNG + FINAL CTA
+     ============================================================ -->
+<section class="section final-cta" id="final">
+  <div class="container">
+    <div class="text-center">
+      <span class="eyebrow">Hai con đường</span>
+      <h2>Từ tối nay,<br>bạn đứng trước hai lựa chọn.</h2>
+    </div>
+
+    <div class="contrast-grid">
+      <div class="contrast-col no">
+        <h3>✕ NẾU BẠN KHÔNG LÀM GÌ</h3>
+        <ul>
+          <li>Vòng bụng tiếp tục lớn thêm mỗi tháng, và bạn lại tự hứa "ra Tết sẽ quyết tâm".</li>
+          <li>Các chỉ số báo động cứ nhích lên, cùng nỗi lo đột quỵ luôn lặng lẽ ở phía sau.</li>
+          <li>Tiếp tục lệ thuộc vào ý chí và những vốc thuốc, mà vẫn không thấy mình làm chủ.</li>
+        </ul>
+      </div>
+      <div class="contrast-col yes">
+        <h3>✓ NẾU BẠN DÀNH RA 2 BUỔI TỐI</h3>
+        <ul>
+          <li>Bạn cầm trong tay bản đồ chuyển hóa của riêng mình, biết chính xác phải làm gì từ sáng mai.</li>
+          <li>Bạn biết cách kéo các chỉ số đi đúng hướng và ngủ ngon hơn vì hiểu rõ cơ thể mình.</li>
+          <li>Bạn lấy lại quyền làm chủ cơ thể - thứ quyền lực mà không đơn thuốc nào trao được.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-narrow" style="padding-left: 0; padding-right: 0;">
+      <p class="closing-argument">Bạn có thể tiếp tục tự loay hoay thêm 6 tháng nữa, vừa áp dụng những chế độ ăn kiêng khắc nghiệt, vừa nơm nớp lo lắng mỗi lần đi khám bệnh. Hoặc, dành chỉ 2 buổi tối để cùng hai bác sĩ dinh dưỡng giải mã hệ thống chuyển hóa của chính cơ thể bạn, thiết lập lại nhịp ăn sinh học và sở hữu tấm bản đồ phục hồi cho riêng mình ngay từ sáng hôm sau.</p>
+    </div>
+
+    <div class="cta-inline">
+      <a href="dang-ky.html" class="btn-primary" style="font-size: 1.08rem;">ĐĂNG KÝ GIỮ CHỖ CHÍNH THỨC – CHỈ 99.000Đ</a>
+      <div class="sub">15 &amp; 16/08/2026 · 20:00 – 21:45 · Hoàn tiền 100% sau buổi 1</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     S16 — FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <p class="credit">ThS.BS Nguyễn Trung Hiếu &amp; ThS.BS Lê Thị Minh Tâm</p>
+    <p class="tagline">Đội ngũ Chuyên gia Dinh dưỡng Lâm sàng · Giảng viên Y khoa</p>
+    <p class="tagline">Chăm sóc sức khỏe chủ động theo mô hình toàn diện Thân – Tâm – Trí.</p>
+    <p class="legal">© 2026 Bản Đồ Khôi Phục Chuyển Hóa 2 Buổi™. Nội dung chương trình mang tính giáo dục dinh dưỡng, không thay thế chẩn đoán hay phác đồ điều trị của bác sĩ điều trị.</p>
+  </div>
+</footer>
+
+<!-- STICKY CTA MOBILE -->
+<div class="sticky-cta">
+  <a href="dang-ky.html" class="btn-primary">GIỮ CHỖ NGAY — 99.000Đ</a>
+</div>
+
+</body>
+</html>
