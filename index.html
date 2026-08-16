@@ -17,23 +17,32 @@
 
 <style>
 /* =========================================================
-   THEME — DNA-02 × DNA-03 hybrid "Clinical Authority"
-   Variant A: Xanh đen y tế
+   THEME — "Warm Clinical" — kem ấm × terracotta
+   Bảng màu lấy theo tông cream / terracotta / gold
    ========================================================= */
 :root {
-  --bg: #0B1215;
-  --surface: #121D21;
-  --surface-2: #18262B;
-  --text: #F0F5F3;
-  --text-muted: #8FA5A0;
-  --accent: #22C55E;
-  --accent-bright: #4ADE80;
-  --accent-deep: #0F6E4C;
-  --accent-soft: rgba(34, 197, 94, 0.15);
-  --warn: #EF4444;
-  --warn-soft: rgba(239, 68, 68, 0.12);
-  --border: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  --bg: #F6E7DD;           /* cream — nền chính */
+  --bg-alt: #FBF6F1;       /* paper — nền section xen kẽ */
+  --surface: #FFFCFA;      /* thẻ nổi trên cả 2 nền */
+  --surface-2: #F6EBE2;    /* khối lõm bên trong thẻ */
+  --text: #3D2B28;         /* ink */
+  --text-muted: #6B4F47;   /* ink-soft */
+  --accent: #A65D52;       /* terracotta — nút, dấu tick */
+  --accent-bright: #8A4A40;/* terracotta-deep — chữ nhấn trên nền sáng */
+  --accent-deep: #8A4A40;
+  --accent-soft: rgba(166, 93, 82, 0.10);
+  --gold: #9C5C33;         /* gold đậm — eyebrow (đủ tương phản trên nền kem) */
+  --gold-soft: #F2D0B6;
+  --warn: #A6493C;         /* brick — nhãn cảnh báo */
+  --warn-soft: rgba(166, 73, 60, 0.10);
+  --border: #E8D3C6;       /* line */
+  --border-strong: #DCBEAB;
+
+  /* Hero tối ấm — chữ sáng trên nền taupe */
+  --hero-ivory: #FCF8F4;
+  --hero-muted: rgba(252, 248, 244, 0.82);
+  --hero-glass: rgba(252, 248, 244, 0.14);
+  --hero-glass-line: rgba(242, 208, 182, 0.42);
 
   --font-h: 'Montserrat', system-ui, sans-serif;
   --font-b: 'Be Vietnam Pro', system-ui, sans-serif;
@@ -41,7 +50,7 @@
   --max-w: 1000px;
   --max-w-narrow: 720px;
   --section-py: clamp(56px, 9vw, 104px);
-  --radius: 14px;
+  --radius: 16px;
 }
 
 /* =========================================================
@@ -71,7 +80,7 @@ strong { color: var(--text); font-weight: 600; }
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 .container-narrow { max-width: var(--max-w-narrow); margin: 0 auto; padding: 0 24px; }
 .section { padding: var(--section-py) 0; position: relative; }
-.section-alt { background: var(--surface); }
+.section-alt { background: var(--bg-alt); }
 .text-center { text-align: center; }
 .text-accent { color: var(--accent); }
 .text-muted { color: var(--text-muted); }
@@ -85,9 +94,9 @@ strong { color: var(--text); font-weight: 600; }
   display: inline-block;
   font-family: var(--font-h);
   font-size: 0.8rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--gold);
   font-weight: 600;
   margin-bottom: 16px;
 }
@@ -102,24 +111,29 @@ strong { color: var(--text); font-weight: 600; }
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(166, 93, 82, 0.28);
   line-height: 1.5;
 }
 
 .btn-primary {
   display: inline-block;
-  padding: 18px 38px;
-  background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent-deep) 100%);
-  color: #04220F;
-  border-radius: var(--radius);
+  padding: 18px 40px;
+  background: var(--accent);
+  color: #FFFFFF;
+  border-radius: 999px;
   font-weight: 700;
   font-size: 1.02rem;
   font-family: var(--font-h);
+  letter-spacing: 0.04em;
   line-height: 1.4;
-  transition: transform 0.18s, box-shadow 0.18s;
-  box-shadow: 0 6px 24px rgba(34, 197, 94, 0.22);
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  box-shadow: 0 8px 24px rgba(138, 74, 64, 0.24);
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(34, 197, 94, 0.3); }
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--accent-deep);
+  box-shadow: 0 12px 32px rgba(138, 74, 64, 0.32);
+}
 
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
@@ -128,21 +142,39 @@ strong { color: var(--text); font-weight: 600; }
    S1 — HERO
    ========================================================= */
 .hero {
-  padding: clamp(64px, 10vw, 120px) 0 var(--section-py);
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34, 197, 94, 0.13) 0%, var(--bg) 70%);
+  position: relative;
+  padding: clamp(64px, 10vw, 120px) 0 168px;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(242, 208, 182, 0.15) 0%, transparent 65%),
+    linear-gradient(180deg, #63503E 0%, #6E5A48 40%, #776252 75%, #7E6857 100%);
+  color: var(--hero-ivory);
 }
+/* Dải chuyển mềm xuống nền kem ở đáy hero */
+.hero::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 130px;
+  background: linear-gradient(180deg,
+    rgba(246, 231, 221, 0) 0%,
+    rgba(246, 231, 221, 0.72) 58%,
+    var(--bg) 100%);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero h1, .hero h2 { color: var(--hero-ivory); }
+.hero .text-accent { color: var(--gold-soft); }
 .hero-eyebrow {
   font-family: var(--font-h);
   font-size: clamp(0.7rem, 1.9vw, 0.82rem);
-  letter-spacing: 0.13em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--gold-soft);
   font-weight: 600;
   line-height: 1.7;
 }
 .hero-audience {
   font-size: 1rem;
-  color: var(--text-muted);
+  color: var(--hero-muted);
   max-width: 660px;
   margin: 24px auto 0;
   line-height: 1.8;
@@ -150,7 +182,7 @@ strong { color: var(--text); font-weight: 600; }
 .hero h1 { margin-top: 32px; }
 .hero-sub {
   font-size: 1.08rem;
-  color: var(--text);
+  color: var(--hero-ivory);
   max-width: 660px;
   margin: 24px auto 0;
   line-height: 1.8;
@@ -167,7 +199,7 @@ strong { color: var(--text); font-weight: 600; }
 .hero-info-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 18px 16px;
   text-align: center;
 }
@@ -187,10 +219,20 @@ strong { color: var(--text); font-weight: 600; }
   margin-top: 6px;
   line-height: 1.4;
 }
+/* Trong hero (nền tối): thẻ kính mờ, chữ sáng */
+.hero .hero-info-card {
+  background: var(--hero-glass);
+  border-color: var(--hero-glass-line);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.hero .hero-info-card .label { color: rgba(252, 248, 244, 0.90); }
+.hero .hero-info-card .value { color: var(--hero-ivory); }
+.hero .hero-info-card .value span { color: var(--hero-muted) !important; }
 .hero-price {
   font-family: var(--font-h);
   font-weight: 600;
-  color: var(--accent-bright);
+  color: var(--hero-ivory);
   font-size: 1.05rem;
   margin-top: 20px;
 }
@@ -248,7 +290,7 @@ strong { color: var(--text); font-weight: 600; }
 }
 
 .culprit {
-  background: var(--surface-2);
+  background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   padding: 26px 28px;
@@ -297,17 +339,17 @@ strong { color: var(--text); font-weight: 600; }
 .doctor-band img {
   width: 100%;
   border-radius: var(--radius);
-  border: 1px solid var(--border-strong);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  border: 2px solid var(--hero-glass-line);
+  box-shadow: 0 20px 60px rgba(61, 43, 40, 0.32);
 }
 .doctor-band .caption {
   text-align: center;
   margin-top: 16px;
   font-size: 0.92rem;
-  color: var(--text-muted);
+  color: rgba(252, 248, 244, 0.93);
   line-height: 1.7;
 }
-.doctor-band .caption strong { color: var(--accent-bright); font-family: var(--font-h); font-weight: 600; }
+.doctor-band .caption strong { color: var(--hero-ivory); font-family: var(--font-h); font-weight: 600; }
 
 .story-photo {
   margin: 40px 0;
@@ -345,7 +387,7 @@ strong { color: var(--text); font-weight: 600; }
 
 .founder-quote {
   background: var(--surface-2);
-  border: 1px solid rgba(34, 197, 94, 0.25);
+  border: 1px solid rgba(201, 129, 89, 0.45);
   border-radius: var(--radius);
   padding: 32px;
   margin: 36px 0;
@@ -370,7 +412,7 @@ strong { color: var(--text); font-weight: 600; }
 }
 .pillar-num {
   position: absolute; top: -15px; left: 32px;
-  background: var(--accent); color: #04220F;
+  background: var(--accent); color: #FFFFFF;
   padding: 6px 18px; border-radius: 999px;
   font-family: var(--font-h); font-weight: 700; font-size: 0.78rem;
   letter-spacing: 0.06em;
@@ -400,7 +442,7 @@ strong { color: var(--text); font-weight: 600; }
   line-height: 1.6;
 }
 .pillar-wrap {
-  background: var(--surface-2);
+  background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   padding: 28px 32px;
@@ -446,7 +488,7 @@ strong { color: var(--text); font-weight: 600; }
 .audience-item::before {
   content: "✓"; position: absolute; left: 22px; top: 22px;
   width: 24px; height: 24px;
-  background: var(--accent); color: #04220F;
+  background: var(--accent); color: #FFFFFF;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; font-size: 0.8rem;
@@ -463,7 +505,7 @@ strong { color: var(--text); font-weight: 600; }
   border-radius: var(--radius);
   padding: 32px 28px;
 }
-.contrast-col.yes { border-color: rgba(34, 197, 94, 0.3); }
+.contrast-col.yes { border-color: rgba(166, 93, 82, 0.32); }
 .contrast-col h3 {
   margin-bottom: 22px; padding-bottom: 16px;
   border-bottom: 1px solid var(--border);
@@ -494,7 +536,7 @@ strong { color: var(--text); font-weight: 600; }
 .session-num {
   display: inline-flex; align-items: center; justify-content: center;
   width: 56px; height: 56px;
-  background: var(--accent); color: #04220F;
+  background: var(--accent); color: #FFFFFF;
   border-radius: 50%;
   font-family: var(--font-h); font-weight: 800; font-size: 1.5rem;
   margin-bottom: 20px;
@@ -546,7 +588,7 @@ strong { color: var(--text); font-weight: 600; }
   font-size: 0.94rem;
 }
 .stat-row .stat-label { color: var(--text-muted); font-weight: 500; }
-.stat-row .stat-before { color: var(--warn); font-family: var(--font-h); font-weight: 700; }
+.stat-row .stat-before { color: #7D6157; font-family: var(--font-h); font-weight: 700; }
 .stat-row .stat-arrow { color: var(--text-muted); font-size: 0.85rem; }
 .stat-row .stat-after { color: var(--accent-bright); font-family: var(--font-h); font-weight: 700; }
 @media (max-width: 560px) {
@@ -571,12 +613,12 @@ strong { color: var(--text); font-weight: 600; }
    S11 — OFFER BOX
    ========================================================= */
 .offer-box {
-  background: linear-gradient(160deg, var(--surface-2) 0%, #0D2A20 100%);
+  background: linear-gradient(160deg, var(--surface) 0%, #F7E3D3 100%);
   border: 2px solid var(--accent);
   border-radius: var(--radius);
   padding: clamp(36px, 6vw, 56px) clamp(24px, 4vw, 44px);
   text-align: center;
-  box-shadow: 0 24px 70px rgba(34, 197, 94, 0.14);
+  box-shadow: 0 24px 70px rgba(138, 74, 64, 0.16);
   margin-top: 44px;
 }
 .offer-list { text-align: left; max-width: 540px; margin: 36px auto; }
@@ -601,7 +643,7 @@ strong { color: var(--text); font-weight: 600; }
 .offer-guarantee {
   display: inline-block;
   background: var(--accent-soft);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(166, 93, 82, 0.3);
   border-radius: 10px;
   padding: 14px 24px;
   margin-top: 26px;
@@ -647,7 +689,8 @@ strong { color: var(--text); font-weight: 600; }
 .faq-item {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(61, 43, 40, 0.04);
   margin-bottom: 12px;
   overflow: hidden;
 }
@@ -667,8 +710,8 @@ strong { color: var(--text); font-weight: 600; }
    S15 — FINAL CTA
    ========================================================= */
 .final-cta {
-  background: linear-gradient(180deg, var(--surface) 0%, #0C2A1E 100%);
-  border-top: 1px solid rgba(34, 197, 94, 0.3);
+  background: linear-gradient(180deg, var(--bg-alt) 0%, #F2D0B6 100%);
+  border-top: 1px solid var(--border);
 }
 .closing-argument {
   font-size: 1.1rem;
@@ -688,13 +731,24 @@ strong { color: var(--text); font-weight: 600; }
    FOOTER
    ========================================================= */
 footer {
-  padding: 44px 0; background: var(--bg);
-  border-top: 1px solid var(--border);
-  text-align: center; color: var(--text-muted); font-size: 0.93rem;
+  padding: 56px 0; background: var(--text);
+  text-align: center; color: rgba(246, 231, 221, 0.72); font-size: 0.93rem;
 }
-footer .credit { color: var(--text); font-family: var(--font-h); font-weight: 600; font-size: 1rem; line-height: 1.6; }
+footer p { color: rgba(246, 231, 221, 0.74); }
+footer .credit { color: var(--bg); font-family: var(--font-h); font-weight: 600; font-size: 1rem; line-height: 1.6; }
 footer .tagline { margin-top: 10px; }
 footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height: 1.7; }
+
+
+/* =========================================================
+   ĐỔ BÓNG NHẸ — giúp thẻ nổi trên nền kem/paper
+   ========================================================= */
+.pillar, .session, .case, .outcome-card, .audience-item, .culprit,
+.community-item, .reason-card, .story-photo, .contrast-col,
+.privacy-note, .pillar-wrap, .guarantee-box, .pain-item, .self-blame-item,
+.final-cta .hero-info-card {
+  box-shadow: 0 2px 12px rgba(61, 43, 40, 0.05);
+}
 
 /* =========================================================
    STICKY MOBILE CTA
@@ -703,9 +757,9 @@ footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height:
   display: none;
   position: fixed; bottom: 0; left: 0; right: 0;
   padding: 12px 16px;
-  background: rgba(11, 18, 21, 0.96);
+  background: rgba(251, 246, 241, 0.96);
   backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(34, 197, 94, 0.35);
+  border-top: 1px solid var(--border);
   z-index: 50;
 }
 .sticky-cta a { display: block; text-align: center; padding: 15px 20px; font-size: 0.95rem; }
@@ -856,14 +910,6 @@ footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height:
 
     <div class="founder-quote">Chúng tôi không hứa giảm cân thần tốc, cũng không trưng ra những con số thành tích không kiểm chứng được. Chỉ làm một việc: đưa cách tư duy của bác sĩ chuyển hóa đến tay anh chị, đủ đơn giản để giữ được lâu dài.</div>
 
-    <div class="story-photo">
-      <img src="assets/bac-si-hoi-nghi.jpg" alt="ThS.BS Lê Thị Minh Tâm và ThS.BS Nguyễn Trung Hiếu tại Hội thảo khoa học Suy dinh dưỡng – mất cơ ở bệnh nhân mắc bệnh lý mạn tính không lây năm 2026" loading="lazy">
-      <div class="caption">
-        <div class="names">ThS.BS Lê Thị Minh Tâm &amp; ThS.BS Nguyễn Trung Hiếu</div>
-        <div class="role">Hội thảo khoa học: Suy dinh dưỡng – mất cơ ở bệnh nhân mắc bệnh lý mạn tính không lây · 2026</div>
-      </div>
-    </div>
-
     <h3 class="mt-12" style="text-align:center;">💬 Kết quả thực tế từ học viên</h3>
     <div class="community-results">
       <div class="community-item">
@@ -973,11 +1019,6 @@ footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height:
           <li><strong>Giá trị cầm về:</strong> Bản Đồ Khôi Phục Chuyển Hóa cá nhân hoàn chỉnh để sẵn sàng áp dụng ngay từ bữa sáng hôm sau.</li>
         </ul>
       </div>
-    </div>
-
-    <div class="mt-16 text-center">
-      <img src="assets/workbook.png" alt="Một trang trong Sổ tay thực hành Y khoa (Workbook) Bản Đồ Khôi Phục Chuyển Hóa" loading="lazy" style="max-width: 480px; width: 100%; border-radius: 12px; border: 1px solid var(--border-strong); box-shadow: 0 16px 50px rgba(0,0,0,0.35); margin: 0 auto;">
-      <p style="font-size: 0.9rem; color: var(--text-muted); margin: 14px auto 0; font-style: italic; max-width: 480px; line-height: 1.6;">Một trang trong Sổ tay thực hành — Anh/Chị vừa nghe vừa điền trực tiếp, được Bác sĩ sửa ngay trong buổi học.</p>
     </div>
 
     <h3 class="mt-16 text-center">Sau khi tham gia buổi học, Anh/Chị còn nhận được:</h3>
