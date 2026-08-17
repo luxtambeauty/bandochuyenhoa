@@ -143,21 +143,29 @@ strong { color: var(--text); font-weight: 600; }
    ========================================================= */
 .hero {
   position: relative;
-  padding: clamp(64px, 10vw, 120px) 0 168px;
+  padding: clamp(64px, 10vw, 120px) 0 clamp(210px, 23vw, 310px);
   background:
     radial-gradient(ellipse 80% 40% at 50% 0%, rgba(242, 208, 182, 0.15) 0%, transparent 65%),
     linear-gradient(180deg, #63503E 0%, #6E5A48 40%, #776252 75%, #7E6857 100%);
   color: var(--hero-ivory);
 }
-/* Dải chuyển mềm xuống nền kem ở đáy hero */
+/* Dải chuyển xuống section kế tiếp.
+   Các mốc alpha theo đường cong smoothstep để không lộ vệt sáng;
+   kết thúc đúng bằng #FBF6F1 = nền section ngay dưới nên không có đường ranh. */
 .hero::after {
   content: '';
   position: absolute; left: 0; right: 0; bottom: 0;
-  height: 130px;
+  height: clamp(180px, 20vw, 270px);
   background: linear-gradient(180deg,
-    rgba(246, 231, 221, 0) 0%,
-    rgba(246, 231, 221, 0.72) 58%,
-    var(--bg) 100%);
+    rgba(251, 246, 241, 0)      0%,
+    rgba(251, 246, 241, 0.043) 12.5%,
+    rgba(251, 246, 241, 0.156) 25%,
+    rgba(251, 246, 241, 0.316) 37.5%,
+    rgba(251, 246, 241, 0.500) 50%,
+    rgba(251, 246, 241, 0.684) 62.5%,
+    rgba(251, 246, 241, 0.844) 75%,
+    rgba(251, 246, 241, 0.957) 87.5%,
+    rgba(251, 246, 241, 1)     100%);
   pointer-events: none;
 }
 .hero > * { position: relative; z-index: 1; }
@@ -179,13 +187,25 @@ strong { color: var(--text); font-weight: 600; }
   margin: 24px auto 0;
   line-height: 1.8;
 }
-.hero h1 { margin-top: 32px; }
+.hero h1 { margin-top: 32px; font-size: clamp(1.7rem, 6.2vw, 2.3rem); }
 .hero-sub {
   font-size: 1.08rem;
   color: var(--hero-ivory);
   max-width: 660px;
   margin: 24px auto 0;
   line-height: 1.8;
+}
+/* Từ 860px trở lên: ép tiêu đề và dòng phụ nằm gọn trên MỘT dòng.
+   Dòng dài nhất ("VÀ CẢI THIỆN...ĐƯỜNG HUYẾT") rộng ~24.3em nên
+   cỡ chữ phải bám theo bề ngang màn hình. Dưới 860px cho xuống dòng
+   tự nhiên, vì ép 1 dòng sẽ khiến chữ nhỏ đến mức không đọc nổi. */
+@media (min-width: 860px) {
+  .hero .container { max-width: 1180px; }
+  .hero h1 { font-size: min(calc(3.95vw - 2px), 2.95rem); }
+  .hero-sub {
+    max-width: 900px;
+    font-size: min(1.08rem, 2vw);
+  }
 }
 .hero-info {
   display: grid;
