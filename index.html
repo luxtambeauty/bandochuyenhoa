@@ -617,6 +617,75 @@ strong { color: var(--text); font-weight: 600; }
   .stat-row .stat-before::after { content: "  →"; color: var(--text-muted); }
   .stat-row .stat-before, .stat-row .stat-after { display: inline; margin-right: 8px; }
 }
+/* --- Thẻ feedback học viên: ảnh tròn + tên + trích dẫn + 5 sao --- */
+.hv-list { display: grid; gap: 20px; margin-top: 28px; }
+.hv-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 30px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px 34px;
+  box-shadow: 0 2px 12px rgba(61, 43, 40, 0.05);
+}
+.hv-avatar {
+  position: relative;
+  width: 122px; height: 122px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent);
+  box-shadow: 0 5px 16px rgba(138, 74, 64, 0.20);
+  flex-shrink: 0;
+}
+/* Chữ cái đầu hiện ra nếu ảnh chưa có, để khung không bị vỡ */
+.hv-avatar::before {
+  content: attr(data-initial);
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface-2);
+  font-family: var(--font-h); font-weight: 700; font-size: 2.6rem;
+  color: var(--accent);
+}
+.hv-avatar img {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  /* Ảnh chân dung dọc: lấy phần trên để không cắt mất khuôn mặt */
+  object-position: center 25%;
+}
+.hv-name {
+  font-family: var(--font-h); font-weight: 700;
+  color: var(--text); font-size: 1.12rem; line-height: 1.4;
+}
+.hv-name span { font-weight: 500; color: var(--text-muted); font-size: 0.92rem; }
+.hv-quote {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-top: 10px;
+}
+.hv-stars {
+  margin-top: 16px;
+  text-align: right;
+  color: #C89030;
+  font-size: 1.2rem;
+  letter-spacing: 0.16em;
+  line-height: 1;
+}
+@media (max-width: 620px) {
+  .hv-card {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 30px 24px;
+  }
+  .hv-stars { text-align: center; letter-spacing: 0.2em; }
+}
+
 .community-results { display: grid; gap: 14px; margin-top: 26px; }
 .community-item {
   background: var(--surface);
@@ -931,15 +1000,28 @@ footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height:
     <div class="founder-quote">Chúng tôi không hứa giảm cân thần tốc, cũng không trưng ra những con số thành tích không kiểm chứng được. Chỉ làm một việc: đưa cách tư duy của bác sĩ chuyển hóa đến tay anh chị, đủ đơn giản để giữ được lâu dài.</div>
 
     <h3 class="mt-12" style="text-align:center;">💬 Kết quả thực tế từ học viên</h3>
-    <div class="community-results">
-      <div class="community-item">
-        "Không phải nhịn bữa nào, chỉ sắp xếp lại cho cân bằng. 26 ngày, tôi từ 65kg xuống 61,5kg. Cơ thể nhẹ đi và tôi biết yêu bản thân mình hơn mỗi ngày."
-        <div style="margin-top:12px; font-family: var(--font-h); font-weight:600; color: var(--accent-bright); font-size:0.92rem;">— Cô Nhã (53 tuổi, Kon Tum)</div>
-      </div>
-      <div class="community-item">
-        "Em từng ăn kiêng cực đoan rồi ăn bù, vòng lặp mãi không thoát. Đi khám nhiều nơi, ai cũng bảo ăn ít lại. Nhưng Bác sĩ là người đầu tiên giải thích cho em tại sao ăn ít mà vẫn không xuống cân."
-        <div style="margin-top:12px; font-family: var(--font-h); font-weight:600; color: var(--accent-bright); font-size:0.92rem;">— Doanh (19 tuổi, Đà Nẵng)</div>
-      </div>
+    <div class="hv-list">
+      <figure class="hv-card">
+        <div class="hv-avatar" data-initial="N">
+          <img src="assets/hv-co-nha.jpg" alt="Cô Nhã, 53 tuổi, Kon Tum" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="hv-body">
+          <figcaption class="hv-name">Cô Nhã <span>· 53 tuổi, Kon Tum</span></figcaption>
+          <blockquote class="hv-quote">"Không phải nhịn bữa nào, chỉ sắp xếp lại cho cân bằng. 26 ngày, tôi từ 65kg xuống 61,5kg. Cơ thể nhẹ đi và tôi biết yêu bản thân mình hơn mỗi ngày."</blockquote>
+          <div class="hv-stars" role="img" aria-label="Đánh giá 5 trên 5 sao">★★★★★</div>
+        </div>
+      </figure>
+
+      <figure class="hv-card">
+        <div class="hv-avatar" data-initial="D">
+          <img src="assets/hv-doanh.jpg" alt="Doanh, 19 tuổi, Đà Nẵng" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="hv-body">
+          <figcaption class="hv-name">Doanh <span>· 19 tuổi, Đà Nẵng</span></figcaption>
+          <blockquote class="hv-quote">"Em từng ăn kiêng cực đoan rồi ăn bù, vòng lặp mãi không thoát. Đi khám nhiều nơi, ai cũng bảo ăn ít lại. Nhưng Bác sĩ là người đầu tiên giải thích cho em tại sao ăn ít mà vẫn không xuống cân."</blockquote>
+          <div class="hv-stars" role="img" aria-label="Đánh giá 5 trên 5 sao">★★★★★</div>
+        </div>
+      </figure>
     </div>
 
     <div class="cta-inline">
