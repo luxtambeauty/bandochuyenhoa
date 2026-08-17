@@ -686,6 +686,20 @@ strong { color: var(--text); font-weight: 600; }
   .hv-stars { text-align: center; letter-spacing: 0.2em; }
 }
 
+/* Ảnh tròn đứng cạnh tiêu đề trong 3 câu chuyện chi tiết */
+.case-head {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 24px;
+}
+.case-head h3 { margin-bottom: 0; }
+.case-avatar { width: 100px; height: 100px; }
+.case-avatar::before { font-size: 2rem; }
+@media (max-width: 560px) {
+  .case-head { flex-direction: column; text-align: center; gap: 16px; }
+}
+
 .community-results { display: grid; gap: 14px; margin-top: 26px; }
 .community-item {
   background: var(--surface);
@@ -1219,7 +1233,12 @@ footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height:
     </div>
 
     <div class="case">
-      <h3>Chú Vinh, 59 tuổi, Đà Nẵng</h3>
+      <div class="case-head">
+        <div class="hv-avatar case-avatar" data-initial="V">
+          <img src="assets/hv-chu-vinh.jpg" alt="Chú Vinh, 59 tuổi, Đà Nẵng" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <h3>Chú Vinh, 59 tuổi, Đà Nẵng</h3>
+      </div>
       <p>Là người thích vận động nhưng cơ thể chú không cho phép nữa. Mấy năm nay chú đau nhức xương khớp, nhất là khớp gối. Chạy được một quãng là gối lên tiếng. Rồi chú chạy ngắn lại và thưa dần.</p>
       <p>Gần 2 tháng, chú giảm 5kg. Từ 81.1kg còn 76.1kg. Và điều chú vui nhất không phải cân nặng giảm mà là gối chú đã khỏe hơn, không còn đau như trước. Cơ thể tràn đầy năng lượng vào mỗi sáng thức dậy, cảm thấy vui vẻ cả ngày và ngủ sâu giấc suốt cả đêm dài.</p>
 
@@ -1229,7 +1248,12 @@ footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height:
     </div>
 
     <div class="case">
-      <h3>Chú Bảo, 56 tuổi, Huế</h3>
+      <div class="case-head">
+        <div class="hv-avatar case-avatar" data-initial="B">
+          <img src="assets/hv-chu-bao.jpg" alt="Chú Bảo, 56 tuổi, Huế" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <h3>Chú Bảo, 56 tuổi, Huế</h3>
+      </div>
       <p>Thấy con gái thay đổi, chú được hướng dẫn lại phương pháp dưới sự giám sát trực tiếp của bác sĩ. Lúc bắt đầu: mỡ nội tạng 14.5, vượt ngưỡng an toàn. HDL-C (mỡ máu bảo vệ tim) chỉ còn 0.98 mmol/L.</p>
       <p>Ba tháng sau, xét nghiệm lại: HDL-C lên 1.20 (vùng an toàn); chú giảm 8.4kg, mỡ nội tạng về 11, tỷ lệ mỡ 23.7% → 17.4%.</p>
       <p>Nhưng chú không nhắc mấy con số đó. Chú nhắc chuyện chú ngủ được, và thôi cáu gắt với người nhà. Lần đầu sau nhiều năm, chú đi tái khám mà không thấy lo như trước vì lần này chú biết rõ cơ thể mình.</p>
@@ -1242,7 +1266,12 @@ footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height:
     </div>
 
     <div class="case">
-      <h3>Trang, 31 tuổi, Huế</h3>
+      <div class="case-head">
+        <div class="hv-avatar case-avatar" data-initial="T">
+          <img src="assets/hv-trang.jpg" alt="Trang, 31 tuổi, Huế" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <h3>Trang, 31 tuổi, Huế</h3>
+      </div>
       <p>Ngủ dậy vẫn nặng đầu. Ba giờ chiều đã hết pin. Và một niềm tin rất quen: muốn nhẹ đi thì phải chịu đói. Trang bắt đầu ở 58kg, tỷ lệ mỡ 34.1%.</p>
       <p>Ba tháng sau: giảm 7.1kg, trong đó 5kg là mỡ. Tỷ lệ mỡ về 28.3%, vào vùng khuyến nghị. Vòng bụng giảm 12cm. Phục hồi tốt hệ tiêu hóa dù trước đó từng trải qua một ca phẫu thuật đại tràng. Luôn cảm thấy ăn no, ăn ngon miệng và cân nặng vẫn giảm.</p>
       <p>Trước đây 1-2h sáng vẫn chưa ngủ được nhưng đến nay 9h tối là cơn buồn ngủ đã ùa về, cô ngủ sâu giấc suốt đêm, sáng dậy thấy năng lượng tràn trề, không phải kiểu bùng lên rồi tụt, mà đủ đều để đi hết một ngày làm việc mà không phải gồng sức. Chiếc đầm ôm sát giữ trong tủ nhiều năm, lần này đã mặc vừa.</p>
