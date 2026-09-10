@@ -709,11 +709,14 @@ strong { color: var(--text); font-weight: 600; }
 }
 .feedback-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 22px;
-  align-items: start;
+  justify-items: center;
 }
+/* Ảnh dọc 1 màn hình để hẹp; ảnh ghép 2 màn hình cần rộng mới đọc được chữ */
+.feedback-item.is-tall { max-width: 430px; }
+.feedback-item.is-wide { max-width: 900px; }
 .feedback-item {
+  width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -1318,14 +1321,14 @@ footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height:
     <div class="feedback-block">
       <h3 class="feedback-title">Tin nhắn học viên gửi về sau khi áp dụng</h3>
       <div class="feedback-grid">
-        <figure class="feedback-item">
+        <figure class="feedback-item is-tall">
           <img src="assets/fb-tin-nhan-1.jpg" alt="Tin nhắn học viên chia sẻ cải thiện chỉ số mỡ máu, vitamin D và giấc ngủ" loading="lazy" onerror="this.closest('figure').style.display='none'">
         </figure>
-        <figure class="feedback-item">
+        <figure class="feedback-item is-wide">
           <img src="assets/fb-tin-nhan-2.jpg" alt="Tin nhắn học viên chia sẻ kết quả giảm cân" loading="lazy" onerror="this.closest('figure').style.display='none'">
         </figure>
       </div>
-      <p class="feedback-note">Ảnh chụp tin nhắn được chia sẻ với sự đồng ý của học viên. Thông tin nhận dạng đã được che.</p>
+      <p class="feedback-note">Ảnh chụp tin nhắn được chia sẻ với sự đồng ý của học viên.</p>
     </div>
   </div>
 </section>
