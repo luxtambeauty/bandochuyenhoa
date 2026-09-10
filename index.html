@@ -700,6 +700,41 @@ strong { color: var(--text); font-weight: 600; }
   .case-head { flex-direction: column; text-align: center; gap: 16px; }
 }
 
+/* --- Ảnh chụp tin nhắn phản hồi của học viên --- */
+.feedback-block { margin-top: 44px; }
+.feedback-title {
+  text-align: center;
+  margin-bottom: 26px;
+  font-size: 1.15rem;
+}
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+.feedback-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: 0 2px 12px rgba(61, 43, 40, 0.05);
+}
+.feedback-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+.feedback-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 20px;
+  line-height: 1.7;
+}
+
 .community-results { display: grid; gap: 14px; margin-top: 26px; }
 .community-item {
   background: var(--surface);
@@ -1278,6 +1313,19 @@ footer .legal { margin-top: 24px; font-size: 0.82rem; opacity: 0.7; line-height:
         <div class="stat-row"><span class="stat-label">Cân nặng (3 tháng)</span><span class="stat-before">58kg</span><span class="stat-arrow">→</span><span class="stat-after">50,9kg</span></div>
         <div class="stat-row"><span class="stat-label">Tỷ lệ mỡ cơ thể</span><span class="stat-before">34.1%</span><span class="stat-arrow">→</span><span class="stat-after">28.3%</span></div>
       </div>
+    </div>
+
+    <div class="feedback-block">
+      <h3 class="feedback-title">Tin nhắn học viên gửi về sau khi áp dụng</h3>
+      <div class="feedback-grid">
+        <figure class="feedback-item">
+          <img src="assets/fb-tin-nhan-1.jpg" alt="Tin nhắn học viên chia sẻ cải thiện chỉ số mỡ máu, vitamin D và giấc ngủ" loading="lazy" onerror="this.closest('figure').style.display='none'">
+        </figure>
+        <figure class="feedback-item">
+          <img src="assets/fb-tin-nhan-2.jpg" alt="Tin nhắn học viên chia sẻ kết quả giảm cân" loading="lazy" onerror="this.closest('figure').style.display='none'">
+        </figure>
+      </div>
+      <p class="feedback-note">Ảnh chụp tin nhắn được chia sẻ với sự đồng ý của học viên. Thông tin nhận dạng đã được che.</p>
     </div>
   </div>
 </section>
