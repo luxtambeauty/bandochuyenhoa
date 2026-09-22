@@ -2,6 +2,29 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2665719227215710');
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'Ban Do Khoi Phuc Chuyen Hoa',content_category:'Workshop',value:99000,currency:'VND'});
+// Bắn 1 sự kiện đúng 1 lần cho mỗi đơn (tránh đếm trùng khi khách tải lại trang)
+function fbqOnce(key,event,params,eventId){
+  try{
+    if(typeof fbq!=='function')return;
+    if(sessionStorage.getItem(key))return;
+    fbq('track',event,params||{},eventId?{eventID:eventId}:undefined);
+    sessionStorage.setItem(key,'1');
+  }catch(e){}
+}
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2665719227215710&ev=PageView&noscript=1"/></noscript>
+<!-- /Meta Pixel -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phương pháp giảm mỡ tự nhiên & cải thiện mỡ máu, đường huyết | Bản Đồ Khôi Phục Chuyển Hóa</title>
 <meta name="description" content="Buổi học trực tuyến 2 buổi cùng ThS.BS Nguyễn Trung Hiếu & ThS.BS Lê Thị Minh Tâm. 10 & 11/10/2026 · 99.000đ · Hoàn tiền 100%.">

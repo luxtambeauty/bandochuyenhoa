@@ -2,6 +2,28 @@
 <html lang="vi" data-theme="dark">
 <head>
 <meta charset="UTF-8">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2665719227215710');
+fbq('track','PageView');
+// Bắn 1 sự kiện đúng 1 lần cho mỗi đơn (tránh đếm trùng khi khách tải lại trang)
+function fbqOnce(key,event,params,eventId){
+  try{
+    if(typeof fbq!=='function')return;
+    if(sessionStorage.getItem(key))return;
+    fbq('track',event,params||{},eventId?{eventID:eventId}:undefined);
+    sessionStorage.setItem(key,'1');
+  }catch(e){}
+}
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2665719227215710&ev=PageView&noscript=1"/></noscript>
+<!-- /Meta Pixel -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bản Đồ Khôi Phục Chuyển Hóa 2 Buổi™ — Đăng ký giữ chỗ</title>
 <meta name="robots" content="noindex">

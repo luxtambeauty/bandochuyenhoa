@@ -2,6 +2,28 @@
 <html lang="vi" data-theme="dark">
 <head>
 <meta charset="UTF-8">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2665719227215710');
+fbq('track','PageView');
+// Bắn 1 sự kiện đúng 1 lần cho mỗi đơn (tránh đếm trùng khi khách tải lại trang)
+function fbqOnce(key,event,params,eventId){
+  try{
+    if(typeof fbq!=='function')return;
+    if(sessionStorage.getItem(key))return;
+    fbq('track',event,params||{},eventId?{eventID:eventId}:undefined);
+    sessionStorage.setItem(key,'1');
+  }catch(e){}
+}
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2665719227215710&ev=PageView&noscript=1"/></noscript>
+<!-- /Meta Pixel -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bản Đồ Khôi Phục Chuyển Hóa 2 Buổi™ — Xác nhận giữ chỗ</title>
 <meta name="robots" content="noindex">
@@ -173,6 +195,13 @@ footer{text-align:center;margin-top:26px;font-size:13px;color:rgba(24,59,59,.62)
     document.getElementById('orderEmail').textContent = order.email || '—';
     const amt = Number(order.totalAmount || 0).toLocaleString('en-US').replace(/,/g, '.');
     document.getElementById('orderAmount').textContent = amt + 'đ';
+
+    // Meta Pixel: đơn đã thanh toán thành công
+    fbqOnce('fb_purchase_' + order.orderId, 'Purchase', {
+      content_name: 'Ban Do Khoi Phuc Chuyen Hoa',
+      currency: 'VND',
+      value: Number(order.totalAmount || 99000)
+    }, order.orderId);
   }
 </script>
 </body>
