@@ -122,6 +122,12 @@ select{appearance:none;cursor:pointer;
 .qr-section img{max-width:250px;width:100%;margin:0 auto;background:#fff;
   padding:14px;border-radius:18px;border:1px solid var(--line)}
 .qr-hint{font-size:12.5px;color:rgba(24,59,59,.62);margin-top:13px;line-height:1.6}
+.qr-fail{display:none;background:var(--pink-light);border-radius:14px;padding:18px 20px;
+  font-size:14px;line-height:1.7;color:rgba(24,59,59,.86);text-align:left}
+.qr-fail b{font-weight:600}
+.helpline{margin-top:18px;background:var(--cream);border:1px solid var(--line);border-radius:14px;
+  padding:14px 18px;font-size:14px;line-height:1.7;text-align:center;color:rgba(24,59,59,.82)}
+.helpline a{font-weight:700;color:var(--forest);text-decoration:underline}
 
 .warn-note{background:var(--pink-light);border-radius:14px;padding:15px 18px;margin-bottom:22px;
   font-size:13px;line-height:1.68;color:rgba(24,59,59,.82)}
@@ -170,7 +176,13 @@ select{appearance:none;cursor:pointer;
 
     <div class="qr-section">
       <img id="qrImg" alt="Mã QR thanh toán">
-      <div class="qr-hint">Mở app ngân hàng → quét mã → nội dung và số tiền tự điền</div>
+      <div class="qr-hint" id="qrHint">Mở app ngân hàng → quét mã → nội dung và số tiền tự điền</div>
+      <div class="qr-fail" id="qrFail">
+        <b>Chưa tải được mã QR.</b> Anh chị vẫn chuyển khoản bình thường theo thông tin ngay bên dưới —
+        hệ thống vẫn tự xác nhận như thường.<br>
+        Nếu cần hỗ trợ, nhắn Zalo hoặc gọi
+        <a href="tel:0981944324" style="font-weight:700;text-decoration:underline">0981 944 324</a>.
+      </div>
     </div>
 
     <div class="info-box">
@@ -190,7 +202,11 @@ select{appearance:none;cursor:pointer;
     </div>
   </div>
 
-  <div class="support">Giữ nguyên trang này cho đến khi thấy xác nhận. Cần hỗ trợ? Liên hệ 0981944324</div>
+  <div class="support">Giữ nguyên trang này cho đến khi thấy xác nhận.</div>
+  <div class="helpline">
+    Gặp trục trặc khi thanh toán? Nhắn <a href="https://zalo.me/0981944324" target="_blank" rel="noopener">Zalo 0981 944 324</a>
+    hoặc gọi <a href="tel:0981944324">0981 944 324</a> — sẽ có người giữ chỗ giúp anh chị.
+  </div>
 </div>
 
 <script>
@@ -200,7 +216,19 @@ select{appearance:none;cursor:pointer;
   const BUMP2_PRICE = 0;
 
   const order = JSON.parse(sessionStorage.getItem('order') || '{}');
-  if (!order.orderId) { window.location.href = '/dang-ky'; }
+  if (!order.orderId) {
+    document.querySelector('.card').innerHTML =
+      '<h1>Chưa tìm thấy đơn giữ chỗ</h1>'
+      + '<p class="lead">Phiên đăng ký của anh chị đã hết hạn hoặc chưa hoàn tất. '
+      + 'Anh chị vui lòng đăng ký lại — chỉ mất chưa tới một phút.</p>'
+      + '<div class="helpline" style="margin-top:22px">'
+      + 'Nếu anh chị đã chuyển khoản rồi mà gặp lỗi này, đừng lo — '
+      + 'nhắn <a href="https://zalo.me/0981944324" target="_blank" rel="noopener">Zalo 0981 944 324</a> '
+      + 'hoặc gọi <a href="tel:0981944324">0981 944 324</a>, chúng tôi sẽ tra soát và giữ chỗ giúp anh chị ngay.'
+      + '</div>'
+      + '<p style="text-align:center;margin-top:22px"><a href="/dang-ky" style="font-weight:600;text-decoration:underline">← Quay lại trang đăng ký</a></p>';
+    throw new Error('Khong co don trong phien');
+  }
 
   if (BUMP1_PRICE > 0) document.querySelector('[data-bump="1"]').style.display = 'flex';
   if (BUMP2_PRICE > 0) document.querySelector('[data-bump="2"]').style.display = 'flex';
@@ -229,7 +257,19 @@ select{appearance:none;cursor:pointer;
 
   function updateQR(amount) {
     const url = 'https://qr.sepay.vn/img?acc=40526907&bank=ACB&amount=' + amount + '&des=' + encodeURIComponent(order.ckContent);
-    document.getElementById('qrImg').src = url;
+    const img = document.getElementById('qrImg');
+    // Nếu máy chủ QR trục trặc, ẩn ảnh vỡ và hiện hướng dẫn + số điện thoại
+    img.onerror = function () {
+      img.style.display = 'none';
+      var h = document.getElementById('qrHint'); if (h) h.style.display = 'none';
+      var f = document.getElementById('qrFail'); if (f) f.style.display = 'block';
+    };
+    img.onload = function () {
+      img.style.display = '';
+      var h = document.getElementById('qrHint'); if (h) h.style.display = '';
+      var f = document.getElementById('qrFail'); if (f) f.style.display = 'none';
+    };
+    img.src = url;
     document.getElementById('amount').textContent = formatVnd(amount) + 'đ';
     document.getElementById('total').textContent = formatVnd(amount) + 'đ';
   }
