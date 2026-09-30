@@ -86,7 +86,35 @@ p{line-height:1.7}
              linear-gradient(135deg,#f3eee9 0%,#dae8e6 52%,#afc7c6 100%)}
 .hero::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:200px;pointer-events:none;
   background:linear-gradient(to top,rgba(255,253,249,.92),transparent)}
-.hero-in{position:relative;z-index:5;display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center;max-width:var(--wrap);margin:0 auto}
+.hero-in{position:relative;z-index:5;display:grid;grid-template-columns:1.08fr .92fr;gap:34px 54px;align-items:start;max-width:var(--wrap);margin:0 auto;
+  grid-template-areas:"txt form" "photo form"}
+.hero-txt{grid-area:txt}
+.hero-photo{grid-area:photo;border-radius:24px;overflow:hidden;aspect-ratio:4/3;background:var(--mist);box-shadow:0 22px 54px rgba(24,59,59,.16)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 28%}
+/* Khung đăng ký ở đầu trang */
+.reg{grid-area:form;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px;
+  box-shadow:0 22px 54px -26px rgba(24,59,59,.4);display:flex;flex-direction:column;gap:14px;scroll-margin-top:100px}
+.reg-steps{display:flex;gap:6px;margin-bottom:4px}
+.reg-steps span{flex:1;height:5px;border-radius:99px;background:var(--line)}
+.reg-steps span.on{background:var(--forest)}
+.reg-eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-text)}
+.reg-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.reg-price b{font-family:var(--serif);font-weight:600;font-size:42px;color:var(--ink);line-height:1.1}
+.reg-price s{color:var(--sage-text);font-size:16px}
+.reg-tiny{font-size:14px;color:var(--sage-text);line-height:1.55}
+.reg-tiny.center{text-align:center}
+.reg-tiny.strong{font-weight:600;color:var(--ink)}
+.reg-field{display:flex;flex-direction:column;gap:6px}
+.reg-field label{font-size:14px;font-weight:600;color:var(--ink)}
+.reg input,.reg select{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 14px;
+  font:500 16px var(--sans);background:var(--paper);color:var(--ink)}
+.reg input::placeholder{color:#8fa9a1}
+.reg input:focus-visible,.reg select:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.reg-err{font-size:14px;color:#a8454f;min-height:1em;line-height:1.55}
+.reg-btn{width:100%;border:0;border-radius:999px;background:var(--ink);color:var(--paper);padding:18px 24px;
+  font:600 17px var(--sans);cursor:pointer}
+.reg-btn:hover{background:var(--deep)}
+.reg-btn:disabled{opacity:.7;cursor:progress}
 .hero-aud{font-family:var(--serif);font-style:italic;font-size:17px;color:rgba(24,59,59,.72);margin-bottom:20px}
 .hero h1{font-size:clamp(2rem,3.9vw,3.5rem);line-height:1.1;margin-bottom:24px}
 .hero-lede{font-size:17.5px;color:rgba(24,59,59,.8);max-width:520px;margin-bottom:28px}
@@ -100,8 +128,6 @@ p{line-height:1.7}
 .note-line::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--pink)}
 .hero-art{position:relative}
 .hero-art .arch{box-shadow:0 26px 64px rgba(24,59,59,.2);aspect-ratio:.68;border-radius:260px 260px 22px 22px}
-.strip{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:22px 24px;font-family:var(--serif);font-size:16.5px;color:rgba(24,59,59,.66);position:relative;z-index:6}
-.strip i{color:#c98d95;font-style:normal}
 
 /* HEAD chung */
 .head{text-align:center;max-width:780px;margin:0 auto 54px}
@@ -301,6 +327,7 @@ footer .mid{text-align:center;flex:1}
 footer .right{text-align:right}
 
 @media(max-width:980px){
+  .hero-in{grid-template-areas:"txt" "form" "photo"}
   .hero-in,.split,.split.flip,.offer-in,.faq-in{grid-template-columns:1fr;gap:38px}
   .numgrid,.pillars,.quotes,.numgrid.three{grid-template-columns:1fr 1fr}
   .numgrid.three .numcard:last-child{grid-column:1/-1}
@@ -337,13 +364,13 @@ footer .right{text-align:right}
   <div class="nav-links">
     <a href="#phuong-phap">Phương pháp</a><a href="#lo-trinh">Lộ trình</a><a href="#ket-qua">Kết quả</a><a href="#faq">Hỏi đáp</a>
   </div>
-  <a href="dang-ky.html" class="nav-cta">Đăng ký ngay ↗</a>
+  <a href="#giu-cho" class="nav-cta">Đăng ký ngay ↗</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-in">
-    <div>
+    <div class="hero-txt">
       <div class="eyebrow">Buổi học trực tuyến 2 buổi · cùng 2 thạc sĩ, bác sĩ</div>
       <p class="hero-aud">Dành cho anh chị muốn giảm mỡ thừa và sống khỏe mạnh hơn.</p>
       <h1>Lấy lại vóc dáng<br><em>chuẩn y khoa.</em><br>Không nhịn ăn. Không thực&nbsp;phẩm chức&nbsp;năng.</h1>
@@ -354,16 +381,34 @@ footer .right{text-align:right}
         <div><span>Hình thức</span><b>Online qua Google Meet</b></div>
       </div>
       <div class="cta-row">
-        <a href="dang-ky.html" class="btn">Giữ chỗ của tôi — 99.000đ <span>↗</span></a>
+        <a href="#giu-cho" class="btn">Giữ chỗ của tôi — 99.000đ <span>↗</span></a>
       </div>
       <div class="note-line">Hoàn tiền 100% nếu anh chị thấy không phù hợp.</div>
     </div>
-    <div class="hero-art">
-      <div class="arch"><img src="assets/bac-si-blouse.jpg" alt="ThS.BS Nguyễn Trung Hiếu và ThS.BS Lê Thị Minh Tâm" style="object-position:center 28%"></div>
-    </div>
+    <form class="reg" id="giu-cho" novalidate>
+      <div class="reg-steps"><span class="on"></span><span></span><span></span></div>
+      <span class="reg-eyebrow">Bước 1 / 3 · Giữ chỗ</span>
+      <div class="reg-price"><b>99.000đ</b><s>Giá trị trọn bộ 1.800.000đ</s></div>
+      <p class="reg-tiny">Tặng kèm Cẩm nang đọc hiểu chỉ số khám sức khỏe.</p>
+      <div class="reg-field"><label for="f-name">Họ và tên</label><input id="f-name" name="name" placeholder="Nguyễn Văn A" autocomplete="name"></div>
+      <div class="reg-field"><label for="f-phone">Số điện thoại (Zalo)</label><input id="f-phone" name="phone" inputmode="tel" placeholder="09xx xxx xxx" autocomplete="tel"></div>
+      <div class="reg-field"><label for="f-email">Email nhận tài liệu</label><input id="f-email" name="email" type="email" placeholder="ten@email.com" autocomplete="email"></div>
+      <div class="reg-field"><label for="f-issue">Anh chị đang gặp điều nào nhiều nhất?</label>
+        <select id="f-issue" name="issue">
+          <option value="">Chọn một</option>
+          <option>Vòng bụng không xuống dù đã cố</option>
+          <option>Cân lên xuống thất thường</option>
+          <option>Chỉ số máu chạm ngưỡng</option>
+          <option>Muốn ăn bình thường mà vẫn giữ dáng</option>
+        </select></div>
+      <p class="reg-err" id="f-err" role="alert"></p>
+      <button class="reg-btn" type="submit">Tiếp tục đến bước thanh toán →</button>
+      <p class="reg-tiny center">🔒 Chưa đến 30 giây. Thông tin được bảo mật.</p>
+      <p class="reg-tiny center strong">10 và 11/10/2026 · 20:00 đến 21:45 · Google Meet</p>
+    </form>
+    <div class="hero-photo"><img src="assets/bac-si-blouse.jpg" alt="ThS.BS Nguyễn Trung Hiếu và ThS.BS Lê Thị Minh Tâm"></div>
   </div>
 </section>
-<div class="strip"><span>Ăn đúng giờ</span><i>·</i><span>Ngủ đủ giấc</span><i>·</i><span>Xếp đĩa đúng</span><i>·</i><span>Giảm mỡ nội tạng</span><i>·</i><span>Khỏe bền</span></div>
 
 <!-- ĐẠT ĐƯỢC GÌ -->
 <section class="sec">
@@ -400,7 +445,7 @@ footer .right{text-align:right}
       <p>Nhiều năm ở bệnh viện, chúng tôi thường gặp một kiểu bệnh nhân: mỗi lần tái khám, đơn thuốc dày thêm một chút. Nhưng vòng bụng vẫn vậy. Mỡ máu, đường huyết vẫn ở ngưỡng báo động.</p>
       <div class="pullq">Không phải vì họ không cố gắng. Mà vì một lượt khám ngắn ngủi chỉ đủ để chỉnh liều thuốc, không đủ để chỉ cho một người cách sửa nếp ăn nếp sống từ gốc.</div>
       <p>Chính những trải nghiệm lâm sàng đó đã thôi thúc chúng tôi hệ thống hóa tri thức y khoa thành giải pháp Bản Đồ Khôi Phục Chuyển Hóa.</p>
-      <a href="dang-ky.html" class="btn" style="margin-top:12px">Đăng ký giữ chỗ — 99.000đ <span>↗</span></a>
+      <a href="#giu-cho" class="btn" style="margin-top:12px">Đăng ký giữ chỗ — 99.000đ <span>↗</span></a>
     </div>
   </div>
 </section>
@@ -649,7 +694,7 @@ footer .right{text-align:right}
       <div class="pl"><span>Bản ghi hình xem lại không giới hạn + Cộng đồng Đồng hành</span><b>300.000đ</b></div>
       <div class="pl total"><span>Tổng giá trị</span><b>1.800.000đ</b></div>
       <div class="pricerow"><span>Phí cam kết hành động</span><b>99.000đ</b></div>
-      <a href="dang-ky.html" class="btn on-dark">Giữ chỗ của tôi — 99.000đ <span>↗</span></a>
+      <a href="#giu-cho" class="btn on-dark">Giữ chỗ của tôi — 99.000đ <span>↗</span></a>
       <p class="fine">Khoản phí nhỏ này là lời anh chị tự hứa với bản thân sẽ có mặt trọn vẹn cả hai buổi.</p>
     </div>
   </div>
@@ -714,7 +759,7 @@ footer .right{text-align:right}
     <div class="eyebrow" style="justify-content:center">Lời mời dành cho anh chị</div>
     <h2>Hai buổi tối.<br><em>Một cách ăn giữ được cả đời.</em></h2>
     <p>Anh chị không cần cố gắng nhiều hơn. Chỉ cần hiểu đúng cơ chế cơ thể mình, và bắt đầu từ bữa sáng ngày mai.</p>
-    <a href="dang-ky.html" class="btn">Giữ chỗ của tôi — 99.000đ <span>↗</span></a>
+    <a href="#giu-cho" class="btn">Giữ chỗ của tôi — 99.000đ <span>↗</span></a>
     <p class="closing-meta">10 &amp; 11/10/2026 · 20:00 – 21:45 · Hoàn tiền 100%</p>
   </div>
 </section>
@@ -728,5 +773,70 @@ footer .right{text-align:right}
   <div class="right">Hotline / Zalo<br>0981 944 324</div>
 </footer>
 
+
+<script>
+(function () {
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbydndS-vHwtTqZdsmsep_3Rj1HD9Z9a6Py-bTClATlu_U0e8MmOnTZKvscqJ8WQ2vX32Q/exec';
+  var TRANG_THANH_TOAN = '/checkout';
+  var form = document.getElementById('giu-cho');
+  var btn = form.querySelector('button[type="submit"]');
+  var err = document.getElementById('f-err');
+  var NHAN_NUT = btn.textContent;
+  // Mã tham chiếu giữ nguyên qua các lần thử lại để máy chủ không tạo đơn trùng
+  var clientRef = null;
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var ten = document.getElementById('f-name').value.trim();
+    var sdt = document.getElementById('f-phone').value.replace(/\D/g, '');
+    var email = document.getElementById('f-email').value.trim();
+    var vande = document.getElementById('f-issue').value;
+
+    if (ten.length < 2) { err.textContent = 'Anh chị nhập họ tên giúp em.'; return; }
+    if (sdt.length < 9 || sdt.length > 11) { err.textContent = 'Số điện thoại chưa đúng, anh chị kiểm tra lại.'; return; }
+    if (!/^\S+@\S+\.\S+$/.test(email)) { err.textContent = 'Email chưa đúng định dạng.'; return; }
+    err.textContent = '';
+
+    btn.disabled = true;
+    btn.textContent = 'Đang xử lý...';
+    if (!clientRef) clientRef = 'cr-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+
+    var data = { name: ten, phone: sdt, email: email, goal: vande,
+                 bump1: false, bump2: false, totalAmount: 99000, clientRef: clientRef };
+
+    // Apps Script thỉnh thoảng trả về trang HTML thay vì JSON -> thử lại tối đa 3 lần
+    var LAN_THU = 3, json = null;
+    for (var lan = 1; lan <= LAN_THU; lan++) {
+      try {
+        var res = await fetch(GAS_URL, { method: 'POST', body: JSON.stringify({ action: 'createOrder', data: data }) });
+        var kq = JSON.parse(await res.text());
+        if (!kq.success) throw new Error(kq.error || 'Order creation failed');
+        json = kq; break;
+      } catch (x) {
+        if (lan < LAN_THU) {
+          btn.textContent = 'Đang thử lại (' + (lan + 1) + '/' + LAN_THU + ')...';
+          await new Promise(function (r) { setTimeout(r, lan * 1200); });
+        }
+      }
+    }
+
+    if (!json) {
+      err.innerHTML = 'Hệ thống đang bận, chưa tạo được đơn giữ chỗ. Anh chị thử lại sau ít phút, '
+        + 'hoặc nhắn Zalo/gọi <a href="tel:0981944324" style="font-weight:700;text-decoration:underline">0981 944 324</a> '
+        + 'để được giữ chỗ trực tiếp.';
+      btn.disabled = false;
+      btn.textContent = NHAN_NUT;
+      return;
+    }
+
+    clientRef = null;
+    sessionStorage.setItem('order', JSON.stringify({
+      orderId: json.orderId, ckContent: json.ckContent, totalAmount: json.totalAmount,
+      name: ten, email: email, phone: sdt, goal: vande
+    }));
+    window.location.href = TRANG_THANH_TOAN;
+  });
+})();
+</script>
 </body>
 </html>

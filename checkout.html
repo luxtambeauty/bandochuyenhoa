@@ -32,289 +32,254 @@ src="https://www.facebook.com/tr?id=1073477048927988&ev=PageView&noscript=1"/></
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#183b3b; --deep:#234747; --forest:#37685f; --sage:#6f9c8f;
-  --sage-text:#5a8172; --sage-light:#b8d1ca; --mist:#edf4f1; --cream:#f7f3ee;
-  --paper:#fffdf9; --pink:#e9b2b8; --pink-light:#f4d8d8; --line:rgba(24,59,59,.14);
-  --field:#e8f1ed;
-  --sans:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
-  --serif:'Lora',"Times New Roman",serif;
+  --ink:#183b3b;--deep:#234747;--forest:#37685f;--sage:#6f9c8f;--sage-text:#5a8172;--sage-light:#b8d1ca;
+  --mist:#edf4f1;--cream:#f7f3ee;--paper:#fffdf9;--pink:#e9b2b8;--pink-light:#f4d8d8;--line:rgba(24,59,59,.14);
+  --sans:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;--serif:'Lora',"Times New Roman",serif;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--mist);color:var(--ink);font-family:var(--sans);
-  font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased;
-  min-height:100vh;padding:38px 20px 52px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.2;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:24px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-text)}
+.tiny{font-size:14px;color:var(--sage-text);line-height:1.55}
 
-.wrap{max-width:560px;margin:0 auto}
-.brand{text-align:center;font-family:var(--sans);font-size:11px;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--forest);margin-bottom:22px}
+/* thanh trên cùng */
+.top{border-bottom:1px solid var(--line);background:rgba(255,253,249,.94)}
+.top .wrap{display:flex;align-items:center;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .mark{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 17px var(--serif);display:grid;place-items:center}
+.brand b{font-size:12px;letter-spacing:.12em;text-transform:uppercase;display:block;line-height:1.1}
+.brand small{font-size:11px;color:var(--sage-text);display:block}
 
-.card{background:var(--paper);border-radius:24px;padding:42px 40px 38px;
-  box-shadow:0 14px 44px rgba(24,59,59,.09)}
-h1{font-family:var(--serif);font-weight:500;letter-spacing:-.02em;line-height:1.14;
-  font-size:31px;margin-bottom:12px}
-h1 em{font-style:italic;color:var(--sage-text)}
-.lead{font-size:14.5px;color:rgba(24,59,59,.74);line-height:1.68;margin-bottom:28px}
+/* bố cục 2 cột */
+.co{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start;padding-block:40px 72px}
+@media(max-width:900px){.co{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 18px 50px -30px rgba(24,59,59,.35)}
+.main{display:flex;flex-direction:column;gap:18px}
+.steps{display:flex;gap:6px}
+.steps span{flex:1;height:5px;border-radius:99px;background:var(--line)}
+.steps span.on{background:var(--forest)}
+.main h1{font-size:clamp(26px,3vw,32px)}
 
-/* --- hàng thông tin dạng nhãn / giá trị --- */
-.recap,.info,.info-box{background:var(--cream);border-radius:16px;padding:6px 20px;margin-bottom:26px}
-.recap-row,.info-row{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;
-  padding:14px 0;border-bottom:1px solid var(--line);font-size:14px}
-.recap-row:last-child,.info-row:last-child{border-bottom:none}
-.recap-row span,.info-row span{color:rgba(24,59,59,.66);white-space:nowrap}
-.recap-row strong,.info-row strong{font-weight:600;text-align:right;line-height:1.5}
-.recap-row.total{border-top:1px solid var(--line)}
-.recap-row.total strong{font-family:var(--serif);font-size:20px;font-weight:500}
-.info-row.highlight strong{font-family:var(--serif);font-size:18px;color:var(--forest)}
 
-/* --- biểu mẫu --- */
-label{display:block;font-size:13px;font-weight:600;margin:20px 0 8px}
-.req{color:#a8545d}
-input,select{width:100%;background:var(--field);border:1px solid transparent;border-radius:13px;
-  padding:14px 16px;font-family:var(--sans);font-size:15px;color:var(--ink);transition:border-color .15s,background .15s}
-input::placeholder{color:rgba(24,59,59,.42)}
-input:focus,select:focus{outline:none;border-color:var(--sage);background:var(--paper)}
-select{appearance:none;cursor:pointer;
-  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2337685f' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 16px center}
+/* hình thức thanh toán */
+.label{font-size:14px;font-weight:600}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.pay label{border:1px solid var(--line);border-radius:12px;padding:13px 14px;display:flex;gap:10px;align-items:center;cursor:pointer;font-weight:600;font-size:15px}
+.pay label:has(input:checked){border-color:var(--forest);background:var(--mist)}
+.pay input{accent-color:var(--forest)}
 
-.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-  background:var(--ink);color:var(--paper);border:none;border-radius:999px;
-  padding:17px;margin-top:28px;font-family:var(--sans);font-size:15px;font-weight:600;
-  cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s}
-.cta:hover:not(:disabled){transform:translateY(-2px);background:var(--deep);box-shadow:0 12px 30px rgba(24,59,59,.24)}
-.cta:disabled{background:var(--sage-light);color:rgba(24,59,59,.5);cursor:not-allowed}
-.error{color:#8a4d54;font-size:13.5px;margin-top:14px;text-align:center}
+/* khối mã QR */
+.qr{border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:var(--paper)}
+@media(max-width:520px){.qr{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.qr img{width:170px;height:170px;border-radius:12px;border:1px solid var(--line);background:#fff;padding:6px}
+.qr-info{display:flex;flex-direction:column;gap:6px;font-size:15px;width:100%}
+.qr-info .how{font-weight:600}
+.qr-info code{font-family:var(--sans);font-weight:700;font-size:16px;background:var(--mist);padding:2px 8px;border-radius:6px}
+.bank{margin-top:6px;border-top:1px solid var(--line);padding-top:10px;display:grid;gap:4px;font-size:14px}
+.bank div{display:flex;justify-content:space-between;gap:12px}
+.bank span{color:var(--sage-text)}
+.qr-fail{display:none;background:var(--pink-light);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.6}
+.warn{background:var(--pink-light);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.65}
+.warn b{color:#8a4d54}
 
-/* --- khối nhấn nền đậm --- */
-.summary{background:var(--ink);border-radius:18px;padding:6px 22px;margin-bottom:26px;color:var(--cream)}
-.summary-row{display:flex;justify-content:space-between;align-items:center;gap:18px;
-  padding:15px 0;border-bottom:1px solid rgba(247,243,238,.16);font-size:14px}
-.summary-row:last-child{border-bottom:none}
-.summary-total{padding:18px 0}
-.summary-total span:first-child{font-family:var(--serif);font-size:19px}
-.summary-total span:last-child{font-family:var(--serif);font-size:26px;color:#fff}
-
-.guarantee{background:var(--mist);border-radius:16px;padding:18px 20px;margin-top:26px;
-  font-size:13.5px;line-height:1.7;color:rgba(24,59,59,.8)}
-.guarantee strong{font-weight:600;color:var(--ink)}
-.back{display:block;text-align:center;margin-top:24px;font-size:13.5px;color:rgba(24,59,59,.62)}
-.back:hover{color:var(--forest)}
-.support{text-align:center;margin-top:24px;font-size:13px;color:rgba(24,59,59,.62);line-height:1.7}
-
-@media(max-width:520px){
-  body{padding:26px 20px 40px}
-  .card{padding:32px 22px 28px;border-radius:20px}
-  h1{font-size:26px}
-}
-
-/* ===== riêng trang thanh toán ===== */
-.bumps{margin-bottom:22px}
-.bump{display:flex;gap:13px;align-items:flex-start;background:var(--cream);
-  border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:10px;cursor:pointer}
-.bump input{width:auto;flex-shrink:0;margin-top:3px;accent-color:var(--forest)}
-.bump-name{font-weight:600;font-size:14px}
-.bump-price{color:var(--forest);font-weight:600;font-size:14px}
-.bump-desc{font-size:12.5px;color:rgba(24,59,59,.62);margin-top:3px}
-
-.qr-section{text-align:center;margin-bottom:24px}
-.qr-section img{max-width:250px;width:100%;margin:0 auto;background:#fff;
-  padding:14px;border-radius:18px;border:1px solid var(--line)}
-.qr-hint{font-size:12.5px;color:rgba(24,59,59,.62);margin-top:13px;line-height:1.6}
-.qr-fail{display:none;background:var(--pink-light);border-radius:14px;padding:18px 20px;
-  font-size:14px;line-height:1.7;color:rgba(24,59,59,.86);text-align:left}
-.qr-fail b{font-weight:600}
-.helpline{margin-top:18px;background:var(--cream);border:1px solid var(--line);border-radius:14px;
-  padding:14px 18px;font-size:14px;line-height:1.7;text-align:center;color:rgba(24,59,59,.82)}
-.helpline a{font-weight:700;color:var(--forest);text-decoration:underline}
-
-.warn-note{background:var(--pink-light);border-radius:14px;padding:15px 18px;margin-bottom:22px;
-  font-size:13px;line-height:1.68;color:rgba(24,59,59,.82)}
-.warn-note strong{font-weight:600;color:#8a4d54}
-
-.status{display:flex;align-items:center;justify-content:center;gap:10px;
-  border-radius:14px;padding:16px;font-size:14.5px;font-weight:600;font-family:var(--sans)}
-.status.pending{background:var(--cream);color:var(--forest);border:1px solid var(--line)}
-.status.paid{background:var(--ink);color:var(--sage-light)}
-.pulse{display:inline-block;width:9px;height:9px;border-radius:50%;background:currentColor;
-  animation:pulse 1.5s ease-in-out infinite}
+/* nút + trạng thái */
+.btn{width:100%;border:0;border-radius:999px;background:var(--forest);color:var(--paper);padding:18px 24px;font:600 17px var(--sans);cursor:pointer}
+.btn:hover{background:var(--deep)}
+.btn:disabled{opacity:.7;cursor:progress}
+.status{display:flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:14px;font-size:15px;font-weight:600;background:var(--cream);color:var(--forest);border:1px solid var(--line);text-align:center}
+.status.paid{background:var(--ink);color:var(--sage-light);border-color:var(--ink)}
+.status.wait{background:#fbf7ee}
+.pulse{display:inline-block;width:9px;height:9px;border-radius:50%;background:currentColor;animation:pulse 1.5s ease-in-out infinite;flex:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* cột phải */
+.side{display:flex;flex-direction:column;gap:18px}
+.summary{list-style:none;margin:10px 0 0;padding:0}
+.summary li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.summary li[hidden]{display:none}
+.summary .sum{font-weight:700;border:0;font-size:18px;align-items:baseline}
+.summary .sum span:last-child{font-family:var(--serif);font-size:28px;color:var(--forest)}
+.case{display:flex;flex-direction:column;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px}
+.who{display:flex;gap:12px;align-items:center}
+.who img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none}
+.who b{display:block}
+.who small{color:var(--sage-text)}
+.metric{display:flex;gap:10px;align-items:baseline;padding:10px 14px;border-radius:12px;background:var(--mist)}
+.metric b{font:600 26px var(--serif);color:var(--forest)}
+.metric span{font-size:14px;color:var(--sage-text)}
+.case q{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.5;quotes:"\201C" "\201D"}
+.guarantee{display:flex;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.seal{flex:none;width:84px;height:84px;border-radius:50%;background:var(--pink-light);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font:700 11px/1.2 var(--sans);color:var(--ink)}
+.seal b{font:700 21px/1 var(--serif);display:block;margin-bottom:3px}
+.guarantee p{font-size:14.5px;line-height:1.6}
+.help{font-size:14.5px;text-align:center;line-height:1.7;color:var(--deep)}
+.help a{font-weight:700;color:var(--forest)}
+a[href^="tel:"],a[href*="zalo.me"],.sdt{white-space:nowrap}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="brand">Bản Đồ Khôi Phục Chuyển Hóa 2 Buổi™</div>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/"><span class="mark">B</span><span><b>Bản Đồ Chuyển Hóa</b><small>Ăn đúng · Ngủ đủ · Khỏe bền</small></span></a>
+</div></header>
 
-  <div class="card">
-    <h1>Hoàn tất thanh toán</h1>
-    <p class="lead">Chuyển khoản theo thông tin dưới đây — đơn được xác nhận tự động trong 30 giây, bạn không cần gửi biên lai.</p>
+<div class="wrap co">
+  <section class="card main" id="mainCard">
+    <div class="steps"><span class="on"></span><span class="on"></span><span></span></div>
+    <span class="eyebrow">Bước 2 / 3 · Thanh toán</span>
+    <h1>Anh chị đang giữ chỗ cho Bản Đồ Khôi Phục Chuyển Hóa</h1>
+    <p class="tiny">Xin chào <b id="coName" style="color:var(--ink)">anh chị</b>. Chỗ của anh chị được giữ trong <b id="hold" style="color:var(--ink);font-variant-numeric:tabular-nums">15:00</b> để hoàn tất thanh toán.</p>
 
-    <div class="bumps" id="bumpsSection">
-      <div class="bump" data-bump="1" style="display:none">
-        <input type="checkbox" id="bump1">
-        <div class="bump-info">
-          <div><span class="bump-name">__BUMP1_NAME__</span> · <span class="bump-price">+__BUMP1_DISPLAY__đ</span></div>
-          <div class="bump-desc">Tài liệu bổ sung — chỉ thêm vào đơn này</div>
-        </div>
-      </div>
-      <div class="bump" data-bump="2" style="display:none">
-        <input type="checkbox" id="bump2">
-        <div class="bump-info">
-          <div><span class="bump-name">__BUMP2_NAME__</span> · <span class="bump-price">+__BUMP2_DISPLAY__đ</span></div>
-          <div class="bump-desc">Tài liệu bổ sung — chỉ thêm vào đơn này</div>
-        </div>
+    <div>
+      <span class="label">Hình thức thanh toán</span>
+      <div class="pay">
+        <label><input type="radio" name="pay" value="bank" checked> Chuyển khoản QR</label>
+        <label><input type="radio" name="pay" value="wallet"> Momo / ZaloPay</label>
       </div>
     </div>
 
-    <div class="summary">
-      <div class="summary-row"><span>Workshop 2 buổi · 10 &amp; 11/10/2026</span><span id="base">99.000đ</span></div>
-      <div class="summary-row" id="bump1Row" style="display:none"><span>__BUMP1_NAME__</span><span>+__BUMP1_DISPLAY__đ</span></div>
-      <div class="summary-row" id="bump2Row" style="display:none"><span>__BUMP2_NAME__</span><span>+__BUMP2_DISPLAY__đ</span></div>
-      <div class="summary-row summary-total"><span>Tổng</span><span id="total">99.000đ</span></div>
-    </div>
-
-    <div class="qr-section">
+    <div class="qr">
       <img id="qrImg" alt="Mã QR thanh toán">
-      <div class="qr-hint" id="qrHint">Mở app ngân hàng → quét mã → nội dung và số tiền tự điền</div>
-      <div class="qr-fail" id="qrFail">
-        <b>Chưa tải được mã QR.</b> Anh chị vẫn chuyển khoản bình thường theo thông tin ngay bên dưới —
-        hệ thống vẫn tự xác nhận như thường.<br>
-        Nếu cần hỗ trợ, nhắn Zalo hoặc gọi
-        <a href="tel:0981944324" style="font-weight:700;text-decoration:underline">0981 944 324</a>.
+      <div class="qr-info">
+        <span class="how" id="payHow">Mở app ngân hàng → quét mã → nội dung và số tiền tự điền</span>
+        <span>Nội dung CK: <code id="ckContent">—</code></span>
+        <span>Số tiền: <b id="amount">99.000đ</b></span>
+        <div class="bank">
+          <div><span>Ngân hàng</span><b>ACB — Á Châu</b></div>
+          <div><span>Số tài khoản</span><b>40526907</b></div>
+          <div><span>Chủ tài khoản</span><b>LE THI MINH TAM</b></div>
+        </div>
       </div>
     </div>
+    <div class="qr-fail" id="qrFail"><b>Chưa tải được mã QR.</b> Anh chị vẫn chuyển khoản bình thường theo số tài khoản ở trên, giữ đúng nội dung CK — hệ thống vẫn tự xác nhận. Cần hỗ trợ: <a href="tel:0981944324" style="font-weight:700">0981 944 324</a>.</div>
 
-    <div class="info-box">
-      <div class="info-row"><span>Ngân hàng</span><strong>ACB — Ngân hàng Á Châu</strong></div>
-      <div class="info-row"><span>Số tài khoản</span><strong>40526907</strong></div>
-      <div class="info-row"><span>Chủ tài khoản</span><strong>LE THI MINH TAM</strong></div>
-      <div class="info-row highlight"><span>Nội dung CK</span><strong id="ckContent">—</strong></div>
-      <div class="info-row highlight"><span>Số tiền</span><strong id="amount">—</strong></div>
+    <div class="warn"><b>Lưu ý:</b> giữ nguyên nội dung chuyển khoản <b id="ckContent2">—</b>. Đây là mã để hệ thống nhận ra đơn của anh chị — nhập sai sẽ không tự xác nhận được.</div>
+
+    <button class="btn" type="button" id="checkBtn">Tôi đã chuyển khoản, hoàn tất giữ chỗ →</button>
+    <div class="status" id="statusBox"><span class="pulse"></span><span id="statusText">Đang chờ giao dịch...</span></div>
+    <p class="tiny" style="text-align:center">Hoàn 100% nếu học xong thấy không giá trị.</p>
+  </section>
+
+  <aside class="side">
+    <div class="card">
+      <span class="eyebrow">Đơn của anh chị</span>
+      <ul class="summary">
+        <li><span>2 buổi live 10 và 11/10 cùng 2 bác sĩ</span><span>✓</span></li>
+        <li><span>Workbook Bản Đồ Khôi Phục Chuyển Hóa</span><span>✓</span></li>
+        <li><span>Cẩm nang đọc hiểu chỉ số khám sức khỏe</span><span>✓</span></li>
+        <li><span>Bản ghi hình + Cộng đồng Đồng hành</span><span>✓</span></li>
+        <li><span>Giá trị trọn bộ</span><span><s>1.800.000đ</s></span></li>
+        <li class="sum"><span>Anh chị trả</span><span id="total">99.000đ</span></li>
+      </ul>
     </div>
-
-    <div class="warn-note">
-      <strong>Lưu ý:</strong> giữ nguyên nội dung chuyển khoản ở trên. Đây là mã để hệ thống nhận diện đơn của bạn — nhập sai sẽ không tự xác nhận được.
-    </div>
-
-    <div class="status pending" id="statusBox">
-      <span class="pulse"></span><span id="statusText">Đang chờ giao dịch...</span>
-    </div>
-  </div>
-
-  <div class="support">Giữ nguyên trang này cho đến khi thấy xác nhận.</div>
-  <div class="helpline">
-    Gặp trục trặc khi thanh toán? Nhắn <a href="https://zalo.me/0981944324" target="_blank" rel="noopener">Zalo 0981 944 324</a>
-    hoặc gọi <a href="tel:0981944324">0981 944 324</a> — sẽ có người giữ chỗ giúp anh chị.
-  </div>
+    <article class="case">
+      <div class="who"><img src="assets/hv-trang.jpg" alt="Trang"><span><b>Trang</b><small>31 tuổi, Huế</small></span></div>
+      <div class="metric"><b>−12cm</b><span>vòng bụng, không nhịn bữa nào</span></div>
+      <q>Chiếc đầm ôm sát giữ trong tủ nhiều năm, lần này đã mặc vừa.</q>
+    </article>
+    <div class="guarantee"><span class="seal"><b>100%</b>hoàn tiền</span><p>Học xong thấy không giá trị, nhắn Zalo <span class="sdt">0981 944 324</span>. Hoàn ngay, giữ trọn tài liệu.</p></div>
+    <p class="help">Gặp trục trặc khi thanh toán?<br><span class="sdt">Nhắn <a href="https://zalo.me/0981944324" target="_blank" rel="noopener">Zalo 0981 944 324</a></span> <span class="sdt">hoặc gọi <a href="tel:0981944324">0981 944 324</a>.</span></p>
+  </aside>
 </div>
-
 <script>
-  const GAS_URL = 'https://script.google.com/macros/s/AKfycbydndS-vHwtTqZdsmsep_3Rj1HD9Z9a6Py-bTClATlu_U0e8MmOnTZKvscqJ8WQ2vX32Q/exec';
-  const BASE_PRICE = 99000;
-  const BUMP1_PRICE = 0;
-  const BUMP2_PRICE = 0;
+(function () {
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbydndS-vHwtTqZdsmsep_3Rj1HD9Z9a6Py-bTClATlu_U0e8MmOnTZKvscqJ8WQ2vX32Q/exec';
+  var TRANG_XAC_NHAN = '/xac-nhan';
+  var GIA_GOC = 99000;
 
-  const order = JSON.parse(sessionStorage.getItem('order') || '{}');
+  var order = JSON.parse(sessionStorage.getItem('order') || '{}');
   if (!order.orderId) {
-    document.querySelector('.card').innerHTML =
-      '<h1>Chưa tìm thấy đơn giữ chỗ</h1>'
-      + '<p class="lead">Phiên đăng ký của anh chị đã hết hạn hoặc chưa hoàn tất. '
-      + 'Anh chị vui lòng đăng ký lại — chỉ mất chưa tới một phút.</p>'
-      + '<div class="helpline" style="margin-top:22px">'
-      + 'Nếu anh chị đã chuyển khoản rồi mà gặp lỗi này, đừng lo — '
-      + 'nhắn <a href="https://zalo.me/0981944324" target="_blank" rel="noopener">Zalo 0981 944 324</a> '
-      + 'hoặc gọi <a href="tel:0981944324">0981 944 324</a>, chúng tôi sẽ tra soát và giữ chỗ giúp anh chị ngay.'
-      + '</div>'
-      + '<p style="text-align:center;margin-top:22px"><a href="/dang-ky" style="font-weight:600;text-decoration:underline">← Quay lại trang đăng ký</a></p>';
+    document.getElementById('mainCard').innerHTML =
+      '<span class="eyebrow">Bước 2 / 3 · Thanh toán</span>'
+      + '<h1>Chưa tìm thấy đơn giữ chỗ</h1>'
+      + '<p class="tiny">Phiên đăng ký đã hết hạn hoặc chưa hoàn tất. Anh chị đăng ký lại giúp em — chưa tới một phút.</p>'
+      + '<p class="help" style="text-align:left">Nếu anh chị đã chuyển khoản rồi mà gặp lỗi này, đừng lo — nhắn '
+      + '<a href="https://zalo.me/0981944324" target="_blank" rel="noopener">Zalo 0981 944 324</a> hoặc gọi '
+      + '<a href="tel:0981944324">0981 944 324</a>, chúng tôi tra soát và giữ chỗ giúp anh chị ngay.</p>'
+      + '<a class="btn" style="text-align:center;text-decoration:none" href="/#giu-cho">Quay lại đăng ký</a>';
     throw new Error('Khong co don trong phien');
   }
 
-  if (BUMP1_PRICE > 0) document.querySelector('[data-bump="1"]').style.display = 'flex';
-  if (BUMP2_PRICE > 0) document.querySelector('[data-bump="2"]').style.display = 'flex';
-  if (BUMP1_PRICE === 0 && BUMP2_PRICE === 0) document.getElementById('bumpsSection').style.display = 'none';
-
+  document.getElementById('coName').textContent = order.name || 'anh chị';
   document.getElementById('ckContent').textContent = order.ckContent;
+  document.getElementById('ckContent2').textContent = order.ckContent;
 
   // Meta Pixel: khách đã để lại thông tin và vào bước thanh toán
-  if (order.orderId) {
-    var fbP = { content_name:'Ban Do Khoi Phuc Chuyen Hoa', currency:'VND',
-                value: Number(order.totalAmount || BASE_PRICE) };
-    fbqOnce('fb_lead_' + order.orderId, 'Lead', fbP, 'lead_' + order.orderId);
-    fbqOnce('fb_ic_' + order.orderId, 'InitiateCheckout', fbP, 'ic_' + order.orderId);
+  var fbP = { content_name: 'Ban Do Khoi Phuc Chuyen Hoa', currency: 'VND', value: Number(order.totalAmount || GIA_GOC) };
+  fbqOnce('fb_lead_' + order.orderId, 'Lead', fbP, 'lead_' + order.orderId);
+  fbqOnce('fb_ic_' + order.orderId, 'InitiateCheckout', fbP, 'ic_' + order.orderId);
+
+  function vnd(n) { return Number(n).toLocaleString('en-US').replace(/,/g, '.') + 'đ'; }
+
+  function capNhatQR(tien) {
+    var img = document.getElementById('qrImg');
+    img.onerror = function () { img.style.display = 'none'; document.getElementById('qrFail').style.display = 'block'; };
+    img.onload = function () { img.style.display = ''; document.getElementById('qrFail').style.display = 'none'; };
+    img.src = 'https://qr.sepay.vn/img?acc=40526907&bank=ACB&amount=' + tien + '&des=' + encodeURIComponent(order.ckContent);
+    document.getElementById('amount').textContent = vnd(tien);
+    document.getElementById('total').textContent = vnd(tien);
   }
 
-  function formatVnd(n) { return Number(n).toLocaleString('en-US').replace(/,/g, '.'); }
 
-  function calcTotal() {
-    let total = BASE_PRICE;
-    const b1 = document.getElementById('bump1').checked;
-    const b2 = document.getElementById('bump2').checked;
-    if (b1) total += BUMP1_PRICE;
-    if (b2) total += BUMP2_PRICE;
-    return { total, b1, b2 };
-  }
-
-  function updateQR(amount) {
-    const url = 'https://qr.sepay.vn/img?acc=40526907&bank=ACB&amount=' + amount + '&des=' + encodeURIComponent(order.ckContent);
-    const img = document.getElementById('qrImg');
-    // Nếu máy chủ QR trục trặc, ẩn ảnh vỡ và hiện hướng dẫn + số điện thoại
-    img.onerror = function () {
-      img.style.display = 'none';
-      var h = document.getElementById('qrHint'); if (h) h.style.display = 'none';
-      var f = document.getElementById('qrFail'); if (f) f.style.display = 'block';
-    };
-    img.onload = function () {
-      img.style.display = '';
-      var h = document.getElementById('qrHint'); if (h) h.style.display = '';
-      var f = document.getElementById('qrFail'); if (f) f.style.display = 'none';
-    };
-    img.src = url;
-    document.getElementById('amount').textContent = formatVnd(amount) + 'đ';
-    document.getElementById('total').textContent = formatVnd(amount) + 'đ';
-  }
-
-  async function updateOrderAPI(b1, b2, total) {
-    try {
-      await fetch(GAS_URL, {
-        method: 'POST',
-        body: JSON.stringify({
-          action: 'updateOrder',
-          orderId: order.orderId,
-          data: { bump1: b1, bump2: b2, totalAmount: total }
-        })
-      });
-    } catch (err) { console.error('updateOrder failed', err); }
-  }
-
-  ['bump1', 'bump2'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.addEventListener('change', () => {
-      const { total, b1, b2 } = calcTotal();
-      document.getElementById('bump1Row').style.display = b1 ? 'flex' : 'none';
-      document.getElementById('bump2Row').style.display = b2 ? 'flex' : 'none';
-      updateQR(total);
-      updateOrderAPI(b1, b2, total);
+  // Momo / ZaloPay quét được mã VietQR của ngân hàng -> cùng một mã, chỉ đổi hướng dẫn
+  document.querySelectorAll('input[name="pay"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      document.getElementById('payHow').textContent = this.value === 'wallet'
+        ? 'Mở app Momo hoặc ZaloPay → Quét mã → chuyển tới tài khoản ngân hàng'
+        : 'Mở app ngân hàng → quét mã → nội dung và số tiền tự điền';
     });
   });
 
-  updateQR(BASE_PRICE);
+  capNhatQR(GIA_GOC);
 
-  async function pollStatus() {
-    try {
-      const res = await fetch(GAS_URL + '?action=getStatus&orderId=' + encodeURIComponent(order.orderId));
-      const json = await res.json();
-      if (json.status === 'PAID') {
-        const box = document.getElementById('statusBox');
-        box.className = 'status paid';
-        document.getElementById('statusText').textContent = '✓ Đã nhận giao dịch · Đang chuyển trang...';
-        setTimeout(() => { window.location.href = '/xac-nhan'; }, 1500);
-        return;
-      }
-    } catch (err) { console.error('poll failed', err); }
-    setTimeout(pollStatus, 5000);
+  // Đồng hồ giữ chỗ 15 phút. Mốc hết hạn lưu theo mã đơn, tải lại trang vẫn đếm tiếp.
+  var khoaHan = 'hold_' + order.orderId, han = 0;
+  try { han = Number(sessionStorage.getItem(khoaHan)) || 0; } catch (e) {}
+  if (!han) { han = Date.now() + 15 * 60 * 1000; try { sessionStorage.setItem(khoaHan, String(han)); } catch (e) {} }
+  var elHold = document.getElementById('hold');
+  function demNguoc() {
+    var giay = Math.max(0, Math.ceil((han - Date.now()) / 1000));
+    elHold.textContent = String(Math.floor(giay / 60)).padStart(2, '0') + ':' + String(giay % 60).padStart(2, '0');
+    if (giay > 0) setTimeout(demNguoc, 1000);
   }
-  pollStatus();
+  demNguoc();
+
+  var box = document.getElementById('statusBox'), txt = document.getElementById('statusText');
+  function daThanhToan() {
+    box.className = 'status paid';
+    txt.textContent = '✓ Đã nhận giao dịch · Đang chuyển trang...';
+    setTimeout(function () { window.location.href = TRANG_XAC_NHAN; }, 1500);
+  }
+  async function kiemTra() {
+    var res = await fetch(GAS_URL + '?action=getStatus&orderId=' + encodeURIComponent(order.orderId));
+    var j = await res.json();
+    return j.status === 'PAID';
+  }
+
+  // Tự kiểm tra mỗi 5 giây
+  var xong = false;
+  async function vongLap() {
+    if (xong) return;
+    try { if (await kiemTra()) { xong = true; daThanhToan(); return; } } catch (e) {}
+    setTimeout(vongLap, 5000);
+  }
+  vongLap();
+
+  // Nút "Tôi đã chuyển khoản": kiểm tra ngay, KHÔNG tự cho qua khi tiền chưa về
+  var nut = document.getElementById('checkBtn');
+  nut.addEventListener('click', async function () {
+    nut.disabled = true; nut.textContent = 'Đang kiểm tra giao dịch...';
+    var ok = false;
+    try { ok = await kiemTra(); } catch (e) {}
+    if (ok) { xong = true; daThanhToan(); return; }
+    box.className = 'status wait';
+    txt.textContent = 'Chưa thấy giao dịch về. Ngân hàng thường mất 10–60 giây — trang sẽ tự chuyển khi nhận được.';
+    nut.disabled = false; nut.textContent = 'Kiểm tra lại →';
+  });
+})();
 </script>
 </body>
 </html>
