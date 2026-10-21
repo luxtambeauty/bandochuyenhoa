@@ -116,12 +116,13 @@ input::placeholder{color:#9bb3ab}
 .case{display:flex;flex-direction:column;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px}
 .case .who{display:flex;gap:12px;align-items:center}
 .case .who img,.case .who .ph{width:54px;height:54px;border-radius:50%;object-fit:cover;background:var(--mist);flex:none}
-.case .who b{display:block}
-.case .who small{color:var(--sage-text)}
-.metric{display:flex;gap:10px;align-items:baseline;padding:10px 14px;border-radius:12px;background:var(--mist)}
-.metric b{font:600 26px var(--serif);color:var(--forest);font-variant-numeric:tabular-nums}
-.metric span{font-size:13px;color:var(--sage-text)}
-.case q{font-family:var(--serif);font-style:italic;font-size:17px;quotes:"“" "”"}
+.case .who b{display:block;font-size:17px}
+.case .who small{color:var(--sage-text);font-size:14px}
+.metric{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;padding:12px 16px;border-radius:12px;background:var(--mist)}
+.metric b{font:700 22px/1.25 var(--sans);letter-spacing:-.01em;color:var(--forest);white-space:nowrap}
+.metric span{font-size:14px;color:var(--sage-text)}
+.case q{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.6;color:var(--deep);quotes:"“" "”"}
+.case .tiny{font-size:14px;line-height:1.6}
 .voices{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
 @media(max-width:900px){.voices{grid-template-columns:1fr}}
 .voice{margin:0;display:flex;flex-direction:column;justify-content:space-between;gap:18px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px 26px}
