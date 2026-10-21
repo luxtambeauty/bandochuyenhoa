@@ -79,14 +79,13 @@ em{font-style:italic}
 /* hero */
 .hero{padding-block:48px 64px;background:linear-gradient(180deg,var(--paper),var(--cream))}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
-@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.btn.wide{white-space:normal;text-align:center;text-wrap:balance}#giu-cho .tiny{text-wrap:balance}}
 .hero h1 em{color:var(--forest)}
 .checks{display:flex;flex-direction:column;gap:10px;padding:0;margin:0;list-style:none}
 .checks li{display:flex;gap:12px;align-items:flex-start}
 .checks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--sage-light);color:var(--ink);font-size:13px;font-weight:700;display:grid;place-items:center;margin-top:3px}
 .guarantee{display:flex;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--paper);max-width:560px}
-.seal{flex:none;width:58px;height:58px;border-radius:50%;background:var(--pink-light);color:var(--ink);display:grid;place-items:center;text-align:center;font:700 11px/1.05 var(--sans);letter-spacing:.04em}
-.seal b{font:700 20px var(--serif);display:block}
+.seal{flex:none;width:104px;height:auto}
 .hero-photo{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/3;background:var(--mist);margin-top:8px}
 .hero-photo img{width:100%;height:100%;object-fit:cover}
 
@@ -241,7 +240,7 @@ html{scroll-behavior:smooth}
         <li>Có bản ghi hình và cộng đồng để không làm một mình sau buổi học.</li>
       </ul>
       <div class="guarantee">
-        <span class="seal"><b>100%</b>hoàn tiền</span>
+        <img class="seal" src="assets/huy-hieu-hoan-tien-100.webp" alt="Cam kết hoàn tiền 100%" width="372" height="262">
         <p style="font-size:14px">Học xong thấy không có giá trị, nhắn Zalo, hoàn lại ngay. Anh chị giữ trọn Workbook và tài liệu.</p>
       </div>
       <div class="hero-photo"><img src="assets/bac-si-blouse.jpg" alt="ThS.BS Nguyễn Trung Hiếu và ThS.BS Lê Thị Minh Tâm"></div>
@@ -431,7 +430,7 @@ html{scroll-behavior:smooth}
       <div class="stack">
         <div class="bigprice"><span class="eyebrow">Phí cam kết hành động</span><b>99.000đ</b><p class="tiny">Khoản phí nhỏ này là lời anh chị tự hứa sẽ có mặt trọn cả hai buổi.</p></div>
         <a class="btn wide" href="#giu-cho">Giữ chỗ 99.000đ →</a>
-        <div class="guarantee"><span class="seal"><b>100%</b>hoàn tiền</span><p style="font-size:14px">Học xong thấy không giá trị: nhắn Zalo <b>0981&nbsp;944&nbsp;324</b>. Hoàn ngay, không hỏi thêm. Giữ trọn tài liệu.</p></div>
+        <div class="guarantee"><img class="seal" src="assets/huy-hieu-hoan-tien-100.webp" alt="Cam kết hoàn tiền 100%" width="372" height="262"><p style="font-size:14px">Học xong thấy không giá trị: nhắn Zalo <b>0981&nbsp;944&nbsp;324</b>. Hoàn ngay, không hỏi thêm. Giữ trọn tài liệu.</p></div>
       </div>
     </div>
   </div>
