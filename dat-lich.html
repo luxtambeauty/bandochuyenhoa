@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1073477048927988');
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'Dong Hanh 12 Tuan',content_category:'Tu van'});
+// Bắn 1 sự kiện đúng 1 lần cho mỗi đơn (tránh đếm trùng khi khách tải lại trang)
+function fbqOnce(key,event,params,eventId){
+  try{
+    if(typeof fbq!=='function')return;
+    if(sessionStorage.getItem(key))return;
+    fbq('track',event,params||{},eventId?{eventID:eventId}:undefined);
+    sessionStorage.setItem(key,'1');
+  }catch(e){}
+}
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1073477048927988&ev=PageView&noscript=1"/></noscript>
+<!-- /Meta Pixel -->
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Đồng Hành 12 Tuần · Bản Đồ Chuyển Hóa</title>
+<meta name="description" content="Trong 12 tuần, lấy lại vóc dáng và trạng thái sống tốt nhất của anh chị, đồng hành 1-1 cùng hai bác sĩ dinh dưỡng lâm sàng.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+/* Layout: trang bán chương trình 12 tuần. Lời hứa, kết quả, cách làm, nội dung, bác sĩ, case, rồi mới tới phần đặt cuộc gọi tư vấn cá nhân hoá ở cuối. */
+:root{
+  --bg:#fffdf9; --bg2:#f7f3ee; --mist:#edf4f1; --card:#fffdf9;
+  --ink:#183b3b; --ink2:#234747; --forest:#37685f; --sage:#5a8172; --sage-l:#b8d1ca;
+  --pink:#e9b2b8; --pink-l:#f4d8d8; --line:rgba(24,59,59,.14); --fill:#fff0b8; --on-ink:#fffdf9; --err:#b05353;
+  --sans:'Plus Jakarta Sans',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:'Lora',Georgia,"Times New Roman",serif;
+  --wrap:1140px;color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.2;margin:0;text-wrap:balance}
+h1{font-size:clamp(32px,4.8vw,54px)}
+h2{font-size:clamp(26px,3.3vw,38px)}
+h3{font-size:19px}
+p{margin:0}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:20px}
+.narrow{max-width:760px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+.section{padding-block:72px}
+.section.mist{background:var(--mist)}
+.section.cream{background:var(--bg2)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.lead{font-size:18px;color:var(--ink2);max-width:62ch}
+.tiny{font-size:13px;color:var(--sage)}
+.fill{background:var(--fill);color:var(--ink);border-radius:4px;padding:0 4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:var(--on-ink);border:0;border-radius:999px;padding:15px 26px;font:600 16px var(--sans);text-decoration:none;cursor:pointer;transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.wide{width:100%;padding-block:17px}
+.btn[disabled]{opacity:.6;cursor:wait;transform:none}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+:focus-visible{outline:3px solid var(--forest);outline-offset:2px}
+.head{max-width:720px;display:flex;flex-direction:column;gap:10px;margin-bottom:30px}
+
+/* thanh bản mẫu + nav */
+.tpl{background:var(--fill);color:var(--ink);font-size:13px;text-align:center;padding:8px 20px}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:16px;min-height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.mark{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--on-ink);font:600 17px var(--serif);display:grid;place-items:center;flex:none}
+.brand b{font-size:12px;letter-spacing:.12em;text-transform:uppercase;display:block;line-height:1.15}
+.brand small{font-size:11px;color:var(--sage);display:block}
+.nav .btn{margin-left:auto;padding:10px 18px;font-size:14px}
+
+/* hero */
+.hero{padding-block:56px 72px;background:linear-gradient(180deg,var(--bg),var(--bg2))}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero-grid>*{min-width:0}
+.hero h1 em{font-style:italic;color:var(--forest)}
+.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.ticks li{display:flex;gap:12px;align-items:flex-start}
+.ticks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--sage-l);color:var(--ink);font-size:13px;font-weight:700;display:grid;place-items:center;margin-top:3px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 22px 60px -34px rgba(24,59,59,.45);display:flex;flex-direction:column;gap:16px}
+.plan .docs{display:flex;gap:14px;align-items:center}
+.avatars{display:flex;flex:none}
+.avatars img{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:50% 18%;background:var(--mist);border:2px solid var(--card)}
+.avatars img+img{margin-left:-14px}
+.kv{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.kv li{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.kv li span:first-child{color:var(--sage)}
+.kv li span:last-child{font-weight:600;text-align:right}
+
+/* kết quả 12 tuần */
+.outs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.out{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.out .k{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--forest)}
+
+/* vì sao 1-1 */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+.why>div{padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.why>div+div{border-left:1px solid var(--line)}
+.why .vs{font-size:14px;color:var(--sage);border-top:1px dashed var(--line);padding-top:10px}
+.why .vs b{color:var(--ink)}
+
+/* quy trình cá nhân hoá */
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:f}
+.flow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.flow .n{width:34px;height:34px;border-radius:50%;background:var(--forest);color:var(--on-ink);font-weight:700;display:grid;place-items:center}
+.flow .when{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage)}
+.myplan{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px 26px;list-style:none;padding:22px 24px;border-radius:18px;background:var(--mist)}
+.myplan li{display:flex;gap:10px;font-size:15px}
+.myplan li::before{content:"•";color:var(--forest);font-weight:700}
+
+/* 12 tuần */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+.phase{padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.phase+.phase{border-left:1px solid var(--line)}
+.phase .wk{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--forest)}
+.bar{display:flex;height:6px;border-radius:99px;overflow:hidden;background:var(--line)}
+.bar i{display:block;background:var(--forest)}
+.phase ul{margin:0;padding-left:18px;font-size:15px;color:var(--ink2);display:flex;flex-direction:column;gap:4px}
+.phase .end{font-size:14px;border-top:1px dashed var(--line);padding-top:10px}
+
+/* nhận được gì */
+.incl{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.incl>div{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}
+.incl .ic{width:44px;height:44px;border-radius:12px;background:var(--mist);color:var(--forest);display:grid;place-items:center;font:600 18px var(--serif)}
+.incl b{display:block}
+.incl span{font-size:15px;color:var(--ink2)}
+
+/* bác sĩ */
+.docs2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.doc{display:grid;grid-template-columns:120px 1fr;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;align-items:start;min-width:0}
+.doc .ph{width:100%;aspect-ratio:3/4;border-radius:12px;object-fit:cover;background:var(--mist)}
+.doc ul{margin:6px 0 0;padding-left:18px;font-size:15px;color:var(--ink2)}
+
+/* case */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.case{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.case .who b{display:block}
+.case .who small{color:var(--sage)}
+.metric{display:flex;gap:10px;align-items:baseline;padding:9px 13px;border-radius:12px;background:var(--mist);flex-wrap:wrap}
+.metric b{font:600 21px var(--serif);color:var(--forest);font-variant-numeric:tabular-nums}
+.metric span{font-size:13px;color:var(--sage)}
+.case q{font-family:var(--serif);font-style:italic;font-size:16px}
+
+/* hợp với ai */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fit ul{margin:0;padding:22px;border-radius:18px;background:var(--card);border:1px solid var(--line);list-style:none;display:flex;flex-direction:column;gap:10px}
+.fit li{display:flex;gap:10px}
+.fit .yes li::before{content:"✓";color:var(--forest);font-weight:700}
+.fit .no li::before{content:"✕";color:var(--pink);font-weight:700}
+.fit h3{margin-bottom:4px}
+
+/* đặt cuộc gọi */
+.book{background:var(--ink);color:var(--on-ink)}
+.book .eyebrow{color:var(--sage-l)}
+.book .lead{color:color-mix(in srgb,var(--on-ink) 80%,transparent)}
+.book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+.book-grid>*{min-width:0}
+.callsteps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.callsteps li{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;padding:16px;border:1px solid color-mix(in srgb,var(--on-ink) 18%,transparent);border-radius:16px}
+.callsteps .min{font:600 26px var(--serif);line-height:1}
+.callsteps .min small{display:block;font:600 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-top:4px}
+.callsteps p{font-size:15px;opacity:.88}
+.card{background:var(--card);color:var(--ink);border-radius:22px;padding:26px;box-shadow:0 22px 60px -30px rgba(0,0,0,.5)}
+form{display:flex;flex-direction:column;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field>label,.legend{font-size:13.5px;font-weight:600}
+.opt{font-weight:500;color:var(--sage)}
+input[type=text],input[type=tel],input[type=email],select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:500 15.5px var(--sans);background:var(--bg);color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--forest);box-shadow:0 0 0 3px color-mix(in srgb,var(--forest) 22%,transparent)}
+textarea{min-height:72px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.chip span{display:inline-flex;flex-direction:column;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:600;background:var(--bg);line-height:1.25;font-variant-numeric:tabular-nums;min-width:58px}
+.chip span small{font-weight:500;font-size:11px;color:var(--sage)}
+.chip input:checked+span{border-color:var(--forest);background:var(--mist);color:var(--forest)}
+.chip input:focus-visible+span{outline:3px solid var(--forest);outline-offset:2px}
+.chip input:disabled+span{opacity:.4;text-decoration:line-through}
+.slotbox{border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px;background:var(--bg)}
+.slotmsg{font-size:13.5px;color:var(--sage)}
+.err{font-size:13.5px;color:var(--err);min-height:1em;font-weight:600}
+.sep{height:1px;background:var(--line)}
+.meet{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--sage)}
+.meet i{font-style:normal;width:22px;height:22px;border-radius:6px;background:var(--mist);display:grid;place-items:center;color:var(--forest);font-weight:700}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding:17px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--sage);line-height:1;transition:transform .2s ease}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding-bottom:17px;color:var(--ink2)}
+
+.final{text-align:center}
+
+/* xác nhận */
+.done{padding-block:56px 80px}
+.done .wrap{max-width:780px}
+.when{font:500 clamp(22px,3vw,28px)/1.3 var(--serif);color:var(--forest)}
+.meetbox{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;padding:18px 20px;border-radius:16px;background:var(--mist);border:1px solid var(--line)}
+.meetbox a{font-weight:700;color:var(--forest);word-break:break-all}
+.recap{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.recap li{display:flex;justify-content:space-between;gap:16px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.recap li:last-child{border:0}
+.recap li span:first-child{color:var(--sage)}
+.recap li span:last-child{text-align:right;font-weight:600}
+.todo{display:grid;gap:12px}
+.todo div{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.todo .n{width:30px;height:30px;border-radius:50%;background:var(--forest);color:var(--on-ink);display:grid;place-items:center;font-weight:700;flex:none}
+
+footer{padding-block:32px;border-top:1px solid var(--line);font-size:13px;color:var(--sage)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+
+@media(max-width:960px){
+  .hero-grid,.book-grid{grid-template-columns:1fr}
+  .outs,.cases{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr 1fr}
+  .myplan{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .section{padding-block:56px}
+  .outs,.cases,.why,.phases,.incl,.docs2,.fit,.flow,.myplan,.two{grid-template-columns:1fr}
+  .why>div+div,.phase+.phase{border-left:0;border-top:1px solid var(--line)}
+  .doc{grid-template-columns:96px 1fr}
+  .nav .btn{padding:9px 14px;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark">B</span>
+      <span><b>Bản Đồ Chuyển Hóa</b><small>Đồng hành 12 tuần cùng bác sĩ</small></span>
+    </a>
+    <a class="btn" href="#dat-lich">Đặt cuộc gọi tư vấn</a>
+  </div>
+</header>
+
+<main id="view-main">
+
+<!-- LỜI HỨA -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="stack">
+      <span class="eyebrow">Chương trình đồng hành 1-1 · 12 tuần</span>
+      <h1>Trong 12 tuần, lấy lại <em>vóc dáng</em> và trạng thái sống tốt nhất của anh chị.</h1>
+      <p class="lead">Đồng hành 1-1 cùng hai bác sĩ dinh dưỡng lâm sàng. Mọi thứ anh chị làm trong 12 tuần được dựng riêng theo chỉ số sức khỏe, lịch làm việc và mâm cơm thật của anh chị.</p>
+      <ul class="ticks">
+        <li>Không nhịn ăn, không thực phẩm chức năng, không đếm calo.</li>
+        <li>Mỗi 2 tuần gặp bác sĩ 1-1. Hằng ngày có bác sĩ xem bữa ăn và chỉnh khi lệch.</li>
+        <li>Đo chỉ số ở tuần đầu và tuần 12 để anh chị thấy rõ mình đã đổi ở đâu.</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="#chuong-trinh">Xem chương trình gồm gì</a>
+        <a class="btn ghost" href="#dat-lich">Đặt cuộc gọi tư vấn</a>
+      </div>
+    </div>
+
+    <aside class="plan" aria-label="Tóm tắt chương trình">
+      <div class="docs">
+        <div class="avatars" aria-hidden="true"><img src="assets/bs-hieu.jpg" alt=""><img src="assets/bs-tam.jpg" alt=""></div>
+        <p style="font-size:14px;line-height:1.45"><b>ThS.BS Nguyễn Trung Hiếu<br>ThS.BS Lê Thị Minh Tâm</b><br><span class="tiny">Bác sĩ dinh dưỡng lâm sàng · Giảng viên y khoa</span></p>
+      </div>
+      <ul class="kv">
+        <li><span>Thời gian</span><span>12 tuần, online</span></li>
+        <li><span>Gặp bác sĩ 1-1</span><span>6 buổi, mỗi 2 tuần</span></li>
+        <li><span>Theo dõi hằng ngày</span><span>Nhóm Zalo riêng</span></li>
+        <li><span>Đo chỉ số</span><span>Tuần 1, 6 và 12</span></li>
+        <li><span>Số người mỗi đợt</span><span>5 người</span></li>
+        <li><span>Đợt tới bắt đầu</span><span>Sau workshop 21&nbsp;&amp;&nbsp;22/11</span></li>
+      </ul>
+      <a class="btn wide" href="#dat-lich">Đặt cuộc gọi tư vấn cá nhân hoá</a>
+      <p class="tiny" style="text-align:center">Cuộc gọi 20 phút qua Zoom. Miễn phí.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- KẾT QUẢ -->
+<section class="section">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Sau 12 tuần</span>
+      <h2>Trạng thái sống tốt nhất, cụ thể là gì</h2>
+      <p class="lead">Đây là những thay đổi chương trình hướng tới. Mức thay đổi của mỗi người khác nhau, tuỳ cơ địa và mức áp dụng.</p>
+    </div>
+    <div class="outs">
+      <div class="out"><span class="k">Vóc dáng</span><h3>Vòng bụng gọn, mặc lại đồ cũ</h3><p>Đo bằng thước dây và máy đo thành phần cơ thể, không chỉ nhìn số trên bàn cân.</p></div>
+      <div class="out"><span class="k">Năng lượng</span><h3>Sáng dậy nhẹ người, chiều không hết pin</h3><p>Bữa ăn đúng giờ, đúng cấu trúc thì cơn buồn ngủ sau trưa và cơn thèm ngọt buổi chiều bớt hẳn.</p></div>
+      <div class="out"><span class="k">Giấc ngủ</span><h3>Ngủ sớm hơn, ngủ sâu hơn</h3><p>Giấc ngủ là một phần của kế hoạch, có mốc giờ cụ thể, không phải lời khuyên chung chung.</p></div>
+      <div class="out"><span class="k">Chỉ số khám</span><h3>Hiểu và cải thiện chỉ số của mình</h3><p>Bác sĩ đọc xét nghiệm cùng anh chị ở tuần đầu, theo dõi suốt 12 tuần và so lại ở tuần cuối.</p></div>
+      <div class="out"><span class="k">Ăn uống</span><h3>Vẫn ăn cơm nhà, vẫn đi tiệc</h3><p>Anh chị biết xếp đĩa, biết thứ tự gắp, biết chọn món khi ăn ngoài. Không phải ăn riêng một mình.</p></div>
+      <div class="out"><span class="k">Giữ được lâu</span><h3>Có kế hoạch cho sau tuần 12</h3><p>Tuần cuối, bác sĩ cùng anh chị viết kế hoạch giữ nếp để không quay lại như cũ.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VÌ SAO 1-1 -->
+<section class="section cream">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Vì sao cần đồng hành 1-1</span>
+      <h2>Anh chị đã biết nhiều. Cái thiếu là một kế hoạch đúng cho riêng mình, và người chỉnh khi lệch.</h2>
+    </div>
+    <div class="why">
+      <div><h3>Chỉ số mỗi người khác nhau</h3><p>Cùng muốn vòng bụng gọn, nhưng người đang dùng thuốc đường huyết cần cách ăn khác người mất ngủ kéo dài. Bác sĩ đọc xét nghiệm của anh chị trước khi lập kế hoạch.</p><p class="vs"><b>Tự làm:</b> làm theo thực đơn mạng, viết cho số đông.</p></div>
+      <div><h3>Lịch sống mỗi người khác nhau</h3><p>Làm ca, đi công tác, tiếp khách, nấu cho cả nhà. Khung giờ ăn và đĩa mẫu được dựng theo đúng lịch thật của anh chị.</p><p class="vs"><b>Tự làm:</b> kế hoạch đẹp trên giấy, vỡ ở tuần thứ 2.</p></div>
+      <div><h3>Lệch là có người chỉnh ngay</h3><p>Gửi ảnh bữa ăn, báo giấc ngủ trong nhóm. Lệch hôm nay thì bác sĩ chỉnh hôm nay, không đợi tới lúc bỏ cuộc.</p><p class="vs"><b>Tự làm:</b> sai 3 ngày, nản, bỏ giữa chừng.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUY TRÌNH CÁ NHÂN HOÁ -->
+<section class="section" id="chuong-trinh">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Quy trình cá nhân hoá</span>
+      <h2>Kế hoạch của anh chị được dựng như thế nào</h2>
+      <p class="lead">Không có thực đơn soạn sẵn cho tất cả. Bác sĩ đi qua 4 bước để ra kế hoạch riêng, rồi chỉnh nó suốt 12 tuần.</p>
+    </div>
+    <ol class="flow">
+      <li><span class="n">1</span><span class="when">Tuần 1</span><h3>Đánh giá đầu vào</h3><p>Đo vòng bụng, thành phần cơ thể. Xem xét nghiệm máu, thuốc đang dùng. Anh chị ghi nhật ký ăn, ngủ 3 ngày.</p></li>
+      <li><span class="n">2</span><span class="when">Tuần 1</span><h3>Bác sĩ lập kế hoạch riêng</h3><p>Buổi 1-1 đầu tiên: bác sĩ giải thích chỉ số, chốt mục tiêu 12 tuần và trao kế hoạch riêng của anh chị.</p></li>
+      <li><span class="n">3</span><span class="when">Hằng ngày</span><h3>Làm và báo lại</h3><p>Anh chị làm theo kế hoạch, gửi ảnh bữa ăn và giờ ngủ vào nhóm. Bác sĩ phản hồi trong 24 giờ.</p></li>
+      <li><span class="n">4</span><span class="when">Mỗi 2 tuần</span><h3>Gặp 1-1, chỉnh kế hoạch</h3><p>Xem lại số đo, chỗ nào vướng thì đổi cách. Kế hoạch tuần sau luôn sát với tuần trước của anh chị.</p></li>
+    </ol>
+    <ul class="myplan" aria-label="Kế hoạch riêng gồm">
+      <li>Khung giờ ăn theo lịch làm việc</li>
+      <li>Đĩa mẫu cho mâm cơm nhà</li>
+      <li>Cách chọn món khi ăn ngoài, đi tiệc</li>
+      <li>Mốc giờ ngủ và thói quen trước khi ngủ</li>
+      <li>Vận động vừa sức, không tập kiệt sức</li>
+      <li>Lưu ý khi đang dùng thuốc</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 12 TUẦN -->
+<section class="section mist">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Lộ trình</span>
+      <h2>12 tuần đi qua 3 chặng</h2>
+    </div>
+    <div class="phases">
+      <div class="phase"><span class="wk">Tuần 1 đến 4</span><div class="bar"><i style="width:33%"></i></div><h3>Giờ ăn và giấc ngủ</h3><ul><li>Chốt khung giờ ăn hợp lịch làm việc</li><li>Dời bữa tối, bớt ăn khuya</li><li>Lấy lại giờ ngủ, bớt cơn thèm tối</li></ul><p class="end"><b>Cuối chặng:</b> ngủ đều hơn, bữa tối gọn hơn, buổi sáng nhẹ người.</p></div>
+      <div class="phase"><span class="wk">Tuần 5 đến 8</span><div class="bar"><i style="width:66%"></i></div><h3>Đĩa ăn và bữa ăn ngoài</h3><ul><li>Xếp đĩa cơm nhà theo tỉ lệ và thứ tự gắp</li><li>Bác sĩ chọn trước cách ăn cho từng bữa ăn ngoài</li><li>Đo lại giữa chặng (tuần 6)</li></ul><p class="end"><b>Cuối chặng:</b> ăn cơm nhà và đi tiệc mà vẫn giữ nguyên tắc.</p></div>
+      <div class="phase"><span class="wk">Tuần 9 đến 12</span><div class="bar"><i style="width:100%"></i></div><h3>Giữ nếp và đo lại</h3><ul><li>Bớt dần sự theo sát, anh chị tự làm</li><li>Đo lại chỉ số, so với tuần 1</li><li>Viết kế hoạch giữ nếp sau chương trình</li></ul><p class="end"><b>Cuối chặng:</b> nếp sống mới chạy được khi không có ai nhắc.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NHẬN ĐƯỢC GÌ -->
+<section class="section">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Anh chị nhận được</span>
+      <h2>Trong 12 tuần đồng hành</h2>
+    </div>
+    <div class="incl">
+      <div><span class="ic">1</span><p><b>Buổi đánh giá đầu vào</b><span>Đo chỉ số, đọc xét nghiệm, nghe lịch sống của anh chị.</span></p></div>
+      <div><span class="ic">2</span><p><b>Kế hoạch 12 tuần của riêng anh chị</b><span>Giờ ăn, đĩa mẫu, ăn ngoài, giấc ngủ, vận động, lưu ý thuốc.</span></p></div>
+      <div><span class="ic">3</span><p><b>6 buổi gặp bác sĩ 1-1</b><span>Mỗi 2 tuần, qua Zoom, khoảng 30 phút.</span></p></div>
+      <div><span class="ic">4</span><p><b>Nhóm Zalo riêng với bác sĩ</b><span>Gửi ảnh bữa ăn, hỏi khi vướng. Phản hồi trong 24 giờ.</span></p></div>
+      <div><span class="ic">5</span><p><b>Đo lại ở tuần 6 và tuần 12</b><span>So với tuần 1, thấy rõ đã đổi ở đâu.</span></p></div>
+      <div><span class="ic">6</span><p><b>Kế hoạch giữ nếp sau tuần 12</b><span>Để vóc dáng và nếp sống mới ở lại lâu dài.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BÁC SĨ -->
+<section class="section cream">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Người đồng hành</span>
+      <h2>Hai bác sĩ dinh dưỡng lâm sàng, cũng là vợ chồng</h2>
+    </div>
+    <div class="docs2">
+      <div class="doc"><img class="ph" src="assets/bs-hieu.jpg" alt="ThS.BS Nguyễn Trung Hiếu" loading="lazy"><div><h3>ThS.BS Nguyễn Trung Hiếu</h3><p class="tiny">Bác sĩ dinh dưỡng lâm sàng · Giảng viên y khoa</p><ul><li>Phụ trách giờ ăn, giấc ngủ và nhịp sinh học</li><li>Hơn 5 năm làm bác sĩ dinh dưỡng lâm sàng tại bệnh viện tư nhân ở Đà Nẵng</li></ul></div></div>
+      <div class="doc"><img class="ph" src="assets/bs-tam.jpg" alt="ThS.BS Lê Thị Minh Tâm" loading="lazy"><div><h3>ThS.BS Lê Thị Minh Tâm</h3><p class="tiny">Bác sĩ dinh dưỡng lâm sàng · Giảng viên y khoa</p><ul><li>Phụ trách đĩa ăn, bữa ăn ngoài và đọc chỉ số</li><li>Hơn 5 năm làm bác sĩ dinh dưỡng lâm sàng tại bệnh viện tư nhân ở Đà Nẵng</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE -->
+<section class="section">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Người đã đi trước</span>
+      <h2>Ba tháng thay đổi được gì</h2>
+    </div>
+    <div class="cases">
+      <article class="case">
+        <div class="who"><b>Trang</b><small>31 tuổi, Huế · 3 tháng</small></div>
+        <div class="metric"><b>Vòng bụng −12cm</b></div>
+        <div class="metric"><b>Không nhịn bữa nào</b></div>
+        <q>Chiếc đầm ôm cất trong tủ nhiều năm, lần này mặc vừa.</q>
+      </article>
+      <article class="case">
+        <div class="who"><b>Chú Bảo</b><small>56 tuổi, Huế · 3 tháng</small></div>
+        <div class="metric"><b>HDL-C 0,98 → 1,20</b><span>về vùng an toàn</span></div>
+        <div class="metric"><b>Ngủ được</b><span>bớt cáu gắt</span></div>
+        <q>Lần đầu sau nhiều năm, chú đi tái khám mà không thấy lo.</q>
+      </article>
+      <article class="case">
+        <div class="who"><b>Chú Vinh</b><small>59 tuổi, Đà Nẵng · gần 2 tháng</small></div>
+        <div class="metric"><b>Gối khỏe hơn</b><span>chạy lại được</span></div>
+        <div class="metric"><b>Sáng dậy có sức</b></div>
+        <q>Điều chú vui nhất là gối đã khỏe, sáng dậy có sức.</q>
+      </article>
+    </div>
+    <p class="tiny" style="margin-top:14px">Kết quả khác nhau tuỳ cơ địa và mức độ áp dụng. Chia sẻ với sự đồng ý của học viên.</p>
+  </div>
+</section>
+
+<!-- HỢP VỚI AI -->
+<section class="section mist">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Có hợp với anh chị không</span><h2>Chương trình dành cho anh chị nếu</h2></div>
+    <div class="fit">
+      <ul class="yes"><li>Muốn vóc dáng gọn lại mà vẫn ăn cơm nhà, vẫn đi tiệc.</li><li>Đang dùng thuốc mỡ máu, đường huyết, huyết áp và muốn hiểu chỉ số của mình.</li><li>Đã thử nhiều cách, lần nào cũng bỏ giữa chừng vì không có ai theo.</li><li>Bận, ăn ngoài nhiều, cần kế hoạch theo đúng lịch của mình.</li></ul>
+      <ul class="no"><li>Đang tìm kết quả thần tốc trong vài ngày.</li><li>Muốn thuốc hay thực phẩm chức năng uống vào là xong.</li><li>Chưa sẵn sàng dành 12 tuần để sửa nếp ăn, nếp ngủ.</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ĐẶT CUỘC GỌI -->
+<section class="section book" id="dat-lich">
+  <div class="wrap book-grid">
+    <div class="stack">
+      <span class="eyebrow">Bước tiếp theo</span>
+      <h2>Cuộc gọi tư vấn cá nhân hoá, 20 phút qua Zoom</h2>
+      <p class="lead">Trước khi vào chương trình, bác sĩ cần hiểu anh chị. Cuộc gọi miễn phí, và anh chị không phải quyết định gì trong cuộc gọi.</p>
+      <ol class="callsteps">
+        <li><span class="min">5<small>phút đầu</small></span><div><h3>Anh chị kể</h3><p>Tình trạng hiện tại, mục tiêu, những cách đã thử, lịch ăn và lịch làm việc.</p></div></li>
+        <li><span class="min">10<small>phút</small></span><div><h3>Bác sĩ phác kế hoạch</h3><p>Đọc chỉ số nếu có, chỉ ra anh chị nên bắt đầu từ giờ ăn, giấc ngủ hay đĩa ăn, và 12 tuần của anh chị sẽ đi thế nào.</p></div></li>
+        <li><span class="min">5<small>phút cuối</small></span><div><h3>Nói thật có hợp không</h3><p>Hợp thì bác sĩ nói cách bắt đầu và chi phí. Chưa hợp thì bác sĩ chỉ cách anh chị tự làm tiếp.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <form id="book" novalidate>
+        <div>
+          <span class="eyebrow" style="color:var(--sage)">Đặt cuộc gọi 20 phút</span>
+          <h3 style="margin-top:6px">Anh chị chọn giờ và điền vài thông tin</h3>
+        </div>
+
+        <div class="field"><span class="legend">Chọn ngày và giờ <span class="opt">(giờ Việt Nam)</span></span>
+          <div class="slotbox">
+            <div class="chips" id="days" role="radiogroup" aria-label="Ngày"></div>
+            <div class="chips" id="times" role="radiogroup" aria-label="Giờ"></div>
+            <p class="slotmsg" id="slotmsg">Đang tải lịch trống của bác sĩ...</p>
+          </div>
+        </div>
+
+        <div class="field"><label for="f-name">Họ và tên</label><input type="text" id="f-name" autocomplete="name" placeholder="Nguyễn Văn A"></div>
+        <div class="two">
+          <div class="field"><label for="f-phone">Số điện thoại (Zalo)</label><input type="tel" id="f-phone" inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx"></div>
+          <div class="field"><label for="f-email">Email nhận link Zoom</label><input type="email" id="f-email" autocomplete="email" placeholder="ten@gmail.com"></div>
+        </div>
+        <div class="field"><label for="f-goal">Sau 12 tuần, anh chị muốn điều gì nhất?</label>
+          <select id="f-goal">
+            <option value="">Chọn một</option>
+            <option>Vóc dáng gọn, mặc lại đồ cũ</option>
+            <option>Ngủ ngon, đủ năng lượng cả ngày</option>
+            <option>Chỉ số khám về vùng an toàn</option>
+            <option>Giữ vóc dáng lâu dài, không quay lại như cũ</option>
+          </select></div>
+        <div class="field"><span class="legend">Anh chị đang dùng thuốc nào không?</span>
+          <div class="chips" id="meds">
+            <label class="chip"><input type="checkbox" id="m-lipid" value="Mỡ máu"><span>Mỡ máu</span></label>
+            <label class="chip"><input type="checkbox" id="m-sugar" value="Đường huyết"><span>Đường huyết</span></label>
+            <label class="chip"><input type="checkbox" id="m-bp" value="Huyết áp"><span>Huyết áp</span></label>
+            <label class="chip"><input type="checkbox" id="m-none" value="Không dùng thuốc"><span>Không</span></label>
+          </div></div>
+        <div class="field"><label for="f-lab">Anh chị có kết quả xét nghiệm trong 6 tháng gần đây không?</label>
+          <select id="f-lab"><option value="">Chọn một</option><option>Có, sẽ gửi trước cuộc gọi</option><option>Có nhưng đã hơn 6 tháng</option><option>Chưa có</option></select></div>
+        <div class="field"><label for="f-note">Anh chị muốn bác sĩ biết thêm điều gì? <span class="opt">(không bắt buộc)</span></label><textarea id="f-note" placeholder="Ví dụ: tôi hay tiếp khách buổi tối, làm ca đêm 2 tuần một lần"></textarea></div>
+        <p class="err" id="err" role="alert"></p>
+        <button class="btn wide" type="submit" id="submit">Đặt cuộc gọi với bác sĩ</button>
+        <div class="meet"><i>Z</i><span>Link Zoom được gửi ngay vào email của anh chị, kèm lời mời trên Google Calendar.</span></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap narrow">
+    <div class="head"><span class="eyebrow">Anh chị đang băn khoăn?</span><h2>Câu hỏi thường gặp</h2></div>
+    <div class="faq">
+      <details open><summary>Cuộc gọi tư vấn có mất phí không?</summary><p>Không. Cuộc gọi 20 phút hoàn toàn miễn phí, qua Zoom.</p></details>
+      <details><summary>Tôi có bị ép đăng ký trong cuộc gọi không?</summary><p>Không. Bác sĩ nói chương trình có hợp với anh chị không và chi phí bao nhiêu. Anh chị về suy nghĩ, không cần trả lời ngay.</p></details>
+      <details><summary>Chương trình 12 tuần giá bao nhiêu?</summary><p>Bác sĩ báo trong cuộc gọi, sau khi hiểu tình trạng của anh chị, vì mỗi người cần mức theo dõi khác nhau.</p></details>
+      <details><summary>Tôi đang uống thuốc, có tham gia được không?</summary><p>Được. Chương trình không thay thuốc của anh chị. Hai bác sĩ theo dõi chỉ số cùng anh chị và hướng dẫn cách trao đổi với bác sĩ điều trị khi chỉ số thay đổi.</p></details>
+      <details><summary>Tôi ở xa, không đến phòng khám được?</summary><p>Toàn bộ chương trình làm online: gọi video, nhắn tin, gửi ảnh bữa ăn và kết quả xét nghiệm.</p></details>
+      <details><summary>Tôi chưa có kết quả xét nghiệm thì sao?</summary><p>Vẫn đặt lịch được. Bác sĩ sẽ nói anh chị nên làm những xét nghiệm nào nếu cần.</p></details>
+      <details><summary>Tôi chưa học workshop Bản Đồ Khôi Phục Chuyển Hóa, có đặt được không?</summary><p>Được. Trong cuộc gọi, bác sĩ hỏi thêm vài câu để hiểu anh chị đang ở đâu.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="section cream final">
+  <div class="wrap stack" style="align-items:center;max-width:720px">
+    <span class="eyebrow">Đợt tới bắt đầu sau workshop 21&nbsp;&amp;&nbsp;22/11 · nhận 5 người</span>
+    <h2>12 tuần, một kế hoạch đúng cho riêng anh chị, và hai bác sĩ đi cùng.</h2>
+    <a class="btn" href="#dat-lich">Đặt cuộc gọi tư vấn cá nhân hoá</a>
+    <p class="tiny">Miễn phí · 20 phút · Zoom</p>
+  </div>
+</section>
+</main>
+
+<!-- XÁC NHẬN -->
+<main id="view-done" class="done" hidden>
+  <div class="wrap stack">
+    <span class="eyebrow">Đã đặt lịch</span>
+    <h1 style="font-size:clamp(28px,4vw,42px)">Cảm ơn <span id="d-name">anh chị</span>. Bác sĩ hẹn gặp anh chị:</h1>
+    <p class="when" id="d-when"></p>
+    <div class="meetbox"><div><span class="tiny">Link Zoom</span><br><a id="d-meet" href="#" target="_blank" rel="noopener"></a><br><span class="tiny" id="d-zoom"></span></div><span class="tiny">Lời mời đã gửi vào <b id="d-email"></b></span></div>
+    <ul class="recap" id="recap"></ul>
+    <h3 style="margin-top:10px">Trước cuộc gọi, anh chị chuẩn bị</h3>
+    <div class="todo">
+      <div><span class="n">1</span><p><b>Kết quả xét nghiệm gần nhất</b><br><span class="tiny">Chụp ảnh gửi Zalo <b>0981 944 324</b> trước giờ gọi.</span></p></div>
+      <div><span class="n">2</span><p><b>Lịch ăn, ngủ 1 ngày bình thường</b><br><span class="tiny">Mấy giờ ăn sáng, trưa, tối, mấy giờ đi ngủ. Ghi nhanh vào điện thoại là đủ.</span></p></div>
+      <div><span class="n">3</span><p><b>20 phút yên tĩnh, có tai nghe</b><br><span class="tiny">Mở link Zoom trước 2 phút để kiểm tra tiếng.</span></p></div>
+    </div>
+    <p class="tiny">Cần đổi giờ? Nhắn Zalo <b>0981 944 324</b>.</p>
+    <a class="btn" href="#top" id="back" style="align-self:flex-start">Quay lại trang</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Bản Đồ Khôi Phục Chuyển Hóa</b> · ThS.BS Nguyễn Trung Hiếu và ThS.BS Lê Thị Minh Tâm</span>
+    <span>Hotline / Zalo 0981 944 324</span>
+    <span style="flex-basis:100%">Nội dung mang tính giáo dục dinh dưỡng, không thay thế chẩn đoán hay phác đồ điều trị của bác sĩ.</span>
+  </div>
+</footer>
+
+<script>
+/* ============ CẤU HÌNH ============
+   API_URL: dán link Web App Apps Script (đuôi /exec) vào giữa 2 dấu nháy.
+   Để trống thì trang chạy chế độ xem thử: lịch mẫu, không đặt thật. */
+const API_URL = 'https://script.google.com/macros/s/AKfycbzB64pvjU0PB9sRviqOut72fUgrybxZm4uj1vkqSyMUraJj5wKo2NUKmhOwmcDFeIhzYA/exec';
+const ZALO = '0981 944 324';
+
+(function(){
+  const $ = id => document.getElementById(id);
+  const params = new URLSearchParams(location.search);
+  const track = {lid: params.get('lid')||'', utm_source: params.get('utm_source')||'', utm_campaign: params.get('utm_campaign')||'', utm_content: params.get('utm_content')||''};
+  let DAYS = [];
+
+  if (API_URL) { const t=$('tpl'); if (t) t.hidden = true; }
+
+  /* ---------- lịch trống ---------- */
+  const WD = ['CN','T2','T3','T4','T5','T6','T7'];
+  function demoSlots(){
+    const out=[], now=new Date();
+    for(let i=1; out.length<6; i++){
+      const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i);
+      if(d.getDay()===0) continue;
+      const iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+      const times=['09:00','09:30','10:30','14:00','15:00','20:00','20:30'].filter((_,k)=>(k+i)%3!==0);
+      out.push({date:iso,label:WD[d.getDay()]+' '+d.getDate()+'/'+(d.getMonth()+1),slots:times.map(t=>({start:iso+'T'+t+':00+07:00',label:t.replace(/^0/,'')}))});
+    }
+    return out;
+  }
+  async function loadSlots(){
+    $('slotmsg').textContent='Đang tải lịch trống của bác sĩ...';
+    try{
+      if(API_URL){
+        let j=null;
+        for(let lan=1; lan<=3 && !j; lan++){
+          try{ const r=await fetch(API_URL+'?action=slots'); const k=JSON.parse(await r.text()); if(k.ok) j=k; }
+          catch(x){}
+          if(!j && lan<3) await new Promise(r=>setTimeout(r,lan*1200));
+        }
+        if(!j) throw new Error('Không tải được lịch');
+        DAYS=j.days||[];
+      } else DAYS=demoSlots();
+      renderDays();
+    }catch(e){
+      $('slotmsg').textContent='Chưa tải được lịch. Anh chị tải lại trang, hoặc nhắn Zalo '+ZALO+' để đặt giờ.';
+    }
+  }
+  function renderDays(){
+    const box=$('days'); box.innerHTML=''; $('times').innerHTML='';
+    const open=DAYS.filter(d=>d.slots&&d.slots.length);
+    if(!open.length){ $('slotmsg').textContent='Tuần này bác sĩ đã kín lịch. Anh chị nhắn Zalo '+ZALO+' để được xếp giờ.'; return; }
+    open.forEach((d,i)=>{
+      const [w,dm]=d.label.split(' ');
+      const l=document.createElement('label'); l.className='chip';
+      l.innerHTML='<input type="radio" name="day" id="day-'+i+'" value="'+d.date+'"><span>'+w+'<small>'+(dm||'')+'</small></span>';
+      l.querySelector('input').addEventListener('change',()=>renderTimes(d));
+      box.appendChild(l);
+    });
+    $('slotmsg').textContent=(API_URL?'':'Lịch mẫu để xem thử. ')+'Chọn một ngày để xem giờ trống.';
+  }
+  function renderTimes(d){
+    const box=$('times'); box.innerHTML='';
+    d.slots.forEach((s,i)=>{
+      const l=document.createElement('label'); l.className='chip';
+      l.innerHTML='<input type="radio" name="slot" id="slot-'+i+'" value="'+s.start+'"><span>'+s.label+'</span>';
+      l.querySelector('input').dataset.label=d.label+', '+s.label;
+      box.appendChild(l);
+    });
+    $('slotmsg').textContent='Mỗi cuộc gọi 20 phút.';
+  }
+
+  /* ---------- thuốc: "Không" bỏ chọn ô khác ---------- */
+  const none=$('m-none');
+  document.querySelectorAll('#meds input').forEach(c=>c.addEventListener('change',()=>{
+    if(c===none&&c.checked) document.querySelectorAll('#meds input').forEach(o=>{if(o!==none)o.checked=false});
+    if(c!==none&&c.checked) none.checked=false;
+  }));
+
+  /* ---------- gửi đặt lịch ---------- */
+  $('book').addEventListener('submit', async e=>{
+    e.preventDefault();
+    const err=$('err');
+    const slot=document.querySelector('input[name=slot]:checked');
+    const name=$('f-name').value.trim(), phone=$('f-phone').value.replace(/\D/g,''), email=$('f-email').value.trim();
+    if(!slot){err.textContent='Anh chị chọn một ngày và một giờ ở phía trên.';$('days').scrollIntoView({block:'center'});return}
+    if(name.length<2){err.textContent='Anh chị nhập họ tên giúp bác sĩ.';$('f-name').focus();return}
+    if(phone.length<9||phone.length>11){err.textContent='Số điện thoại chưa đúng. Anh chị kiểm tra lại giúp.';$('f-phone').focus();return}
+    if(!/^\S+@\S+\.\S+$/.test(email)){err.textContent='Email chưa đúng. Link Zoom sẽ gửi vào email này.';$('f-email').focus();return}
+    err.textContent='';
+    const meds=[...document.querySelectorAll('#meds input:checked')].map(i=>i.value).join(', ');
+    const data=Object.assign({action:'book',name,phone,email,goal:$('f-goal').value,meds,lab:$('f-lab').value,note:$('f-note').value.trim(),start:slot.value},track);
+    const btn=$('submit'); btn.disabled=true; btn.textContent='Đang đặt lịch...';
+    try{
+      let res;
+      if(API_URL){
+        const r=await fetch(API_URL,{method:'POST',body:JSON.stringify(data)});
+        try{ res=JSON.parse(await r.text()); }
+        catch(x){ err.textContent='Chưa nhận được xác nhận. Anh chị kiểm tra email (cả mục Spam) xem đã có lịch hẹn chưa. Nếu chưa có, bấm đặt lại hoặc nhắn Zalo '+ZALO+'.'; return; }
+      } else {
+        await new Promise(r=>setTimeout(r,600));
+        res={ok:true,meet:'https://zoom.us/j/0000000000',zoom:{id:'000 000 0000',pass:'xxxxxx'},label:slot.dataset.label};
+      }
+      if(!res.ok){
+        if(res.code==='SLOT_TAKEN'){ err.textContent='Giờ này vừa có người đặt. Anh chị chọn giờ khác giúp.'; await loadSlots(); }
+        else err.textContent=res.message||'Chưa đặt được lịch. Anh chị thử lại, hoặc nhắn Zalo '+ZALO+'.';
+        return;
+      }
+      if(typeof fbq==='function') fbq('track','Schedule');
+      showDone(data,res,slot.dataset.label);
+    }catch(x){
+      err.textContent='Mạng đang chậm, chưa đặt được. Anh chị thử lại, hoặc nhắn Zalo '+ZALO+'.';
+    }finally{
+      btn.disabled=false; btn.textContent='Đặt cuộc gọi với bác sĩ';
+    }
+  });
+
+  function showDone(d,res,label){
+    $('d-name').textContent=d.name.split(' ').pop();
+    $('d-when').textContent=res.label||label;
+    const a=$('d-meet'); a.href=res.meet||'#'; a.textContent=res.meet?'Bấm để vào phòng Zoom':'Gửi trong email';
+    $('d-zoom').textContent=res.zoom?('Meeting ID: '+res.zoom.id+' · Passcode: '+res.zoom.pass):'';
+    $('d-email').textContent=d.email;
+    const rows=[['Mục tiêu',d.goal||'Chưa chọn'],['Thuốc đang dùng',d.meds||'Chưa chọn'],['Xét nghiệm',d.lab||'Chưa chọn']];
+    $('recap').innerHTML='';
+    rows.forEach(([k,v])=>{const li=document.createElement('li');const s1=document.createElement('span');s1.textContent=k;const s2=document.createElement('span');s2.textContent=v;li.append(s1,s2);$('recap').appendChild(li)});
+    $('view-main').hidden=true; $('view-done').hidden=false; window.scrollTo({top:0});
+  }
+  $('back').addEventListener('click',e=>{e.preventDefault();$('view-done').hidden=true;$('view-main').hidden=false;window.scrollTo({top:0})});
+
+  loadSlots();
+})();
+</script>
+</body>
+</html>
