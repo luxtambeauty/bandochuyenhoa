@@ -39,6 +39,7 @@ p{margin:0}
 .step i{width:34px;height:34px;border-radius:50%;background:var(--forest);color:var(--paper);font-style:normal;font-weight:700;display:grid;place-items:center;flex:none}
 .video{border-radius:20px;overflow:hidden;background:var(--mist);border:1px solid var(--line)}
 .video video{display:block;width:100%;height:auto;background:#000}
+.video iframe{display:block;width:100%;aspect-ratio:16/9;height:auto;border:0;background:#000}
 .cho{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;padding:24px;color:var(--sage-text);font-size:15px}
 .cho b{display:block;color:var(--ink);font-size:17px;margin-bottom:4px}
 .pdf{display:flex;flex-wrap:wrap;gap:16px 20px;align-items:center;justify-content:space-between;padding:22px 24px;border-radius:20px;background:var(--mist);border:1px solid var(--line)}
@@ -93,14 +94,16 @@ footer{margin-top:40px;padding-block:28px;border-top:1px solid var(--line);font-
 <footer><div class="wrap">Bản Đồ Khôi Phục Chuyển Hóa · ThS.BS Nguyễn Trung Hiếu và ThS.BS Lê Thị Minh Tâm. Nội dung mang tính giáo dục dinh dưỡng, không thay thế chẩn đoán hay phác đồ điều trị của bác sĩ.</div></footer>
 
 <script>
-/* Khi có video và file: điền đường dẫn vào 2 dòng dưới (file đặt trong thư mục assets/ hoặc link Google Drive). */
-var VIDEO_URL = '';
+/* VIDEO_URL: link YouTube (để Không công khai) hoặc file .mp4 trong assets/. PDF_URL: file trong assets/ hoặc link Google Drive. */
+var VIDEO_URL = 'https://youtu.be/-h_jUJdAt04';
 var PDF_URL = '';
 
 (function () {
   if (VIDEO_URL) {
-    document.getElementById('video').innerHTML =
-      '<video src="' + VIDEO_URL + '" controls playsinline preload="metadata"></video>';
+    var yt = VIDEO_URL.match(/(?:youtu\.be\/|[?&]v=|\/embed\/)([\w-]{11})/);
+    document.getElementById('video').innerHTML = yt
+      ? '<iframe src="https://www.youtube-nocookie.com/embed/' + yt[1] + '?rel=0&modestbranding=1&playsinline=1" title="Hướng dẫn Bộ 21 mẫu Xếp Đĩa" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>'
+      : '<video src="' + VIDEO_URL + '" controls playsinline preload="metadata"></video>';
   }
   if (PDF_URL) {
     var b = document.getElementById('pdfBtn');
