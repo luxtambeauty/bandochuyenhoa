@@ -65,6 +65,14 @@ p{margin:0}
 .main h1{font-size:clamp(26px,3vw,32px)}
 
 
+/* mua kèm: Bộ 21 mẫu Xếp Đĩa */
+.bump{border:2px dashed var(--forest);background:#fbf7ee;border-radius:16px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;cursor:pointer}
+.bump:has(input:checked){border-style:solid;background:var(--mist)}
+.bump input{width:22px;height:22px;margin-top:3px;flex:none;accent-color:var(--forest);cursor:pointer}
+.bump b{display:block;font-size:16.5px;line-height:1.45}
+.bump small{display:block;margin-top:6px;font-size:14px;line-height:1.6;color:var(--sage-text)}
+.bump s{color:var(--sage-text)}
+
 /* hình thức thanh toán */
 .label{font-size:14px;font-weight:600}
 .pay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
@@ -132,6 +140,12 @@ a[href^="tel:"],a[href*="zalo.me"],.sdt{white-space:nowrap}
     <h1>Anh chị đang giữ chỗ cho Bản Đồ Khôi Phục Chuyển Hóa</h1>
     <p class="tiny">Xin chào <b id="coName" style="color:var(--ink)">anh chị</b>. Chỗ của anh chị được giữ trong <b id="hold" style="color:var(--ink);font-variant-numeric:tabular-nums">15:00</b> để hoàn tất thanh toán.</p>
 
+    <label class="bump">
+      <input type="checkbox" id="bump1">
+      <span><b>Có, thêm Bộ 21 mẫu Xếp Đĩa cho cơm nhà, cơm văn phòng và tiệc, giá 149.000đ</b>
+      <small>Giá lẻ <s>399.000đ</s>. Kèm video bác sĩ Tâm hướng dẫn. Mở đĩa nào cũng có mẫu để nhìn theo, không phải nghĩ.</small></span>
+    </label>
+
     <div>
       <span class="label">Hình thức thanh toán</span>
       <div class="pay">
@@ -170,6 +184,7 @@ a[href^="tel:"],a[href*="zalo.me"],.sdt{white-space:nowrap}
         <li><span>Workbook Bản Đồ Khôi Phục Chuyển Hóa</span><span>✓</span></li>
         <li><span>Cẩm nang đọc hiểu chỉ số khám sức khỏe</span><span>✓</span></li>
         <li><span>Bản ghi hình + Cộng đồng Đồng hành</span><span>✓</span></li>
+        <li id="sumBump" hidden><span>Bộ 21 mẫu Xếp Đĩa</span><span>149.000đ</span></li>
         <li><span>Giá trị trọn bộ</span><span><s>1.800.000đ</s></span></li>
         <li class="sum"><span>Anh chị trả</span><span id="total">99.000đ</span></li>
       </ul>
@@ -188,6 +203,7 @@ a[href^="tel:"],a[href*="zalo.me"],.sdt{white-space:nowrap}
   var GAS_URL = 'https://script.google.com/macros/s/AKfycbydndS-vHwtTqZdsmsep_3Rj1HD9Z9a6Py-bTClATlu_U0e8MmOnTZKvscqJ8WQ2vX32Q/exec';
   var TRANG_XAC_NHAN = '/xac-nhan';
   var GIA_GOC = 99000;
+  var GIA_BUMP = 149000; // Bộ 21 mẫu Xếp Đĩa
 
   var order = JSON.parse(sessionStorage.getItem('order') || '{}');
   if (!order.orderId) {
@@ -232,7 +248,31 @@ a[href^="tel:"],a[href*="zalo.me"],.sdt{white-space:nowrap}
     });
   });
 
-  capNhatQR(GIA_GOC);
+  // Mua kèm Bộ 21 mẫu Xếp Đĩa: đổi số tiền trên mã QR, ghi lại vào đơn trên Sheet
+  var oBump = document.getElementById('bump1');
+  oBump.checked = !!order.bump1;
+  function tongTien() { return GIA_GOC + (oBump.checked ? GIA_BUMP : 0); }
+  function apDungBump() {
+    document.getElementById('sumBump').hidden = !oBump.checked;
+    capNhatQR(tongTien());
+  }
+  async function ghiBump(lan) {
+    try {
+      var res = await fetch(GAS_URL, { method: 'POST', body: JSON.stringify({
+        action: 'updateOrder', orderId: order.orderId,
+        data: { bump1: oBump.checked, totalAmount: tongTien() } }) });
+      JSON.parse(await res.text());
+    } catch (e) { if (lan < 3) setTimeout(function () { ghiBump(lan + 1); }, lan * 1500); }
+  }
+  oBump.addEventListener('change', function () {
+    if (xong) { oBump.checked = !oBump.checked; return; }
+    order.bump1 = oBump.checked;
+    order.totalAmount = tongTien();
+    try { sessionStorage.setItem('order', JSON.stringify(order)); } catch (e) {}
+    apDungBump();
+    ghiBump(1);
+  });
+  apDungBump();
 
   // Đồng hồ giữ chỗ 15 phút. Mốc hết hạn lưu theo mã đơn, tải lại trang vẫn đếm tiếp.
   var khoaHan = 'hold_' + order.orderId, han = 0;
