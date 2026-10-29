@@ -96,7 +96,7 @@ footer{margin-top:40px;padding-block:28px;border-top:1px solid var(--line);font-
 <script>
 /* VIDEO_URL: link YouTube (để Không công khai) hoặc file .mp4 trong assets/. PDF_URL: file trong assets/ hoặc link Google Drive. */
 var VIDEO_URL = 'https://youtu.be/-h_jUJdAt04';
-var PDF_URL = '';
+var PDF_URL = 'https://drive.google.com/file/d/19JsUt8pqvGfXj6mwJRCE8GfmvniKLJ4c/view?usp=sharing';
 
 (function () {
   if (VIDEO_URL) {
@@ -107,8 +107,21 @@ var PDF_URL = '';
   }
   if (PDF_URL) {
     var b = document.getElementById('pdfBtn');
-    b.href = PDF_URL; b.removeAttribute('aria-disabled'); b.setAttribute('download', '');
-    b.textContent = 'Tải file PDF ↓';
+    b.removeAttribute('aria-disabled');
+    var drive = PDF_URL.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
+    if (drive) {
+      // Mở bằng Google Drive (xem được ngay trên điện thoại), kèm link tải thẳng về máy
+      b.href = PDF_URL; b.target = '_blank'; b.rel = 'noopener';
+      b.textContent = 'Mở file PDF ↗';
+      var t = document.createElement('a');
+      t.href = 'https://drive.google.com/uc?export=download&id=' + drive[1];
+      t.textContent = 'hoặc tải thẳng về máy (9 MB)';
+      t.style.cssText = 'font-size:14px;font-weight:600;color:var(--forest);flex-basis:100%;text-align:right';
+      b.parentNode.appendChild(t);
+    } else {
+      b.href = PDF_URL; b.setAttribute('download', '');
+      b.textContent = 'Tải file PDF ↓';
+    }
   }
 })();
 </script>
