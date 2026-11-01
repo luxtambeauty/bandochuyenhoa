@@ -145,8 +145,10 @@ img{max-width:100%;display:block}
 /* case */
 .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .case{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.case .who b{display:block}
-.case .who small{color:var(--sage)}
+.case .who{display:flex;gap:14px;align-items:center}
+.case .who img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none;background:var(--mist)}
+.case .who b{display:block;font-size:17px}
+.case .who small{display:block;color:var(--sage)}
 .metric{display:flex;gap:10px;align-items:baseline;padding:9px 13px;border-radius:12px;background:var(--mist);flex-wrap:wrap}
 .metric b{font:600 21px var(--serif);color:var(--forest);font-variant-numeric:tabular-nums}
 .metric span{font-size:13px;color:var(--sage)}
@@ -407,20 +409,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
     </div>
     <div class="cases">
       <article class="case">
-        <div class="who"><b>Trang</b><small>31 tuổi, Huế · 3 tháng</small></div>
+        <div class="who"><img src="assets/hv-trang.jpg" alt="Trang" loading="lazy"><span><b>Trang</b><small>31 tuổi, Huế · 3 tháng</small></span></div>
         <div class="metric"><b>Vòng bụng −12cm</b></div>
         <div class="metric"><b>Không nhịn bữa nào</b></div>
         <q>Chiếc đầm ôm cất trong tủ nhiều năm, lần này mặc vừa.</q>
       </article>
       <article class="case">
-        <div class="who"><b>Chú Bảo</b><small>56 tuổi, Huế · 3 tháng</small></div>
+        <div class="who"><img src="assets/hv-chu-bao.jpg" alt="Chú Bảo" loading="lazy"><span><b>Chú Bảo</b><small>56 tuổi, Huế · 3 tháng</small></span></div>
         <div class="metric"><b>Gan nhiễm mỡ độ 2</b><span>→ về mức bình thường</span></div>
         <div class="metric"><b>Rối loạn mỡ máu</b><span>→ chỉ số xét nghiệm cải thiện tốt</span></div>
         <div class="metric"><b>Ngủ được</b><span>bớt cáu gắt</span></div>
         <q>Lần đầu sau nhiều năm, chú đi tái khám mà không thấy lo.</q>
       </article>
       <article class="case">
-        <div class="who"><b>Chú Vinh</b><small>59 tuổi, Đà Nẵng · gần 2 tháng</small></div>
+        <div class="who"><img src="assets/hv-chu-vinh.jpg" alt="Chú Vinh" loading="lazy"><span><b>Chú Vinh</b><small>59 tuổi, Đà Nẵng · gần 2 tháng</small></span></div>
         <div class="metric"><b>Gối khỏe hơn</b><span>chạy lại được</span></div>
         <div class="metric"><b>Sáng dậy có sức</b></div>
         <q>Điều chú vui nhất là gối đã khỏe, sáng dậy có sức.</q>
