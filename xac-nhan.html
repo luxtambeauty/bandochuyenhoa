@@ -112,6 +112,12 @@ select{appearance:none;cursor:pointer;
 /* ===== riêng trang xác nhận ===== */
 .card{text-align:center}
 .card .info,.card .steps{text-align:left}
+.bump-box{margin-top:22px;text-align:left;border:2px solid var(--forest);background:var(--mist);border-radius:16px;padding:18px 20px}
+.bump-box[hidden]{display:none}
+.bump-box .bt{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--forest)}
+.bump-box h3{margin:6px 0 6px;font-family:var(--serif);font-weight:500;font-size:20px}
+.bump-box p{font-size:14px;line-height:1.6;color:rgba(24,59,59,.78);margin:0 0 14px}
+.bump-box a{display:inline-block;background:var(--forest);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:999px}
 .check{width:64px;height:64px;border-radius:50%;background:var(--ink);color:var(--sage-light);
   display:flex;align-items:center;justify-content:center;font-size:29px;margin:0 auto 22px}
 
@@ -140,10 +146,10 @@ footer{text-align:center;margin-top:26px;font-size:13px;color:rgba(24,59,59,.62)
   <div class="card">
     <div class="check">✓</div>
     <h1>Đã giữ chỗ thành công!</h1>
-    <p class="lead">Cảm ơn bạn. Chỗ ngồi của bạn trong workshop đã được xác nhận và email hướng dẫn đã được gửi đi.</p>
+    <p class="lead">Cảm ơn anh chị. Chỗ ngồi của anh chị trong workshop đã được xác nhận và email hướng dẫn đã được gửi đi.</p>
 
     <div class="schedule">
-      <div class="schedule-label">Hẹn gặp bạn tại</div>
+      <div class="schedule-label">Hẹn gặp anh chị tại</div>
       <div class="schedule-time">20:00 – 21:30<br>Thứ Bảy 28 &amp; Chủ Nhật 29/11/2026</div>
       <div class="schedule-note">Trực tuyến qua phòng họp Zoom</div>
     </div>
@@ -153,6 +159,13 @@ footer{text-align:center;margin-top:26px;font-size:13px;color:rgba(24,59,59,.62)
       <div class="info-row"><span>Họ tên</span><strong id="orderName">—</strong></div>
       <div class="info-row"><span>Email</span><strong id="orderEmail">—</strong></div>
       <div class="info-row"><span>Số tiền</span><strong id="orderAmount">—</strong></div>
+    </div>
+
+    <div class="bump-box" id="bumpBox" hidden>
+      <div class="bt">Anh chị đã mua kèm</div>
+      <h3>Bộ 21 mẫu Xếp Đĩa</h3>
+      <p>Video bác sĩ Tâm hướng dẫn và file PDF 21 mẫu cho cơm nhà, cơm văn phòng và tiệc. Link này cũng có trong email xác nhận.</p>
+      <a href="/bo-21-mau-xep-dia">Mở Bộ 21 mẫu Xếp Đĩa →</a>
     </div>
 
     <div class="steps">
@@ -167,15 +180,15 @@ footer{text-align:center;margin-top:26px;font-size:13px;color:rgba(24,59,59,.62)
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-text">
-          <div class="step-title">Tham gia Cộng đồng nâng đỡ</div>
-          <div class="step-desc">Link nhóm có trong email xác nhận — nơi bạn được hỗ trợ trước và sau 2 buổi học.</div>
+          <div class="step-title">Tham gia Cộng đồng Đồng hành</div>
+          <div class="step-desc">Link nhóm có trong email xác nhận — nơi anh chị được hỗ trợ trước và sau 2 buổi học.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-text">
           <div class="step-title">In sẵn Workbook trước buổi 1</div>
-          <div class="step-desc">Bạn sẽ vừa nghe vừa điền trực tiếp.</div>
+          <div class="step-desc">Anh chị sẽ vừa nghe vừa điền trực tiếp.</div>
         </div>
       </div>
     </div>
@@ -202,6 +215,12 @@ footer{text-align:center;margin-top:26px;font-size:13px;color:rgba(24,59,59,.62)
       currency: 'VND',
       value: Number(order.totalAmount || 99000)
     }, order.orderId);
+
+    // Bộ 21 mẫu: chỉ hiện khi hệ thống đã ghi nhận đơn có mua kèm (theo số tiền thực nhận)
+    fetch('https://script.google.com/macros/s/AKfycbydndS-vHwtTqZdsmsep_3Rj1HD9Z9a6Py-bTClATlu_U0e8MmOnTZKvscqJ8WQ2vX32Q/exec?action=getStatus&orderId=' + encodeURIComponent(order.orderId))
+      .then(function (r) { return r.text(); })
+      .then(function (s) { if (JSON.parse(s).bump1) document.getElementById('bumpBox').hidden = false; })
+      .catch(function () {});
   }
 </script>
 </body>
