@@ -82,7 +82,8 @@ em{font-style:italic}
 @media(max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.btn.wide{white-space:normal;text-align:center;text-wrap:balance}#giu-cho .tiny{text-wrap:balance}}
 .hero h1 em{color:var(--forest)}
 .checks{display:flex;flex-direction:column;gap:10px;padding:0;margin:0;list-style:none}
-.checks li{display:flex;gap:12px;align-items:flex-start}
+.checks li{display:flex;gap:12px;align-items:flex-start;text-wrap:pretty}
+.checks b{font-weight:600;color:var(--ink)}
 .checks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--sage-light);color:var(--ink);font-size:13px;font-weight:700;display:grid;place-items:center;margin-top:3px}
 .guarantee{display:flex;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--paper);max-width:560px}
 .seal{flex:none;width:104px;height:auto}
@@ -277,9 +278,10 @@ html{scroll-behavior:smooth}
       <h1>Lấy lại vóc dáng <em>chuẩn y khoa.</em><br>Không nhịn ăn. Không thực&nbsp;phẩm chức&nbsp;năng.</h1>
       <p style="font-size:18px;max-width:58ch">Chỉ sau hai buổi tối, anh chị sẽ hiểu vì sao vòng bụng mãi không xuống dù đã rất cố gắng, và biết cách mở 3 ổ khóa đang giữ chặt vóc dáng. Anh chị ra về với khung giờ ăn và cách xếp đĩa phù hợp với chính mình, để vẫn ăn cơm nhà, đi tiệc thoải mái mà vẫn giữ được vóc&nbsp;dáng.</p>
       <ul class="checks">
-        <li>Vóc dáng đo bằng chỉ số y khoa: vòng bụng, tỉ lệ mỡ, mỡ nội tạng. Không chỉ nhìn vào mỗi cân nặng.</li>
-        <li>Không kiêng khem, không thực phẩm chức năng, không ép tập cực đoan.</li>
-        <li>Có bản ghi hình và cộng đồng để không làm một mình sau buổi học.</li>
+        <li><span><b>Đo bằng chỉ số y khoa, không chỉ nhìn cân nặng:</b> vòng bụng, tỉ lệ mỡ, mỡ nội tạng.</span></li>
+        <li><span><b>Áp dụng ngay trên mâm cơm nhà:</b> không kiêng khem, không đếm calo, không ép tập cực đoan.</span></li>
+        <li><span><b>Thực hành ngay tại lớp:</b> tự điền Workbook, bác sĩ xem và sửa trực tiếp cho anh chị.</span></li>
+        <li><span><b>Không phải tự làm một mình:</b> có bản ghi hình xem lại trong 14 ngày và Cộng đồng Đồng hành sau buổi học.</span></li>
       </ul>
       <div class="guarantee">
         <img class="seal" src="assets/huy-hieu-hoan-tien-100.webp" alt="Cam kết hoàn tiền 100%" width="372" height="262">
