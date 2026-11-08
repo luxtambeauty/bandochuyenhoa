@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
 <!-- Meta Pixel -->
@@ -34,94 +34,138 @@ src="https://www.facebook.com/tr?id=1073477048927988&ev=PageView&noscript=1"/></
 :root{
   --ink:#183b3b;--deep:#234747;--forest:#37685f;--sage:#6f9c8f;--sage-text:#5a8172;--sage-light:#b8d1ca;
   --mist:#edf4f1;--cream:#f7f3ee;--paper:#fffdf9;--pink:#e9b2b8;--pink-light:#f4d8d8;--line:rgba(24,59,59,.14);
+  --sale:#b5473a;
   --sans:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;--serif:'Lora',"Times New Roman",serif;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
 h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.2;margin:0;text-wrap:balance}
 p{margin:0}
-.wrap{max-width:1180px;margin-inline:auto;padding-inline:24px}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-text)}
-.tiny{font-size:14px;color:var(--sage-text);line-height:1.55}
+.wrap{max-width:1140px;margin-inline:auto;padding-inline:24px}
+@media(max-width:640px){.wrap{padding-inline:16px}}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-text)}
+.tiny{font-size:14px;color:var(--sage-text);line-height:1.6}
 
 /* thanh trên cùng */
-.top{border-bottom:1px solid var(--line);background:rgba(255,253,249,.94)}
+.top{border-bottom:1px solid var(--line);background:var(--paper)}
 .top .wrap{display:flex;align-items:center;min-height:64px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.brand .mark{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 17px var(--serif);display:grid;place-items:center}
+.brand .mark{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 17px var(--serif);display:grid;place-items:center;flex:none}
 .brand b{font-size:12px;letter-spacing:.12em;text-transform:uppercase;display:block;line-height:1.1}
 .brand small{font-size:11px;color:var(--sage-text);display:block}
 
-/* bố cục 2 cột */
-.co{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start;padding-block:40px 72px}
-@media(max-width:900px){.co{grid-template-columns:1fr}}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 18px 50px -30px rgba(24,59,59,.35)}
-.main{display:flex;flex-direction:column;gap:18px}
-.steps{display:flex;gap:6px}
+/* bố cục: cột chính + cột thông tin workshop */
+.co{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:28px;align-items:start;padding-block:32px 72px}
+@media(max-width:900px){.co{grid-template-columns:minmax(0,1fr)}}
+.main{display:flex;flex-direction:column;gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 28px;box-shadow:0 18px 50px -34px rgba(24,59,59,.35)}
+@media(max-width:640px){.card{padding:22px 18px}}
+.steps{display:flex;gap:6px;margin-bottom:16px}
 .steps span{flex:1;height:5px;border-radius:99px;background:var(--line)}
 .steps span.on{background:var(--forest)}
-.main h1{font-size:clamp(26px,3vw,32px)}
+.main h1{font-size:clamp(25px,3vw,31px);margin:6px 0 10px}
+.sec-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.sec-title i{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);font:700 14px var(--sans);font-style:normal;display:grid;place-items:center;flex:none}
+.sec-title h2{font-size:22px}
 
+/* thông tin người đăng ký */
+.who-box{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:14px;background:var(--mist);border:1px solid var(--line)}
+.who-box b{display:block;font-size:16.5px}
+.who-box span{display:block;font-size:14.5px;color:var(--deep);word-break:break-all}
+.link-btn{border:0;background:none;padding:2px 0;font:600 14.5px var(--sans);color:var(--forest);cursor:pointer;text-decoration:underline;text-underline-offset:3px;flex:none}
+.edit{display:flex;flex-direction:column;gap:12px;padding:16px 18px;border-radius:14px;background:var(--mist);border:1px solid var(--line)}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-size:13.5px;font-weight:600}
+.field input{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 13px;font:500 15.5px var(--sans);background:var(--paper);color:var(--ink)}
+.field input:focus{outline:2px solid var(--forest);outline-offset:1px}
+.edit-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-sm{border:0;border-radius:999px;background:var(--forest);color:var(--paper);padding:11px 22px;font:600 15px var(--sans);cursor:pointer}
+.btn-sm:disabled{opacity:.7;cursor:progress}
+.err{font-size:14px;color:#a94442;font-weight:600}
+.ok-msg{font-size:14px;color:var(--forest);font-weight:600}
 
-/* mua kèm: Bộ 21 mẫu Xếp Đĩa */
-.bump{border:2px dashed var(--forest);background:#fbf7ee;border-radius:16px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;cursor:pointer}
-.bump:has(input:checked){border-style:solid;background:var(--mist)}
-.bump input{width:22px;height:22px;margin-top:3px;flex:none;accent-color:var(--forest);cursor:pointer}
-.bump b{display:block;font-size:16.5px;line-height:1.45}
-.bump small{display:block;margin-top:6px;font-size:14px;line-height:1.6;color:var(--sage-text)}
-.bump s{color:var(--sage-text)}
+/* mua kèm */
+.up-lead{font-size:15px;color:var(--deep);margin-bottom:16px}
+.up-lead small{display:block;font-size:13.5px;color:var(--sage-text);margin-top:4px}
+.offer{display:flex;gap:14px;align-items:flex-start;border:1.5px solid var(--line);border-radius:16px;padding:18px 20px;cursor:pointer;background:var(--paper);transition:border-color .15s,background .15s}
+.offer:hover{border-color:var(--sage)}
+.offer:has(input:checked){border-color:var(--forest);background:var(--mist)}
+.offer input{width:22px;height:22px;margin-top:3px;flex:none;accent-color:var(--forest);cursor:pointer}
+.offer-body{flex:1;min-width:0}
+.offer-head{display:flex;justify-content:space-between;align-items:baseline;gap:6px 14px;flex-wrap:wrap}
+.offer-head b{font-size:17px}
+.price-tag{white-space:nowrap;font-weight:700;font-size:17px;color:var(--sale)}
+.price-tag s{color:var(--sage-text);font-weight:500;font-size:14.5px;margin-right:6px}
+.offer-kind{display:block;margin:4px 0 8px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-text)}
+.offer ul{margin:0 0 10px;padding-left:18px;font-size:14.5px;color:var(--deep);display:flex;flex-direction:column;gap:6px}
+.offer ul b{color:var(--ink)}
+.offer .result{font-size:14.5px;color:var(--deep)}
 
-/* hình thức thanh toán */
-.label{font-size:14px;font-weight:600}
-.pay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+/* tóm tắt đơn */
+.lines{list-style:none;margin:0;padding:0}
+.lines li{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.lines li span:last-child{white-space:nowrap;font-weight:600}
+.lines .total{border:0;padding-top:16px;align-items:baseline}
+.lines .total span:first-child{font-weight:700;font-size:17px}
+.lines .total span:last-child{font:600 28px var(--serif);color:var(--sale)}
+
+/* thanh toán */
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
 .pay label{border:1px solid var(--line);border-radius:12px;padding:13px 14px;display:flex;gap:10px;align-items:center;cursor:pointer;font-weight:600;font-size:15px}
 .pay label:has(input:checked){border-color:var(--forest);background:var(--mist)}
 .pay input{accent-color:var(--forest)}
-
-/* khối mã QR */
-.qr{border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:var(--paper)}
-@media(max-width:520px){.qr{grid-template-columns:1fr;justify-items:center;text-align:center}}
-.qr img{width:170px;height:170px;border-radius:12px;border:1px solid var(--line);background:#fff;padding:6px}
-.qr-info{display:flex;flex-direction:column;gap:6px;font-size:15px;width:100%}
-.qr-info .how{font-weight:600}
-.qr-info code{font-family:var(--sans);font-weight:700;font-size:16px;background:var(--mist);padding:2px 8px;border-radius:6px}
-.bank{margin-top:6px;border-top:1px solid var(--line);padding-top:10px;display:grid;gap:4px;font-size:14px}
-.bank div{display:flex;justify-content:space-between;gap:12px}
+.qr-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:16px}
+.qr-wrap img{width:220px;height:220px;border-radius:14px;border:1px solid var(--line);background:#fff;padding:8px}
+.qr-wrap .how{font-size:14px;color:var(--sage-text);text-align:center}
+.bank{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.bank div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);font-size:15px;background:var(--paper)}
+.bank div:nth-child(odd){background:#faf7f1}
+.bank div:last-child{border-bottom:0}
 .bank span{color:var(--sage-text)}
-.qr-fail{display:none;background:var(--pink-light);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.6}
-.warn{background:var(--pink-light);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.65}
+.bank .val{display:flex;align-items:center;gap:10px;text-align:right}
+.bank .val b{font-variant-numeric:tabular-nums}
+.bank .amt b{color:var(--sale);font-size:16px}
+.copy{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:4px 10px;font:600 13px var(--sans);color:var(--forest);cursor:pointer;white-space:nowrap}
+.copy:hover{border-color:var(--forest)}
+.copy.done{background:var(--forest);color:var(--paper);border-color:var(--forest)}
+.qr-fail{display:none;background:var(--pink-light);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.6;margin-top:14px}
+.warn{background:var(--pink-light);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.65;margin-top:14px}
 .warn b{color:#8a4d54}
-
-/* nút + trạng thái */
-.btn{width:100%;border:0;border-radius:999px;background:var(--forest);color:var(--paper);padding:18px 24px;font:600 17px var(--sans);cursor:pointer}
+.btn{width:100%;border:0;border-radius:999px;background:var(--forest);color:var(--paper);padding:17px 24px;font:600 17px var(--sans);cursor:pointer;margin-top:16px}
 .btn:hover{background:var(--deep)}
 .btn:disabled{opacity:.7;cursor:progress}
-.status{display:flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:14px;font-size:15px;font-weight:600;background:var(--cream);color:var(--forest);border:1px solid var(--line);text-align:center}
+.status{display:flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:14px;font-size:15px;font-weight:600;background:var(--cream);color:var(--forest);border:1px solid var(--line);text-align:center;margin-top:12px}
 .status.paid{background:var(--ink);color:var(--sage-light);border-color:var(--ink)}
 .status.wait{background:#fbf7ee}
 .pulse{display:inline-block;width:9px;height:9px;border-radius:50%;background:currentColor;animation:pulse 1.5s ease-in-out infinite;flex:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.after{font-size:13.5px;color:var(--sage-text);text-align:center;margin-top:12px;line-height:1.6}
 
-/* cột phải */
-.side{display:flex;flex-direction:column;gap:18px}
-.summary{list-style:none;margin:10px 0 0;padding:0}
-.summary li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15.5px}
-.summary li[hidden]{display:none}
-.summary .sum{font-weight:700;border:0;font-size:18px;align-items:baseline}
-.summary .sum span:last-child{font-family:var(--serif);font-size:28px;color:var(--forest)}
-.case{display:flex;flex-direction:column;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px}
-.who{display:flex;gap:12px;align-items:center}
-.who img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none}
-.who b{display:block}
-.who small{color:var(--sage-text)}
-.metric{display:flex;gap:10px;align-items:baseline;padding:10px 14px;border-radius:12px;background:var(--mist)}
-.metric b{font:600 26px var(--serif);color:var(--forest)}
-.metric span{font-size:14px;color:var(--sage-text)}
-.case q{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.5;quotes:"\201C" "\201D"}
+/* cột thông tin workshop */
+.side{display:flex;flex-direction:column;gap:18px;position:sticky;top:20px}
+@media(max-width:900px){.side{position:static}}
+.side h3{font-size:22px;margin:8px 0 2px}
+.side .sub{font-size:14.5px;color:var(--sage-text)}
+.facts{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.facts li{display:flex;gap:12px;align-items:flex-start}
+.facts .ic{width:34px;height:34px;border-radius:50%;background:var(--mist);display:grid;place-items:center;flex:none;color:var(--forest)}
+.facts .ic svg{width:17px;height:17px}
+.facts b{display:block;font-size:15.5px}
+.facts small{display:block;font-size:13.5px;color:var(--sage-text)}
+.sep{height:1px;background:var(--line);margin:20px 0}
+.gets{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.gets li{display:flex;gap:10px;font-size:15px;color:var(--deep);text-wrap:pretty}
+.gets li::before{content:"✓";color:var(--forest);font-weight:700;flex:none}
+.value{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.value s{color:var(--sage-text);font-size:15px}
+.save{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--forest);background:var(--mist);padding:3px 9px;border-radius:999px}
+.big{font:600 40px/1.1 var(--serif);color:var(--ink);margin-top:6px}
 .guarantee{display:flex;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
-.seal{flex:none;width:112px;height:auto}
+.seal{flex:none;width:104px;height:auto}
 .guarantee p{font-size:14.5px;line-height:1.6}
 .help{font-size:14.5px;text-align:center;line-height:1.7;color:var(--deep)}
 .help a{font-weight:700;color:var(--forest)}
@@ -134,67 +178,118 @@ a[href^="tel:"],a[href*="zalo.me"],.sdt{white-space:nowrap}
 </div></header>
 
 <div class="wrap co">
-  <section class="card main" id="mainCard">
-    <div class="steps"><span class="on"></span><span class="on"></span><span></span></div>
-    <span class="eyebrow">Bước 2 / 3 · Thanh toán</span>
-    <h1>Anh chị đang giữ chỗ cho Bản Đồ Khôi Phục Chuyển Hóa</h1>
-    <p class="tiny">Xin chào <b id="coName" style="color:var(--ink)">anh chị</b>. Chỗ của anh chị được giữ trong <b id="hold" style="color:var(--ink);font-variant-numeric:tabular-nums">15:00</b> để hoàn tất thanh toán.</p>
+  <div class="main" id="mainCard">
 
-    <label class="bump">
-      <input type="checkbox" id="bump1">
-      <span><b>Có, thêm Bộ 21 mẫu Xếp Đĩa cho cơm nhà, cơm văn phòng và tiệc, giá 149.000đ</b>
-      <small>Giá lẻ <s>399.000đ</s>. Kèm video bác sĩ Tâm hướng dẫn. Mở đĩa nào cũng có mẫu để nhìn theo, không phải nghĩ.</small></span>
-    </label>
+    <!-- 1. Người đăng ký -->
+    <section class="card">
+      <div class="steps"><span class="on"></span><span class="on"></span><span></span></div>
+      <span class="eyebrow">Bước 2 / 3 · Thanh toán</span>
+      <h1>Anh chị đang giữ chỗ cho Bản Đồ Khôi Phục Chuyển Hóa</h1>
+      <p class="tiny">Xin chào <b id="coName" style="color:var(--ink)">anh chị</b>. Chỗ của anh chị được giữ trong <b id="hold" style="color:var(--ink);font-variant-numeric:tabular-nums">15:00</b> để hoàn tất thanh toán.</p>
 
-    <div>
-      <span class="label">Hình thức thanh toán</span>
+      <div class="who-box" id="whoView" style="margin-top:18px">
+        <div>
+          <span class="eyebrow" style="font-size:11.5px">Thông tin người đăng ký</span>
+          <b id="vName">—</b>
+          <span id="vEmail">—</span>
+          <span id="vPhone">—</span>
+        </div>
+        <button type="button" class="link-btn" id="editBtn">Sửa</button>
+      </div>
+      <form class="edit" id="whoEdit" hidden novalidate style="margin-top:18px">
+        <span class="eyebrow" style="font-size:11.5px">Sửa thông tin người đăng ký</span>
+        <div class="field"><label for="eName">Họ và tên</label><input id="eName" autocomplete="name"></div>
+        <div class="field"><label for="ePhone">Số điện thoại (Zalo)</label><input id="ePhone" inputmode="tel" autocomplete="tel"></div>
+        <div class="field"><label for="eEmail">Email nhận link Zoom và tài liệu</label><input id="eEmail" type="email" autocomplete="email"></div>
+        <p class="err" id="eErr" role="alert"></p>
+        <div class="edit-actions">
+          <button type="submit" class="btn-sm" id="saveBtn">Lưu thông tin</button>
+          <button type="button" class="link-btn" id="cancelBtn">Hủy</button>
+        </div>
+      </form>
+      <p class="ok-msg" id="eOk" hidden style="margin-top:10px">✓ Đã cập nhật thông tin.</p>
+    </section>
+
+    <!-- 2. Mua kèm -->
+    <section class="card">
+      <div class="sec-title"><h2>Thêm công cụ để áp dụng ngay sau buổi học</h2></div>
+      <p class="up-lead">Tích vào ô bên dưới nếu anh chị muốn nhận thêm.
+        <small>Bộ mẫu được gửi qua email ngay sau khi thanh toán (nhớ kiểm tra cả mục Spam).</small></p>
+      <label class="offer">
+        <input type="checkbox" id="bump1">
+        <span class="offer-body">
+          <span class="offer-head"><b>Bộ 21 mẫu Xếp Đĩa</b><span class="price-tag"><s>399.000đ</s>149.000đ</span></span>
+          <span class="offer-kind">Gồm video hướng dẫn và file PDF</span>
+          <ul>
+            <li><b>Video bác sĩ Tâm hướng dẫn:</b> cách dùng từng mẫu đĩa cho bữa ăn hằng ngày.</li>
+            <li><b>File PDF 21 mẫu đĩa:</b> cơm nhà, cơm văn phòng và tiệc, đã xếp sẵn tỉ lệ. Lưu trong điện thoại hoặc in ra dán ở bếp.</li>
+          </ul>
+          <span class="result"><b>Kết quả:</b> mở đĩa nào cũng có mẫu để nhìn theo, không phải nghĩ. Áp dụng được ngay từ bữa ăn sau buổi học.</span>
+        </span>
+      </label>
+    </section>
+
+    <!-- 3. Tóm tắt đơn -->
+    <section class="card">
+      <ul class="lines">
+        <li><span>Workshop Bản Đồ Khôi Phục Chuyển Hóa (2 buổi)</span><span>99.000đ</span></li>
+        <li id="sumBump" hidden><span>Bộ 21 mẫu Xếp Đĩa</span><span>149.000đ</span></li>
+        <li class="total"><span>Tổng cộng</span><span id="total">99.000đ</span></li>
+      </ul>
+    </section>
+
+    <!-- 4. Thanh toán -->
+    <section class="card">
+      <div class="sec-title"><h2>Thanh toán</h2></div>
       <div class="pay">
         <label><input type="radio" name="pay" value="bank" checked> Chuyển khoản QR</label>
         <label><input type="radio" name="pay" value="wallet"> Momo / ZaloPay</label>
       </div>
-    </div>
-
-    <div class="qr">
-      <img id="qrImg" alt="Mã QR thanh toán">
-      <div class="qr-info">
+      <div class="qr-wrap">
+        <img id="qrImg" alt="Mã QR thanh toán">
         <span class="how" id="payHow">Mở app ngân hàng → quét mã → nội dung và số tiền tự điền</span>
-        <span>Nội dung CK: <code id="ckContent">—</code></span>
-        <span>Số tiền: <b id="amount">99.000đ</b></span>
-        <div class="bank">
-          <div><span>Ngân hàng</span><b>ACB — Á Châu</b></div>
-          <div><span>Số tài khoản</span><b>40526907</b></div>
-          <div><span>Chủ tài khoản</span><b>LE THI MINH TAM</b></div>
-        </div>
       </div>
-    </div>
-    <div class="qr-fail" id="qrFail"><b>Chưa tải được mã QR.</b> Anh chị vẫn chuyển khoản bình thường theo số tài khoản ở trên, giữ đúng nội dung CK — hệ thống vẫn tự xác nhận. Cần hỗ trợ: <a href="tel:0981944324" style="font-weight:700">0981 944 324</a>.</div>
+      <div class="bank">
+        <div><span>Ngân hàng</span><span class="val"><b>ACB — Á Châu</b></span></div>
+        <div><span>Số tài khoản</span><span class="val"><b id="stk">40526907</b><button type="button" class="copy" data-copy="stk">Sao chép</button></span></div>
+        <div><span>Chủ tài khoản</span><span class="val"><b>LE THI MINH TAM</b></span></div>
+        <div><span>Số tiền</span><span class="val amt"><b id="amount">99.000đ</b><button type="button" class="copy" data-copy="amount">Sao chép</button></span></div>
+        <div><span>Nội dung CK</span><span class="val"><b id="ckContent">—</b><button type="button" class="copy" data-copy="ckContent">Sao chép</button></span></div>
+      </div>
+      <div class="qr-fail" id="qrFail"><b>Chưa tải được mã QR.</b> Anh chị vẫn chuyển khoản bình thường theo số tài khoản ở trên, giữ đúng nội dung CK — hệ thống vẫn tự xác nhận. Cần hỗ trợ: <a href="tel:0981944324" style="font-weight:700">0981 944 324</a>.</div>
+      <div class="warn"><b>Lưu ý:</b> giữ nguyên nội dung chuyển khoản <b id="ckContent2">—</b>. Đây là mã để hệ thống nhận ra đơn của anh chị — nhập sai sẽ không tự xác nhận được.</div>
 
-    <div class="warn"><b>Lưu ý:</b> giữ nguyên nội dung chuyển khoản <b id="ckContent2">—</b>. Đây là mã để hệ thống nhận ra đơn của anh chị — nhập sai sẽ không tự xác nhận được.</div>
+      <button class="btn" type="button" id="checkBtn">Tôi đã chuyển khoản, hoàn tất giữ chỗ →</button>
+      <div class="status" id="statusBox"><span class="pulse"></span><span id="statusText">Đang chờ giao dịch...</span></div>
+      <p class="after">Sau khi chuyển khoản, hệ thống tự xác nhận trong khoảng 10–60 giây và chuyển anh chị sang trang hoàn tất. Hoàn 100% nếu học xong thấy không có giá trị.</p>
+    </section>
+  </div>
 
-    <button class="btn" type="button" id="checkBtn">Tôi đã chuyển khoản, hoàn tất giữ chỗ →</button>
-    <div class="status" id="statusBox"><span class="pulse"></span><span id="statusText">Đang chờ giao dịch...</span></div>
-    <p class="tiny" style="text-align:center">Hoàn 100% nếu học xong thấy không giá trị.</p>
-  </section>
-
+  <!-- Thông tin workshop -->
   <aside class="side">
     <div class="card">
-      <span class="eyebrow">Đơn của anh chị</span>
-      <ul class="summary">
-        <li><span>2 buổi live 28 và 29/11 cùng 2 bác sĩ</span><span>✓</span></li>
-        <li><span>Workbook Bản Đồ Khôi Phục Chuyển Hóa</span><span>✓</span></li>
-        <li><span>Cẩm nang đọc hiểu chỉ số khám sức khỏe</span><span>✓</span></li>
-        <li><span>Bản ghi hình + Cộng đồng Đồng hành</span><span>✓</span></li>
-        <li id="sumBump" hidden><span>Bộ 21 mẫu Xếp Đĩa</span><span>149.000đ</span></li>
-        <li><span>Giá trị trọn bộ</span><span><s>1.800.000đ</s></span></li>
-        <li class="sum"><span>Anh chị trả</span><span id="total">99.000đ</span></li>
+      <span class="eyebrow">Thông tin workshop</span>
+      <h3>Bản Đồ Khôi Phục Chuyển Hóa</h3>
+      <p class="sub">Workshop 2 buổi cùng 2 bác sĩ dinh dưỡng lâm sàng</p>
+      <ul class="facts">
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span><span><b>Thứ Bảy 28 &amp; Chủ Nhật 29/11/2026</b><small>2 buổi tối liên tiếp</small></span></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><b>20:00 – 21:30</b><small>90 phút mỗi buổi</small></span></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></span><span><b>Online qua Zoom</b><small>Link gửi qua email sau khi thanh toán</small></span></li>
       </ul>
+      <div class="sep"></div>
+      <span class="eyebrow">Anh chị nhận được</span>
+      <ul class="gets">
+        <li>2 buổi live cùng 2 bác sĩ, có sửa bài trực tiếp</li>
+        <li>Workbook Bản Đồ Khôi Phục Chuyển Hóa</li>
+        <li>Cẩm nang đọc hiểu chỉ số khám sức khỏe</li>
+        <li>Bản ghi hình xem lại không giới hạn</li>
+        <li>Cộng đồng Đồng hành sau buổi học</li>
+      </ul>
+      <div class="sep"></div>
+      <div class="value"><s>1.800.000đ</s><span class="save">Tiết kiệm 94%</span></div>
+      <div class="big">99.000đ</div>
     </div>
-    <article class="case">
-      <div class="who"><img src="assets/hv-trang.jpg" alt="Trang"><span><b>Trang</b><small>31 tuổi, Huế</small></span></div>
-      <div class="metric"><b>−12cm</b><span>vòng bụng, không nhịn bữa nào</span></div>
-      <q>Chiếc đầm ôm sát giữ trong tủ nhiều năm, lần này đã mặc vừa.</q>
-    </article>
-    <div class="guarantee"><img class="seal" src="assets/huy-hieu-hoan-tien-100.webp" alt="Cam kết hoàn tiền 100%" width="372" height="262"><p>Học xong thấy không giá trị, nhắn Zalo <span class="sdt">0981 944 324</span>. Hoàn ngay, giữ trọn tài liệu.</p></div>
+    <div class="guarantee"><img class="seal" src="assets/huy-hieu-hoan-tien-100.webp" alt="Cam kết hoàn tiền 100%" width="372" height="262"><p>Học xong thấy không có giá trị, nhắn Zalo <span class="sdt">0981 944 324</span>. Hoàn ngay, giữ trọn tài liệu.</p></div>
     <p class="help">Gặp trục trặc khi thanh toán?<br><span class="sdt">Nhắn <a href="https://zalo.me/0981944324" target="_blank" rel="noopener">Zalo 0981 944 324</a></span> <span class="sdt">hoặc gọi <a href="tel:0981944324">0981 944 324</a>.</span></p>
   </aside>
 </div>
@@ -204,23 +299,70 @@ a[href^="tel:"],a[href*="zalo.me"],.sdt{white-space:nowrap}
   var TRANG_XAC_NHAN = '/xac-nhan';
   var GIA_GOC = 99000;
   var GIA_BUMP = 149000; // Bộ 21 mẫu Xếp Đĩa
+  var $ = function (id) { return document.getElementById(id); };
 
   var order = JSON.parse(sessionStorage.getItem('order') || '{}');
   if (!order.orderId) {
-    document.getElementById('mainCard').innerHTML =
-      '<span class="eyebrow">Bước 2 / 3 · Thanh toán</span>'
+    $('mainCard').innerHTML =
+      '<section class="card"><span class="eyebrow">Bước 2 / 3 · Thanh toán</span>'
       + '<h1>Chưa tìm thấy đơn giữ chỗ</h1>'
       + '<p class="tiny">Phiên đăng ký đã hết hạn hoặc chưa hoàn tất. Anh chị đăng ký lại giúp em — chưa tới một phút.</p>'
-      + '<p class="help" style="text-align:left">Nếu anh chị đã chuyển khoản rồi mà gặp lỗi này, đừng lo — nhắn '
+      + '<p class="help" style="text-align:left;margin-top:14px">Nếu anh chị đã chuyển khoản rồi mà gặp lỗi này, đừng lo — nhắn '
       + '<a href="https://zalo.me/0981944324" target="_blank" rel="noopener">Zalo 0981 944 324</a> hoặc gọi '
       + '<a href="tel:0981944324">0981 944 324</a>, chúng tôi tra soát và giữ chỗ giúp anh chị ngay.</p>'
-      + '<a class="btn" style="text-align:center;text-decoration:none" href="/#giu-cho">Quay lại đăng ký</a>';
+      + '<a class="btn" style="display:block;text-align:center;text-decoration:none" href="/#giu-cho">Quay lại đăng ký</a></section>';
     throw new Error('Khong co don trong phien');
   }
+  function luuDon() { try { sessionStorage.setItem('order', JSON.stringify(order)); } catch (e) {} }
 
-  document.getElementById('coName').textContent = order.name || 'anh chị';
-  document.getElementById('ckContent').textContent = order.ckContent;
-  document.getElementById('ckContent2').textContent = order.ckContent;
+  // Gửi thay đổi về Sheet (thử lại khi Apps Script trả trang HTML thay vì JSON)
+  async function guiCapNhat(data, lanThu) {
+    for (var lan = 1; lan <= (lanThu || 3); lan++) {
+      try {
+        var res = await fetch(GAS_URL, { method: 'POST', body: JSON.stringify({ action: 'updateOrder', orderId: order.orderId, data: data }) });
+        return JSON.parse(await res.text());
+      } catch (e) { if (lan < (lanThu || 3)) await new Promise(function (r) { setTimeout(r, lan * 1200); }); }
+    }
+    return null;
+  }
+
+  // ---------- Thông tin người đăng ký ----------
+  function hienThongTin() {
+    $('coName').textContent = order.name || 'anh chị';
+    $('vName').textContent = order.name || '—';
+    $('vEmail').textContent = order.email || '—';
+    $('vPhone').textContent = order.phone || '—';
+  }
+  hienThongTin();
+  $('editBtn').addEventListener('click', function () {
+    if (xong) return;
+    $('eName').value = order.name || ''; $('ePhone').value = order.phone || ''; $('eEmail').value = order.email || '';
+    $('eErr').textContent = ''; $('eOk').hidden = true;
+    $('whoView').hidden = true; $('whoEdit').hidden = false; $('eName').focus();
+  });
+  $('cancelBtn').addEventListener('click', function () { $('whoEdit').hidden = true; $('whoView').hidden = false; });
+  $('whoEdit').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var ten = $('eName').value.trim(), sdt = $('ePhone').value.replace(/\D/g, ''), email = $('eEmail').value.trim();
+    if (ten.length < 2) { $('eErr').textContent = 'Anh chị nhập họ tên giúp em.'; return; }
+    if (sdt.length < 9 || sdt.length > 11) { $('eErr').textContent = 'Số điện thoại chưa đúng, anh chị kiểm tra lại.'; return; }
+    if (!/^\S+@\S+\.\S+$/.test(email)) { $('eErr').textContent = 'Email chưa đúng định dạng.'; return; }
+    $('eErr').textContent = ''; $('saveBtn').disabled = true; $('saveBtn').textContent = 'Đang lưu...';
+    var kq = await guiCapNhat({ name: ten, phone: sdt, email: email });
+    $('saveBtn').disabled = false; $('saveBtn').textContent = 'Lưu thông tin';
+    if (!kq || !kq.success || !kq.updated || kq.updated.indexOf('email') < 0) {
+      $('eErr').innerHTML = (kq && kq.error && kq.error.indexOf('PAID') > -1 ? 'Đơn đã thanh toán, không sửa được nữa. ' : 'Chưa lưu được thông tin. ')
+        + 'Anh chị nhắn <a href="https://zalo.me/0981944324" target="_blank" rel="noopener" style="font-weight:700">Zalo 0981 944 324</a> để được sửa giúp.';
+      return;
+    }
+    order.name = ten; order.phone = sdt; order.email = email; luuDon();
+    hienThongTin();
+    $('whoEdit').hidden = true; $('whoView').hidden = false; $('eOk').hidden = false;
+  });
+
+  // ---------- Mã QR, số tiền, nội dung CK ----------
+  $('ckContent').textContent = order.ckContent;
+  $('ckContent2').textContent = order.ckContent;
 
   // Meta Pixel: khách đã để lại thông tin và vào bước thanh toán
   var fbP = { content_name: 'Ban Do Khoi Phuc Chuyen Hoa', currency: 'VND', value: Number(order.totalAmount || GIA_GOC) };
@@ -228,65 +370,70 @@ a[href^="tel:"],a[href*="zalo.me"],.sdt{white-space:nowrap}
   fbqOnce('fb_ic_' + order.orderId, 'InitiateCheckout', fbP, 'ic_' + order.orderId);
 
   function vnd(n) { return Number(n).toLocaleString('en-US').replace(/,/g, '.') + 'đ'; }
-
+  var tienHienTai = GIA_GOC;
   function capNhatQR(tien) {
-    var img = document.getElementById('qrImg');
-    img.onerror = function () { img.style.display = 'none'; document.getElementById('qrFail').style.display = 'block'; };
-    img.onload = function () { img.style.display = ''; document.getElementById('qrFail').style.display = 'none'; };
+    tienHienTai = tien;
+    var img = $('qrImg');
+    img.onerror = function () { img.style.display = 'none'; $('qrFail').style.display = 'block'; };
+    img.onload = function () { img.style.display = ''; $('qrFail').style.display = 'none'; };
     img.src = 'https://qr.sepay.vn/img?acc=40526907&bank=ACB&amount=' + tien + '&des=' + encodeURIComponent(order.ckContent);
-    document.getElementById('amount').textContent = vnd(tien);
-    document.getElementById('total').textContent = vnd(tien);
+    $('amount').textContent = vnd(tien);
+    $('total').textContent = vnd(tien);
   }
-
 
   // Momo / ZaloPay quét được mã VietQR của ngân hàng -> cùng một mã, chỉ đổi hướng dẫn
   document.querySelectorAll('input[name="pay"]').forEach(function (r) {
     r.addEventListener('change', function () {
-      document.getElementById('payHow').textContent = this.value === 'wallet'
+      $('payHow').textContent = this.value === 'wallet'
         ? 'Mở app Momo hoặc ZaloPay → Quét mã → chuyển tới tài khoản ngân hàng'
         : 'Mở app ngân hàng → quét mã → nội dung và số tiền tự điền';
     });
   });
 
-  // Mua kèm Bộ 21 mẫu Xếp Đĩa: đổi số tiền trên mã QR, ghi lại vào đơn trên Sheet
-  var oBump = document.getElementById('bump1');
+  // Nút "Sao chép": số tài khoản, số tiền (chỉ chữ số), nội dung CK
+  function chep(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    var t = document.createElement('textarea'); t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (e) {} t.remove();
+    return Promise.resolve();
+  }
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var id = b.dataset.copy;
+      var text = id === 'amount' ? String(tienHienTai) : $(id).textContent.trim();
+      chep(text).then(function () {
+        b.textContent = 'Đã chép'; b.classList.add('done');
+        setTimeout(function () { b.textContent = 'Sao chép'; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ---------- Mua kèm Bộ 21 mẫu Xếp Đĩa ----------
+  var oBump = $('bump1');
   oBump.checked = !!order.bump1;
   function tongTien() { return GIA_GOC + (oBump.checked ? GIA_BUMP : 0); }
-  function apDungBump() {
-    document.getElementById('sumBump').hidden = !oBump.checked;
-    capNhatQR(tongTien());
-  }
-  async function ghiBump(lan) {
-    try {
-      var res = await fetch(GAS_URL, { method: 'POST', body: JSON.stringify({
-        action: 'updateOrder', orderId: order.orderId,
-        data: { bump1: oBump.checked, totalAmount: tongTien() } }) });
-      JSON.parse(await res.text());
-    } catch (e) { if (lan < 3) setTimeout(function () { ghiBump(lan + 1); }, lan * 1500); }
-  }
+  function apDungBump() { $('sumBump').hidden = !oBump.checked; capNhatQR(tongTien()); }
   oBump.addEventListener('change', function () {
     if (xong) { oBump.checked = !oBump.checked; return; }
-    order.bump1 = oBump.checked;
-    order.totalAmount = tongTien();
-    try { sessionStorage.setItem('order', JSON.stringify(order)); } catch (e) {}
+    order.bump1 = oBump.checked; order.totalAmount = tongTien(); luuDon();
     apDungBump();
-    ghiBump(1);
+    guiCapNhat({ bump1: oBump.checked, totalAmount: tongTien() });
   });
   apDungBump();
 
-  // Đồng hồ giữ chỗ 15 phút. Mốc hết hạn lưu theo mã đơn, tải lại trang vẫn đếm tiếp.
+  // ---------- Đồng hồ giữ chỗ 15 phút (tải lại trang vẫn đếm tiếp) ----------
   var khoaHan = 'hold_' + order.orderId, han = 0;
   try { han = Number(sessionStorage.getItem(khoaHan)) || 0; } catch (e) {}
   if (!han) { han = Date.now() + 15 * 60 * 1000; try { sessionStorage.setItem(khoaHan, String(han)); } catch (e) {} }
-  var elHold = document.getElementById('hold');
   function demNguoc() {
     var giay = Math.max(0, Math.ceil((han - Date.now()) / 1000));
-    elHold.textContent = String(Math.floor(giay / 60)).padStart(2, '0') + ':' + String(giay % 60).padStart(2, '0');
+    $('hold').textContent = String(Math.floor(giay / 60)).padStart(2, '0') + ':' + String(giay % 60).padStart(2, '0');
     if (giay > 0) setTimeout(demNguoc, 1000);
   }
   demNguoc();
 
-  var box = document.getElementById('statusBox'), txt = document.getElementById('statusText');
+  // ---------- Kiểm tra giao dịch ----------
+  var box = $('statusBox'), txt = $('statusText');
   function daThanhToan() {
     box.className = 'status paid';
     txt.textContent = '✓ Đã nhận giao dịch · Đang chuyển trang...';
@@ -294,11 +441,9 @@ a[href^="tel:"],a[href*="zalo.me"],.sdt{white-space:nowrap}
   }
   async function kiemTra() {
     var res = await fetch(GAS_URL + '?action=getStatus&orderId=' + encodeURIComponent(order.orderId));
-    var j = await res.json();
+    var j = JSON.parse(await res.text());
     return j.status === 'PAID';
   }
-
-  // Tự kiểm tra mỗi 5 giây
   var xong = false;
   async function vongLap() {
     if (xong) return;
@@ -308,7 +453,7 @@ a[href^="tel:"],a[href*="zalo.me"],.sdt{white-space:nowrap}
   vongLap();
 
   // Nút "Tôi đã chuyển khoản": kiểm tra ngay, KHÔNG tự cho qua khi tiền chưa về
-  var nut = document.getElementById('checkBtn');
+  var nut = $('checkBtn');
   nut.addEventListener('click', async function () {
     nut.disabled = true; nut.textContent = 'Đang kiểm tra giao dịch...';
     var ok = false;
