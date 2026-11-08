@@ -149,9 +149,17 @@ input::placeholder{color:#9bb3ab}
 @media(max-width:900px){.doctors .wrap{grid-template-columns:1fr}}
 .video{aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:var(--mist);position:relative}
 .video img,.video video{width:100%;height:100%;object-fit:cover;display:block}
-button.play[hidden]{display:none}
-button.play{border:0;font-family:inherit;color:inherit;text-align:left;cursor:pointer}
-button.play:hover i{background:var(--forest)}
+/* cả khung video bấm được: nút ▶ lớn ở giữa + dải chữ "Bấm để xem video" */
+.vid-cover{position:absolute;inset:0;width:100%;border:0;padding:0;margin:0;background:rgba(24,59,59,.06);cursor:pointer;font:inherit;color:inherit;text-align:left}
+.vid-cover[hidden]{display:none}
+.big-play{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);width:84px;height:84px;border-radius:50%;background:rgba(24,59,59,.9);display:grid;place-items:center;box-shadow:0 12px 32px rgba(0,0,0,.28);transition:transform .15s ease}
+.big-play::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:3px solid rgba(255,253,249,.75);animation:vidPulse 2s ease-out infinite}
+.big-play svg{width:34px;height:34px;margin-left:5px;fill:#fffdf9}
+.vid-cover:hover .big-play,.vid-cover:focus-visible .big-play{transform:translate(-50%,-50%) scale(1.07)}
+.vid-cover:hover .play i{background:var(--forest)}
+@keyframes vidPulse{0%{transform:scale(.92);opacity:.9}100%{transform:scale(1.25);opacity:0}}
+@media(prefers-reduced-motion:reduce){.big-play::after{animation:none}}
+@media(max-width:640px){.big-play{width:72px;height:72px}.big-play svg{width:28px;height:28px}}
 .video .play{position:absolute;inset:auto 16px 16px 16px;background:rgba(255,253,249,.92);border-radius:14px;padding:12px 14px;font-size:13px;display:flex;gap:10px;align-items:center}
 .video .play i{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-style:normal;flex:none}
 .pull{font-family:var(--serif);font-size:22px;font-style:italic;color:var(--forest);border-left:3px solid var(--pink);padding-left:16px}
@@ -365,7 +373,10 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <div class="video">
       <video id="vid" src="assets/video-hai-bac-si.mp4" poster="assets/video-poster.jpg" preload="metadata" playsinline aria-label="ThS.BS Lê Thị Minh Tâm và ThS.BS Nguyễn Trung Hiếu giới thiệu buổi học"></video>
-      <button class="play" type="button" id="vid-play"><i>▶</i><span>Hai bác sĩ giới thiệu buổi học · 1&nbsp;phút&nbsp;17</span></button>
+      <button class="vid-cover" type="button" id="vid-play" aria-label="Bấm để xem video hai bác sĩ giới thiệu buổi học, 1 phút 17">
+        <span class="big-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+        <span class="play"><i aria-hidden="true">▶</i><span><b>Bấm để xem video</b> · Hai bác sĩ giới thiệu buổi học (1&nbsp;phút&nbsp;17)</span></span>
+      </button>
     </div>
     <div class="stack">
       <span class="eyebrow">Gặp hai bác sĩ</span>
@@ -535,7 +546,7 @@ html{scroll-behavior:smooth}
 </footer>
 
 <script>
-// Video hai bác sĩ: bấm nút ▶ thì mới tải và phát, hiện thanh điều khiển
+// Video hai bác sĩ: bấm vào bất kỳ đâu trên khung thì mới tải và phát, hiện thanh điều khiển
 (function () {
   var v = document.getElementById('vid'), b = document.getElementById('vid-play');
   if (!v || !b) return;
