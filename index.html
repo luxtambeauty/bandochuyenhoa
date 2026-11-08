@@ -234,6 +234,10 @@ details p{padding-bottom:18px;color:var(--deep)}
 
 footer{padding-block:36px;border-top:1px solid var(--line);font-size:13px;color:var(--sage-text)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+footer .contact{display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap}
+footer .fb{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);font-weight:600}
+footer .fb svg{width:26px;height:26px;flex:none;transition:transform .15s}
+footer .fb:hover svg{transform:scale(1.08)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
 /* bổ sung khi lên web */
@@ -524,7 +528,8 @@ html{scroll-behavior:smooth}
 <footer>
   <div class="wrap">
     <span><b>Bản Đồ Khôi Phục Chuyển Hóa</b> · ThS.BS Nguyễn Trung Hiếu và ThS.BS Lê Thị Minh Tâm</span>
-    <span>Hotline / Zalo 0981&nbsp;944&nbsp;324</span>
+    <span class="contact"><span>Hotline / Zalo 0981&nbsp;944&nbsp;324</span>
+      <a class="fb" href="https://www.facebook.com/profile.php?id=61594802485449" target="_blank" rel="noopener" aria-label="Fanpage Facebook Bản Đồ Chuyển Hóa"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1877F2"/><path fill="#fff" d="M13.4 19.5v-6.1h2.1l.3-2.4h-2.4V9.5c0-.7.2-1.2 1.2-1.2h1.3V6.2c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.2-3.2 3.3V11H8.7v2.4h2.1v6.1h2.6z"/></svg>Fanpage</a></span>
     <span style="flex-basis:100%">Nội dung chương trình mang tính giáo dục dinh dưỡng, không thay thế chẩn đoán hay phác đồ điều trị của bác sĩ.</span>
   </div>
 </footer>
