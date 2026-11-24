@@ -131,11 +131,7 @@ img{max-width:100%;display:block}
 .phase .end{font-size:14px;border-top:1px dashed var(--line);padding-top:10px}
 
 /* nhận được gì */
-.incl{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.incl>div{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}
-.incl .ic{width:44px;height:44px;border-radius:12px;background:var(--mist);color:var(--forest);display:grid;place-items:center;font:600 18px var(--serif)}
-.incl b{display:block}
-.incl span{font-size:15px;color:var(--ink2)}
+.measure{margin-top:18px;padding:14px 18px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:15px;color:var(--ink2)}
 
 /* bác sĩ */
 .docs2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -241,7 +237,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
 }
 @media(max-width:720px){
   .section{padding-block:56px}
-  .outs,.cases,.why,.phases,.incl,.docs2,.fit,.flow,.myplan,.two{grid-template-columns:1fr}
+  .outs,.cases,.why,.phases,.docs2,.fit,.flow,.myplan,.two{grid-template-columns:1fr}
   .why>div+div,.phase+.phase{border-left:0;border-top:1px solid var(--line)}
   .doc{grid-template-columns:96px 1fr}
   .nav .btn{padding:9px 14px;font-size:13px}
@@ -346,7 +342,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <li><span class="n">1</span><span class="when">Tuần 1</span><h3>Đánh giá đầu vào</h3><p>Bác sĩ ghi nhận các chỉ số nhân trắc của cơ thể (cân nặng, vòng eo, tỉ lệ mỡ và cơ nếu có máy đo), xem kết quả xét nghiệm máu và các thuốc anh chị đang dùng. Sau đó, bác sĩ rà lại cách ăn uống, thói quen chọn thực phẩm và nếp sinh hoạt để tìm đúng nguyên nhân, chỉnh từ gốc.</p></li>
       <li><span class="n">2</span><span class="when">Tuần 1</span><h3>Bác sĩ lập kế hoạch riêng cho anh chị</h3><p>Ở buổi 1-1 đầu tiên, bác sĩ giải thích từng chỉ số cho anh chị hiểu, cùng thống nhất mục tiêu 12 tuần, rồi trao cho anh chị kế hoạch riêng.</p></li>
       <li><span class="n">3</span><span class="when">Hằng ngày</span><h3>Thực hành và theo dõi sát</h3><p>Anh chị làm theo kế hoạch, gửi ảnh bữa ăn, giờ ngủ và các chỉ số cơ thể trong ngày vào nhóm. Bác sĩ phản hồi trong 24 giờ, theo dõi sát tình trạng sức khỏe của riêng anh&nbsp;chị.</p></li>
-      <li><span class="n">4</span><span class="when">6 buổi trong 12 tuần</span><h3>Gặp 1-1, chốt bước tiếp theo</h3><p>Bác sĩ cùng anh chị nhìn lại các số đo, xem mình đã đi được đến đâu, chặng tới nên giữ nguyên hay cần điều chỉnh gì. Giữa các buổi, có gì phát sinh như đi tiệc, đổi lịch công tác hay chỉ số bất thường, anh chị cứ nhắn vào nhóm Zalo riêng, bác sĩ phản hồi trong vòng 24 giờ.</p></li>
+      <li><span class="n">4</span><span class="when">6 buổi trong 12 tuần</span><h3>Gặp 1-1, chốt bước tiếp theo</h3><p>Các buổi gặp diễn ra qua Zoom, mỗi buổi 30 đến 60 phút, vào tuần đầu, tuần 2, 4, 6, 9 và 12. Mỗi buổi, bác sĩ cùng anh chị nhìn lại các số đo, xem mình đã đi được đến đâu, chặng tới nên giữ nguyên hay cần điều chỉnh gì. Giữa các buổi, có gì phát sinh như đi tiệc, đổi lịch công tác hay chỉ số bất thường, anh chị cứ nhắn vào nhóm Zalo riêng, bác sĩ phản hồi trong vòng 24 giờ.</p></li>
     </ol>
     <p class="myplan-lead">Bản kế hoạch 12 tuần của riêng anh chị sẽ gồm 6 phần:</p>
     <ul class="myplan" aria-label="Kế hoạch riêng gồm">
@@ -373,28 +369,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <div class="phase"><span class="wk">Tuần 5 đến 8</span><div class="bar"><i style="width:66%"></i></div><h3>Kích hoạt cơ, ngủ sâu hơn</h3><ul><li>Tập tăng cơ nhẹ nhàng tại nhà 2 buổi mỗi tuần, bác sĩ xem video và sửa động tác</li><li>Vận động vừa sức đủ 150 phút mỗi tuần: đi bộ nhanh, đạp xe, bơi</li><li>Ngủ đủ 7 đến 9 tiếng, thư giãn 5 đến 10 phút mỗi ngày</li><li>Đi bộ 10 phút sau bữa chính, ăn rau và đạm trước, tinh bột sau</li></ul><p class="end"><b>Cuối chặng:</b> mỡ giảm mà cơ vẫn giữ được, anh chị thấy người khỏe và có sức hơn.</p></div>
       <div class="phase"><span class="wk">Tuần 9 đến 12</span><div class="bar"><i style="width:100%"></i></div><h3>Tự chủ và giữ nếp</h3><ul><li>Tăng dần lên 3 buổi tập tăng cơ mỗi tuần</li><li>Lên sẵn cách ăn khi đi tiệc, ăn ngoài; chọn tinh bột ít qua chế biến như gạo lứt, khoai, yến mạch</li><li>Anh chị tự lên thực đơn 1 tuần, bác sĩ nhận xét</li><li>Viết 3 đến 5 "luật cá nhân" để giữ nếp sau chương trình</li></ul><p class="end"><b>Cuối chặng:</b> đo lại toàn bộ chỉ số, làm lại xét nghiệm để thấy rõ trước và sau. Lúc này, anh chị đã tự giữ được nếp sống mới mà không cần ai nhắc.</p></div>
     </div>
-    <p class="tiny" style="margin-top:14px">Đây là lộ trình mẫu. Thứ tự và mức độ của từng thay đổi sẽ được bác sĩ điều chỉnh riêng cho anh chị sau buổi đánh giá đầu vào.</p>
+    <p class="measure"><b>Các mốc đo trong 12 tuần:</b> cân nặng và vòng eo được theo dõi mỗi tuần; thành phần cơ thể (nếu có máy) và ảnh đối chiếu ở tuần đầu, tuần 4, 8 và 12; xét nghiệm ở tuần đầu và tuần&nbsp;12.</p>
+    <p class="tiny" style="margin-top:10px">Đây là lộ trình mẫu. Thứ tự và mức độ của từng thay đổi sẽ được bác sĩ điều chỉnh riêng cho anh chị sau buổi đánh giá đầu vào.</p>
   </div>
 </section>
-
-<!-- NHẬN ĐƯỢC GÌ -->
-<section class="section">
-  <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Anh chị nhận được</span>
-      <h2>Trong 12 tuần đồng hành</h2>
-    </div>
-    <div class="incl">
-      <div><span class="ic">1</span><p><b>Buổi đánh giá đầu vào</b><span>Đo các chỉ số, đọc kết quả xét nghiệm và lắng nghe nhịp sống hằng ngày của anh chị.</span></p></div>
-      <div><span class="ic">2</span><p><b>Kế hoạch 12 tuần của riêng anh chị</b><span>Gồm khung giờ ăn, đĩa mẫu, cách ăn ngoài, giấc ngủ, vận động và những lưu ý khi đang dùng thuốc.</span></p></div>
-      <div><span class="ic">3</span><p><b>6 buổi gặp bác sĩ 1-1</b><span>Qua Zoom, mỗi buổi 30 đến 60 phút, vào các mốc quan trọng của lộ trình: tuần đầu, tuần 2, 4, 6, 9&nbsp;và&nbsp;12.</span></p></div>
-      <div><span class="ic">4</span><p><b>Nhóm Zalo riêng với bác sĩ</b><span>Anh chị gửi ảnh bữa ăn, có gì vướng cứ hỏi, bác sĩ trả lời trong vòng 24 giờ.</span></p></div>
-      <div><span class="ic">5</span><p><b>Đo hằng tuần, 4 mốc đánh giá toàn diện</b><span>Theo dõi cân nặng và vòng eo mỗi tuần. Đánh giá thành phần cơ thể (nếu có máy) và chụp ảnh đối chiếu ở tuần đầu, tuần 4, 8 và 12. Làm xét nghiệm ở tuần đầu và tuần 12.</span></p></div>
-      <div><span class="ic">6</span><p><b>Kế hoạch giữ nếp sau tuần 12</b><span>Để vóc dáng và nếp sống mới ở lại với anh chị thật lâu.</span></p></div>
-    </div>
-  </div>
-</section>
-
 <!-- BÁC SĨ -->
 <section class="section cream">
   <div class="wrap">
