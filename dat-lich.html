@@ -27,7 +27,7 @@ src="https://www.facebook.com/tr?id=1073477048927988&ev=PageView&noscript=1"/></
 <!-- /Meta Pixel -->
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Đồng Hành 12 Tuần · Bản Đồ Chuyển Hóa</title>
-<meta name="description" content="Trong 12 tuần, lấy lại vóc dáng và trạng thái sống tốt nhất của anh chị, đồng hành 1-1 cùng hai bác sĩ dinh dưỡng lâm sàng.">
+<meta name="description" content="Trong 12 tuần, lấy lại vóc dáng gọn gàng, giấc ngủ sâu và một cơ thể khỏe nhẹ mỗi ngày, đồng hành 1-1 cùng hai bác sĩ dinh dưỡng lâm sàng.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap">
@@ -50,7 +50,7 @@ h1{font-size:clamp(32px,4.8vw,54px)}
 h2{font-size:clamp(26px,3.3vw,38px)}
 h3{font-size:19px}
 p{margin:0}
-main p,main li{text-wrap:pretty}
+main p,main li,summary{text-wrap:pretty}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:20px}
 .narrow{max-width:760px}
@@ -162,6 +162,12 @@ img{max-width:100%;display:block}
 .fit .yes li::before{content:"✓";color:var(--forest);font-weight:700}
 .fit .no li::before{content:"✕";color:var(--pink);font-weight:700}
 .fit h3{margin-bottom:4px}
+.fit li.fit-h{font-weight:700;font-size:15px;letter-spacing:.02em;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.fit .yes li.fit-h{color:var(--forest)}
+.fit .no li.fit-h{color:#8a3b44}
+.fit li.fit-h::before{content:none}
+.myplan-lead{margin-top:26px;font-weight:600}
+.myplan-lead+.myplan{margin-top:12px}
 
 /* đặt cuộc gọi */
 .book{background:var(--ink);color:var(--on-ink)}
@@ -262,7 +268,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
   <div class="wrap hero-grid">
     <div class="stack">
       <span class="eyebrow">Chương trình đồng hành 1-1 · 12 tuần</span>
-      <h1>Trong 12 tuần, lấy lại <em>vóc dáng</em> và trạng thái sống tốt nhất của anh chị.</h1>
+      <h1>Trong 12 tuần, lấy lại <em>vóc dáng</em> gọn&nbsp;gàng, giấc&nbsp;ngủ&nbsp;sâu và một cơ thể khỏe&nbsp;nhẹ mỗi&nbsp;ngày.</h1>
       <p class="lead">Đồng hành 1-1 cùng hai bác sĩ dinh dưỡng lâm sàng. Mọi thứ anh chị làm trong 12 tuần được xây dựng riêng theo chỉ số sức khỏe, lịch làm việc và mâm cơm thật của anh chị.</p>
       <ul class="ticks">
         <li>Không nhịn ăn, không thực phẩm chức năng, không tập luyện cực đoan.</li>
@@ -284,7 +290,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
         <li><span>Thời gian</span><span>12 tuần, online</span></li>
         <li><span>Gặp bác sĩ 1-1</span><span>6 buổi theo từng chặng</span></li>
         <li><span>Theo dõi hằng ngày</span><span>Nhóm Zalo riêng</span></li>
-        <li><span>Đo chỉ số</span><span>Hằng tuần, tổng kết 4 lần</span></li>
+        <li><span>Đo chỉ số</span><span>Hằng tuần · 4 mốc đánh giá</span></li>
         <li><span>Số người mỗi đợt</span><span>5 người</span></li>
         <li><span>Đợt tới bắt đầu</span><span>Sau workshop 28&nbsp;&amp;&nbsp;29/11</span></li>
       </ul>
@@ -299,16 +305,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Sau 12 tuần</span>
-      <h2>Trạng thái sống tốt nhất, cụ thể là gì</h2>
-      <p class="lead">Đây là những thay đổi chương trình hướng tới. Mức thay đổi của mỗi người khác nhau, tuỳ cơ địa và mức áp dụng.</p>
+      <h2>Sau 12 tuần, anh chị sẽ thấy thay đổi ở đâu?</h2>
+      <p class="lead">Đây là những thay đổi chương trình hướng tới. Mức thay đổi của mỗi người khác nhau, tùy cơ địa và mức độ áp dụng.</p>
     </div>
     <div class="outs">
       <div class="out"><span class="k">Vóc dáng</span><h3>Vòng bụng gọn, mặc lại đồ cũ</h3><p>Đo bằng thước dây hoặc máy đo thành phần cơ thể (nếu có), không chỉ nhìn số trên bàn cân.</p></div>
       <div class="out"><span class="k">Năng lượng</span><h3>Sáng dậy nhẹ người, chiều không hết pin</h3><p>Khi ăn đúng giờ và đúng cách, anh chị sẽ thấy buổi trưa đỡ buồn ngủ, buổi chiều cũng bớt thèm đồ ngọt hơn nhiều.</p></div>
       <div class="out"><span class="k">Giấc ngủ</span><h3>Ngủ sớm hơn, ngủ sâu hơn</h3><p>Giấc ngủ cũng nằm trong kế hoạch, với giờ đi ngủ và giờ thức dậy phù hợp riêng với anh chị, chứ không phải lời khuyên chung chung.</p></div>
-      <div class="out"><span class="k">Chỉ số khám</span><h3>Hiểu và cải thiện chỉ số của mình</h3><p>Ngay tuần đầu, bác sĩ cùng anh chị ngồi đọc kết quả xét nghiệm, theo dõi suốt 12 tuần, rồi cùng so lại ở tuần cuối.</p></div>
+      <div class="out"><span class="k">Chỉ số xét nghiệm</span><h3>Hiểu và cải thiện chỉ số của mình</h3><p>Ngay tuần đầu, bác sĩ cùng anh chị ngồi đọc kết quả xét nghiệm, theo dõi suốt 12 tuần, rồi cùng so lại ở tuần cuối.</p></div>
       <div class="out"><span class="k">Ăn uống</span><h3>Vẫn ăn cơm nhà, vẫn đi tiệc</h3><p>Anh chị biết cách xếp đĩa, món nào nên ăn trước, chọn món gì khi ăn ngoài, nên vẫn ăn chung mâm với cả nhà, không phải nấu riêng.</p></div>
-      <div class="out"><span class="k">Giữ được lâu</span><h3>Có kế hoạch cho sau tuần 12</h3><p>Tuần cuối, bác sĩ cùng anh chị lên kế hoạch giữ nếp, để những thay đổi đã có được ở lại lâu dài.</p></div>
+      <div class="out"><span class="k">Giữ nếp lâu dài</span><h3>Có kế hoạch cho sau tuần 12</h3><p>Tuần cuối, bác sĩ cùng anh chị lên kế hoạch giữ nếp, để những thay đổi đã có được ở lại lâu dài.</p></div>
     </div>
   </div>
 </section>
@@ -318,12 +324,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Vì sao cần đồng hành 1-1</span>
-      <h2>Anh chị đã biết nhiều. Cái thiếu là một kế hoạch đúng cho riêng mình, và một bác sĩ theo sát như bác sĩ gia đình, chỉnh đúng cách mỗi khi lệch.</h2>
+      <h2>Anh chị không thiếu kiến thức. Điều còn thiếu là một kế hoạch vừa với mình, và một bác sĩ theo sát như bác sĩ gia đình, giúp điều chỉnh đúng cách mỗi khi chệch nhịp.</h2>
     </div>
     <div class="why">
       <div><h3>Chỉ số mỗi người khác nhau</h3><p>Cùng mong vòng bụng gọn lại, nhưng người đang dùng thuốc đường huyết sẽ cần cách ăn khác với người hay mất ngủ. Vì vậy, bác sĩ luôn xem kết quả xét nghiệm của anh chị trước khi lên kế hoạch.</p><p class="vs"><b>Tự làm:</b> làm theo thực đơn trên mạng, vốn viết chung cho tất cả mọi người.</p></div>
       <div><h3>Lịch sống mỗi người khác nhau</h3><p>Có người làm ca, có người hay đi công tác, tiếp khách, có người nấu cơm cho cả nhà. Vì vậy, khung giờ ăn và đĩa mẫu được xây dựng theo đúng nhịp sống thật của anh chị.</p><p class="vs"><b>Tự làm:</b> kế hoạch nhìn thì đẹp, nhưng thường bỏ dở chỉ sau một, hai tuần.</p></div>
-      <div><h3>Vướng chỗ nào, bác sĩ gỡ chỗ đó</h3><p>Chững cân, khó giữ nếp ăn lâu dài, hay lo hết chương trình lại quay về như cũ. Anh chị vướng ở đâu, bác sĩ cùng anh chị gỡ ở đó, theo đúng tình trạng của anh chị trong suốt hành trình.</p><p class="vs"><b>Tự làm:</b> chững cân vài tuần là nản, bỏ giữa chừng, rồi quay về như cũ.</p></div>
+      <div><h3>Vướng chỗ nào, bác sĩ gỡ chỗ đó</h3><p>Chững cân, khó giữ nếp ăn lâu dài, hay lo hết chương trình lại quay về như cũ. Anh chị vướng ở đâu, bác sĩ cùng anh chị gỡ ở đó, theo đúng tình trạng của anh chị trong suốt hành trình.</p><p class="vs"><b>Tự làm:</b> chững cân vài tuần là nản, bỏ dở giữa chừng rồi tăng cân trở lại.</p></div>
     </div>
   </div>
 </section>
@@ -337,11 +343,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <p class="lead">Không có thực đơn soạn sẵn cho tất cả. Bác sĩ sẽ cùng anh chị đi qua 4 bước để đưa ra kế hoạch cá nhân hóa, đồng hành cùng anh chị trong suốt 12&nbsp;tuần.</p>
     </div>
     <ol class="flow">
-      <li><span class="n">1</span><span class="when">Tuần 1</span><h3>Đánh giá đầu vào</h3><p>Ghi nhận các chỉ số nhân trắc của cơ thể. Xem xét nghiệm máu, thuốc đang dùng. Rà lại cách ăn uống, thói quen chọn thực phẩm và nếp sinh hoạt để tìm đúng nguyên nhân, chỉnh từ gốc.</p></li>
+      <li><span class="n">1</span><span class="when">Tuần 1</span><h3>Đánh giá đầu vào</h3><p>Bác sĩ ghi nhận các chỉ số nhân trắc của cơ thể (cân nặng, vòng eo, tỉ lệ mỡ và cơ nếu có máy đo), xem kết quả xét nghiệm máu và các thuốc anh chị đang dùng. Sau đó, bác sĩ rà lại cách ăn uống, thói quen chọn thực phẩm và nếp sinh hoạt để tìm đúng nguyên nhân, chỉnh từ gốc.</p></li>
       <li><span class="n">2</span><span class="when">Tuần 1</span><h3>Bác sĩ lập kế hoạch riêng cho anh chị</h3><p>Ở buổi 1-1 đầu tiên, bác sĩ giải thích từng chỉ số cho anh chị hiểu, cùng thống nhất mục tiêu 12 tuần, rồi trao cho anh chị kế hoạch riêng.</p></li>
       <li><span class="n">3</span><span class="when">Hằng ngày</span><h3>Thực hành và theo dõi sát</h3><p>Anh chị làm theo kế hoạch, gửi ảnh bữa ăn, giờ ngủ và các chỉ số cơ thể trong ngày vào nhóm. Bác sĩ phản hồi trong 24 giờ, theo dõi sát tình trạng sức khỏe của riêng anh&nbsp;chị.</p></li>
-      <li><span class="n">4</span><span class="when">6 buổi trong 12 tuần</span><h3>Gặp 1-1, chốt bước tiếp theo</h3><p>Bác sĩ cùng anh chị nhìn lại các số đo, xem mình đã đi được đến đâu, chặng tới nên giữ nguyên hay cần điều chỉnh gì. Giữa các buổi, có gì cần anh chị cứ gọi hoặc nhắn bác sĩ.</p></li>
+      <li><span class="n">4</span><span class="when">6 buổi trong 12 tuần</span><h3>Gặp 1-1, chốt bước tiếp theo</h3><p>Bác sĩ cùng anh chị nhìn lại các số đo, xem mình đã đi được đến đâu, chặng tới nên giữ nguyên hay cần điều chỉnh gì. Giữa các buổi, có gì phát sinh như đi tiệc, đổi lịch công tác hay chỉ số bất thường, anh chị cứ nhắn vào nhóm Zalo riêng, bác sĩ phản hồi trong vòng 24 giờ.</p></li>
     </ol>
+    <p class="myplan-lead">Bản kế hoạch 12 tuần của riêng anh chị sẽ gồm 6 phần:</p>
     <ul class="myplan" aria-label="Kế hoạch riêng gồm">
       <li>Khung giờ ăn theo lịch làm việc</li>
       <li>Đĩa mẫu cho mâm cơm nhà</li>
@@ -362,10 +369,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <p class="lead">Lộ trình đi từng bước nhỏ: mỗi lần anh chị chỉ thêm từ 1 đến 3 thói quen mới, và chỉ thêm khi các thói quen trước đã duy trì được ít nhất 8 trên 10 ngày. Nếu chưa giữ được, bác sĩ sẽ điều chỉnh cho vừa sức hơn thay vì dồn thêm việc mới, để anh chị không bị quá&nbsp;tải.</p>
     </div>
     <div class="phases">
-      <div class="phase"><span class="wk">Tuần 1 đến 4</span><div class="bar"><i style="width:33%"></i></div><h3>Ổn định nhịp ăn, nhịp ngủ</h3><ul><li>Thức dậy cùng một giờ mỗi ngày, kể cả cuối tuần</li><li>Xếp đĩa bằng bàn tay, bữa sáng đủ đạm và chất xơ</li><li>Bỏ đồ uống có đường, tạm ngưng rượu bia nếu có uống</li><li>Tăng dần số bước đi bộ mỗi ngày</li><li>Ăn xong bữa cuối trước giờ ngủ ít nhất 3 tiếng</li></ul><p class="end"><b>Cuối chặng:</b> ăn, ngủ đã vào nếp. Bác sĩ đo lại vòng eo, thành phần cơ thể và cùng anh chị so với lúc mới bắt đầu.</p></div>
-      <div class="phase"><span class="wk">Tuần 5 đến 8</span><div class="bar"><i style="width:66%"></i></div><h3>Kích hoạt cơ, ngủ sâu hơn</h3><ul><li>Tập sức mạnh tại nhà 2 buổi mỗi tuần, bác sĩ xem video và sửa kỹ thuật</li><li>Vận động vừa sức đủ 150 phút mỗi tuần: đi bộ nhanh, đạp xe, bơi</li><li>Ngủ đủ 7 đến 9 tiếng, thư giãn 5 đến 10 phút mỗi ngày</li><li>Đi bộ 10 phút sau bữa chính, ăn rau và đạm trước, tinh bột sau</li></ul><p class="end"><b>Cuối chặng:</b> mỡ giảm mà cơ vẫn giữ được, anh chị thấy người khỏe và có sức hơn.</p></div>
-      <div class="phase"><span class="wk">Tuần 9 đến 12</span><div class="bar"><i style="width:100%"></i></div><h3>Tự chủ và giữ nếp</h3><ul><li>Tăng dần mức tập lên 3 buổi sức mạnh mỗi tuần</li><li>Lên sẵn cách ăn khi đi tiệc, ăn ngoài; chọn tinh bột ít tinh chế</li><li>Anh chị tự lên thực đơn 1 tuần, bác sĩ nhận xét</li><li>Viết 3 đến 5 "luật cá nhân" để giữ nếp sau chương trình</li></ul><p class="end"><b>Cuối chặng:</b> đo lại toàn bộ chỉ số, làm lại xét nghiệm để thấy rõ trước và sau. Lúc này, anh chị đã tự giữ được nếp sống mới mà không cần ai nhắc.</p></div>
+      <div class="phase"><span class="wk">Tuần 1 đến 4</span><div class="bar"><i style="width:33%"></i></div><h3>Ổn định nhịp ăn, nhịp ngủ</h3><ul><li>Thức dậy cùng một giờ mỗi ngày, kể cả cuối tuần</li><li>Xếp đĩa bằng bàn tay, bữa sáng đủ đạm và chất xơ</li><li>Bỏ đồ uống có đường, hạn chế rượu bia trong giai đoạn đầu</li><li>Tăng dần số bước đi bộ mỗi ngày</li><li>Ăn xong bữa cuối trước giờ ngủ ít nhất 3 tiếng</li></ul><p class="end"><b>Cuối chặng:</b> ăn, ngủ đã vào nếp. Bác sĩ đo lại vòng eo, thành phần cơ thể và cùng anh chị so với lúc mới bắt đầu.</p></div>
+      <div class="phase"><span class="wk">Tuần 5 đến 8</span><div class="bar"><i style="width:66%"></i></div><h3>Kích hoạt cơ, ngủ sâu hơn</h3><ul><li>Tập tăng cơ nhẹ nhàng tại nhà 2 buổi mỗi tuần, bác sĩ xem video và sửa động tác</li><li>Vận động vừa sức đủ 150 phút mỗi tuần: đi bộ nhanh, đạp xe, bơi</li><li>Ngủ đủ 7 đến 9 tiếng, thư giãn 5 đến 10 phút mỗi ngày</li><li>Đi bộ 10 phút sau bữa chính, ăn rau và đạm trước, tinh bột sau</li></ul><p class="end"><b>Cuối chặng:</b> mỡ giảm mà cơ vẫn giữ được, anh chị thấy người khỏe và có sức hơn.</p></div>
+      <div class="phase"><span class="wk">Tuần 9 đến 12</span><div class="bar"><i style="width:100%"></i></div><h3>Tự chủ và giữ nếp</h3><ul><li>Tăng dần lên 3 buổi tập tăng cơ mỗi tuần</li><li>Lên sẵn cách ăn khi đi tiệc, ăn ngoài; chọn tinh bột ít qua chế biến như gạo lứt, khoai, yến mạch</li><li>Anh chị tự lên thực đơn 1 tuần, bác sĩ nhận xét</li><li>Viết 3 đến 5 "luật cá nhân" để giữ nếp sau chương trình</li></ul><p class="end"><b>Cuối chặng:</b> đo lại toàn bộ chỉ số, làm lại xét nghiệm để thấy rõ trước và sau. Lúc này, anh chị đã tự giữ được nếp sống mới mà không cần ai nhắc.</p></div>
     </div>
+    <p class="tiny" style="margin-top:14px">Đây là lộ trình mẫu. Thứ tự và mức độ của từng thay đổi sẽ được bác sĩ điều chỉnh riêng cho anh chị sau buổi đánh giá đầu vào.</p>
   </div>
 </section>
 
@@ -381,7 +389,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <div><span class="ic">2</span><p><b>Kế hoạch 12 tuần của riêng anh chị</b><span>Gồm khung giờ ăn, đĩa mẫu, cách ăn ngoài, giấc ngủ, vận động và những lưu ý khi đang dùng thuốc.</span></p></div>
       <div><span class="ic">3</span><p><b>6 buổi gặp bác sĩ 1-1</b><span>Qua Zoom, mỗi buổi 30 đến 60 phút, vào các mốc quan trọng của lộ trình: tuần đầu, tuần 2, 4, 6, 9&nbsp;và&nbsp;12.</span></p></div>
       <div><span class="ic">4</span><p><b>Nhóm Zalo riêng với bác sĩ</b><span>Anh chị gửi ảnh bữa ăn, có gì vướng cứ hỏi, bác sĩ trả lời trong vòng 24 giờ.</span></p></div>
-      <div><span class="ic">5</span><p><b>Đo hằng tuần, tổng kết 4 lần</b><span>Cân và vòng eo mỗi tuần. Thành phần cơ thể (nếu có máy) và ảnh ở tuần đầu, 4, 8, 12. Xét nghiệm ở tuần đầu và tuần 12.</span></p></div>
+      <div><span class="ic">5</span><p><b>Đo hằng tuần, 4 mốc đánh giá toàn diện</b><span>Theo dõi cân nặng và vòng eo mỗi tuần. Đánh giá thành phần cơ thể (nếu có máy) và chụp ảnh đối chiếu ở tuần đầu, tuần 4, 8 và 12. Làm xét nghiệm ở tuần đầu và tuần 12.</span></p></div>
       <div><span class="ic">6</span><p><b>Kế hoạch giữ nếp sau tuần 12</b><span>Để vóc dáng và nếp sống mới ở lại với anh chị thật lâu.</span></p></div>
     </div>
   </div>
@@ -429,7 +437,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
         <q>Điều chú vui nhất là gối đã khỏe, sáng dậy có sức.</q>
       </article>
     </div>
-    <p class="tiny" style="margin-top:14px">Kết quả khác nhau tuỳ cơ địa và mức độ áp dụng. Chia sẻ với sự đồng ý của học viên.</p>
+    <p class="tiny" style="margin-top:14px">Kết quả khác nhau tùy cơ địa và mức độ áp dụng. Chia sẻ với sự đồng ý của học viên.</p>
   </div>
 </section>
 
@@ -438,8 +446,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
   <div class="wrap">
     <div class="head"><span class="eyebrow">Có hợp với anh chị không</span><h2>Chương trình dành cho anh chị nếu</h2></div>
     <div class="fit">
-      <ul class="yes"><li>Muốn vóc dáng gọn lại mà vẫn ăn cơm nhà, vẫn đi tiệc.</li><li>Đang dùng thuốc mỡ máu, đường huyết, huyết áp và muốn hiểu chỉ số của mình.</li><li>Đã thử nhiều cách, nhưng lần nào cũng bỏ dở giữa chừng vì không có ai theo sát.</li><li>Bận rộn, hay phải ăn ngoài, và cần một kế hoạch hợp với lịch của mình.</li></ul>
-      <ul class="no"><li>Đang tìm kết quả thần tốc trong vài ngày.</li><li>Muốn thuốc hay thực phẩm chức năng uống vào là xong.</li><li>Chưa sẵn sàng dành 12 tuần để sửa nếp ăn, nếp ngủ.</li></ul>
+      <ul class="yes"><li class="fit-h">Phù hợp với anh chị nếu</li><li>Muốn vóc dáng gọn lại mà vẫn ăn cơm nhà, vẫn đi tiệc.</li><li>Đang dùng thuốc mỡ máu, đường huyết, huyết áp và muốn hiểu chỉ số của mình.</li><li>Đã thử nhiều cách, nhưng lần nào cũng bỏ dở giữa chừng vì không có ai theo sát.</li><li>Bận rộn, hay phải ăn ngoài, và cần một kế hoạch hợp với lịch của mình.</li></ul>
+      <ul class="no"><li class="fit-h">Chưa phù hợp nếu anh chị</li><li>Đang tìm kết quả thần tốc trong vài ngày.</li><li>Muốn thuốc hay thực phẩm chức năng uống vào là xong.</li><li>Chưa sẵn sàng dành 12 tuần để sửa nếp ăn, nếp ngủ.</li></ul>
     </div>
   </div>
 </section>
@@ -453,7 +461,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <p class="lead">Trước khi bắt đầu, bác sĩ muốn hiểu rõ anh chị đang ở đâu. Cuộc gọi hoàn toàn miễn phí, anh chị không cần quyết định gì ngay trong cuộc gọi.</p>
       <ol class="callsteps">
         <li><span class="min">5<small>phút đầu</small></span><div><h3>Anh chị kể</h3><p>Tình trạng hiện tại, mục tiêu, những cách đã thử, lịch ăn và lịch làm việc.</p></div></li>
-        <li><span class="min">10<small>phút</small></span><div><h3>Bác sĩ gợi ý hướng đi</h3><p>Bác sĩ xem các chỉ số (nếu có), gợi ý anh chị nên bắt đầu từ giờ ăn, giấc ngủ hay đĩa ăn, và 12 tuần của anh chị sẽ đi như thế nào.</p></div></li>
+        <li><span class="min">10<small>phút tiếp theo</small></span><div><h3>Bác sĩ gợi ý hướng đi</h3><p>Bác sĩ xem các chỉ số (nếu có), gợi ý anh chị nên bắt đầu từ giờ ăn, giấc ngủ hay đĩa ăn, và 12 tuần của anh chị sẽ đi như thế nào.</p></div></li>
         <li><span class="min">5<small>phút cuối</small></span><div><h3>Cùng xem có phù hợp không</h3><p>Nếu phù hợp, bác sĩ hướng dẫn cách bắt đầu và báo chi phí. Nếu chưa, bác sĩ vẫn chỉ cho anh chị cách tự làm tiếp.</p></div></li>
       </ol>
     </div>
@@ -486,11 +494,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
             <option>Chỉ số xét nghiệm về vùng an toàn</option>
             <option>Giữ vóc dáng lâu dài, không quay lại như cũ</option>
           </select></div>
-        <div class="field"><span class="legend">Anh chị đang dùng thuốc nào không?</span>
+        <div class="field"><span class="legend">Anh chị có đang dùng thuốc điều trị nào dưới đây không?</span>
           <div class="chips" id="meds">
             <label class="chip"><input type="checkbox" id="m-lipid" value="Mỡ máu"><span>Mỡ máu</span></label>
             <label class="chip"><input type="checkbox" id="m-sugar" value="Đường huyết"><span>Đường huyết</span></label>
             <label class="chip"><input type="checkbox" id="m-bp" value="Huyết áp"><span>Huyết áp</span></label>
+            <label class="chip"><input type="checkbox" id="m-other" value="Thuốc khác"><span>Khác</span></label>
             <label class="chip"><input type="checkbox" id="m-none" value="Không dùng thuốc"><span>Không</span></label>
           </div></div>
         <div class="field"><label for="f-lab">Anh chị có kết quả xét nghiệm trong 6 tháng gần đây không?</label>
@@ -513,9 +522,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <details><summary>Tôi có bị ép đăng ký trong cuộc gọi không?</summary><p>Không. Bác sĩ chỉ cho anh chị biết chương trình có hợp với mình không và chi phí bao nhiêu. Anh chị cứ thong thả suy nghĩ, không cần trả lời ngay.</p></details>
       <details><summary>Chương trình 12 tuần giá bao nhiêu?</summary><p>Bác sĩ sẽ báo chi phí trong cuộc gọi, sau khi hiểu rõ tình trạng của anh chị, vì mỗi người cần mức theo dõi khác nhau.</p></details>
       <details><summary>Tôi đang uống thuốc, có tham gia được không?</summary><p>Được. Chương trình không thay thế thuốc anh chị đang dùng. Hai bác sĩ sẽ cùng anh chị theo dõi các chỉ số, và hướng dẫn cách trao đổi với bác sĩ điều trị khi chỉ số thay đổi.</p></details>
-      <details><summary>Tôi ở xa, không đến phòng khám được?</summary><p>Không sao. Toàn bộ chương trình diễn ra online: gọi video, nhắn tin, gửi ảnh bữa ăn và kết quả xét nghiệm, anh chị ở đâu cũng tham gia được.</p></details>
+      <details><summary>Tôi ở xa, không đến phòng khám trực tiếp được thì có tham gia được không?</summary><p>Không sao. Toàn bộ chương trình diễn ra online: gọi video, nhắn tin, gửi ảnh bữa ăn và kết quả xét nghiệm, anh chị ở đâu cũng tham gia được.</p></details>
       <details><summary>Tôi chưa có kết quả xét nghiệm thì sao?</summary><p>Anh chị vẫn đặt lịch bình thường. Nếu cần, bác sĩ sẽ hướng dẫn anh chị nên làm những xét nghiệm nào.</p></details>
-      <details><summary>Tôi chưa học workshop Bản Đồ Khôi Phục Chuyển Hóa, có đặt được không?</summary><p>Được. Trong cuộc gọi, bác sĩ sẽ hỏi thêm vài câu để hiểu tình trạng hiện tại của anh chị.</p></details>
+      <details><summary>Tôi chưa học workshop Bản Đồ Khôi Phục Chuyển Hóa, có đặt lịch tư vấn được không?</summary><p>Được. Trong cuộc gọi, bác sĩ sẽ hỏi thêm vài câu để hiểu tình trạng hiện tại của anh chị.</p></details>
     </div>
   </div>
 </section>
